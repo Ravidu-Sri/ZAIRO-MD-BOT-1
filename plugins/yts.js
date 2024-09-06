@@ -43,7 +43,52 @@ async (conn, mek, m, { from, q, reply }) => {
                             `👤 *Channel*: _${video.author.name}_\n` +
                             `⏳ *Duration*: _${video.timestamp}_\n` +
                             `👁️ *Views*: _${formatViews(video.views)}_\n` +
-                            `🔗 *Link*: ${video.url}\n\n`;
+                            `🔗 *Link*: ${video.url}\n\n
+
+
+මෙම විඩියෝව ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Song ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න
+
+*1 🎧 Audio Type*
+
+*2 💾 Document Type*
+
+> 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
+
+const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
+
+        // Wait for reply with "1"
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+
+            // Check if the message is a reply to the thumbnail message and contains "yes"
+            if (msg.message && msg.message.extendedTextMessage && 
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
+                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
+                
+                // If reply is "1", start downloading
+                let down = await fg.yta(url);
+                let downloadUrl = down.dl_url;
+
+                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });
+            }
+        });
+
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+
+            // Check if the message is a reply to the thumbnail message and contains "yes"
+            if (msg.message && msg.message.extendedTextMessage && 
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
+                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
+                
+                // If reply is "2", start downloading
+              
+        // Download and send video
+        let down = await fg.ytv(url);
+        let downloadUrl = down.dl_url;
+        await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });    
+            }
+        });
 
             // Collect messages
             messageQueue.push({ image: { url: video.thumbnail }, caption: message });
