@@ -43,166 +43,50 @@ cmd({
 
 *✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
 
-
         // URL of the image you want to include
         const imageUrl = 'https://ibb.co/L86DZLX'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-        await conn.sendMessage(from, {
+        const sentMsg = await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status
         }, { quoted: mek || null });
-        
+
+        // Listening to user replies for menu options
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
 
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
+            if (msg.message && msg.message.extendedTextMessage &&
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
                 
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-             ⤵️⤵️*OWNERMENU⤵*⤵️⤵️
-             
-                         }
-        });
-        
-        
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
+                const selectedOption = msg.message.extendedTextMessage.text.toLowerCase();
 
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
-                
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-            ⤵️⤵️*GROUPMENU⤵*⤵️⤵️
-                
-        
-        > *_.add_*
-Ex.( .add 94776734030 )
-ගෲපයේ නැති සමාජිකයෙක් Add කරයි.
+                // Handling different menu selections
+                switch (selectedOption) {
+                    case '1':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*OWNERMENU⤵*⤵️⤵️`);
+                        break;
 
-> *_.promote_*
- Ex.( .promote @mention member )
-ගෲපයේ සමාජිකයෙක් Admin බල තල ලබාදෙයි.✅
+                    case '2':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*GROUPMENU⤵*⤵️⤵️\n\n> *_.add_* Ex.( .add 94776734030 )\n> *_.promote_* Ex.( .promote @mention member )\n> *_.demote_* Ex.( .demote @mention member )\n> *_.setabout_* Ex.( .setabout ZAIRO MD )\n> *_.setname_* Ex.( .setname ZAIRO MD )\n> *_.tagall_* Ex.( .tagall )\n> *_.grouplink_* Ex.( .grouplink )\n> *_.mute_* Ex.( .mute )\n> *_.unmute_* Ex.( .upmute )\n> *_.kick_* Ex.( .kick @9477xxxxxxx )\n> *_.kickall_* Ex.( .kickall )\n> *_.endgroup_* Ex.( .endgroup )\n> *_.delall_* Ex.( .delall )\n> *_.gjid_* Ex.( .gjid )\n> *_.left_* Ex.( .left )`);
+                        break;
 
-> *_.demote_*
- Ex.( .demote @mention member )
-ගෲපයේ සමාජිකයෙක් Admin බල තල ඉවත් කරයි.✅
+                    case '3':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*DOWNLOADMENU⤵*⤵️⤵️\n\n> *_.song_* Ex.( .song <Type Song Name> )\n> *_.video_* Ex.( .video <Type Video Name> )\n> *_.fb_* Ex.( .fb <Type fb video link> )\n> *_.tiktok_* Ex.( .tiktok <Type Tiktok Link> )\n> *_.mediafire_* Ex. ( .mediafire <Enter media fire link> )\n> *_.gdrive_* Ex. ( .gdrive <Enter Google Drive Link> )`);
+                        break;
 
-> *_.setabout_*
- Ex.( .setabout ZAIRO MD )
-ගෲපයේ ඇති Bio එක වෙනස් කරයි.✅.
+                    case '4':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*CONTACTMENU⤵*⤵️⤵️`);
+                        break;
 
-> *_.setname_*
- Ex.( .setname ZAIRO MD )
-ගෲපයේ ඇති නම වෙනස් කරයි.✅.
-
-> *_.tagall_*
-Ex.( .tagall )
-ගෲපයේ සියලුම සමාජිකකයන් එක වර ටැග් කරයි.✅
-
-> *_.grouplink_*
-Ex.( .grouplink )
-ඔබ සිටින ගෲපයේ ලින්ක් එක ලබා දෙයි.✅
-
-> *_.mute_*
-Ex.( .mute )
-ගෲපය වසා දමයි.✅ 
-
-> *_.unmute_*
-Ex.( .upmute )
-ගෲපය නැවත Open කරයි✅ 
-
-> *_.kick_*
-Ex.( .kick @9477xxxxxxx )
-ගෲපය Tag කරන සාමාජිකයා ඉවත් කරයි.✅ 
-
-> *_.kickall_*
-Ex.( .kickall )
-ගෲපයේ සියලුම සාමාජිකයන් එකවර ඉවත් කරයි.✅ 
-
-> *_.endgroup_*
-Ex.( .endgroup )
-ගෲපය අවසාන කර දමයි.✅ 
-
-> *_.delall_*
-Ex.( .delall )
-ගෲපයේ සියලුම මැසේජ් මකා දමයි.✅ 
-
-> *_.gjid_*
-Ex.( .gjid )
-ගෲපයේ ලිපිනය ලබා දෙයි.✅ 
-
-> *_.left_*
-Ex.( .left )
-ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ 
-
+                    default:
+                        reply("Invalid option. Please select a valid menu option (1-4).");
+                        break;
+                }
             }
         });
-        
-        
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '3') {
-     ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-⤵️⤵️*DOWNLOADMENU⤵*⤵️⤵️
-
-
-> *_.song_*
-Ex.( .song <Type Song Name> )
-ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
-
-> *_.video_*
-Ex.( .video <Type Video Name> )
-ඔබ ටයිප් කරන විඩියෝව බාගත⬇️ කරයි.✅
-
-> *_.fb_*
-Ex.( .fb <Type fb video link> )
-ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
-
-> *_.tiktok_*
-Ex.( .tiktok <Type Tiktok Link> )
-ඔබ ටයිප් කරන ටික්ටොක් විඩියෝව බාගත⬇️ කරයි.✅
-
-> *_.mediafire_*
-Ex. ( .mediafire <Enter media fire link> )
-ඔබගේ Mediafire File එක බාගත⬇️ කරයි✅
-
-> *_.gdrive_*
-Ex. ( .gdrive <Enter Google Drive Link> )
-Google drive File එක බාගත⬇️ කරයි✅
-
-            }
-        });
-        
-        
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '4') {
-
-     ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-⤵️⤵️*CONTACTMENU⤵*⤵️⤵️
-
-            }
-        });
-        
-        
-        
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
     }
-})
-
-
+});
