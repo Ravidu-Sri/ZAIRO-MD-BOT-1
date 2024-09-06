@@ -1,6 +1,7 @@
 const { cmd } = require('../command');
 const yts = require('yt-search');
 const { fetchJson } = require('../lib/functions');
+const fg = require('some-download-module'); // Import the module for downloading videos and audio
 
 // Helper function to format views
 const formatViews = (views) => {
@@ -43,64 +44,49 @@ async (conn, mek, m, { from, q, reply }) => {
                             `👤 *Channel*: _${video.author.name}_\n` +
                             `⏳ *Duration*: _${video.timestamp}_\n` +
                             `👁️ *Views*: _${formatViews(video.views)}_\n` +
-                            `🔗 *Link*: ${video.url}\n\n
-
-
-මෙම විඩියෝව ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Song ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න
-
-*1 🎧 Audio Type*
-
-*2 💾 Document Type*
-
-> 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
-
-const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
-
-        // Wait for reply with "1"
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
-                
-                // If reply is "1", start downloading
-                let down = await fg.yta(url);
-                let downloadUrl = down.dl_url;
-
-                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });
-            }
-        });
-
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
-                
-                // If reply is "2", start downloading
-              
-        // Download and send video
-        let down = await fg.ytv(url);
-        let downloadUrl = down.dl_url;
-        await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });    
-            }
-        });
+                            `🔗 *Link*: ${video.url}\n\n\n` +
+                            `මෙම විඩියෝව ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Song ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න\n` +
+                            `*1 🎧 Audio Type*\n` +
+                            `*2 💾 Document Type*\n\n` +
+                            `> 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
 
             // Collect messages
             messageQueue.push({ image: { url: video.thumbnail }, caption: message });
         }
 
         // Send images in sequence
+        let sentMsgs = [];
         for (let msg of messageQueue) {
-            await conn.sendMessage(from, msg, { quoted: mek });
+            const sentMsg = await conn.sendMessage(from, msg, { quoted: mek });
+            sentMsgs.push(sentMsg);
         }
 
+        // Event listener to handle replies for download options
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const replyText = msg.message.extendedTextMessage.text.toLowerCase();
+            const originalMsg = msg.message.extendedTextMessage.contextInfo.stanzaId;
+
+            // Handle replies for audio and video downloads
+            if (sentMsgs.some(sentMsg => sentMsg.key.id === originalMsg)) {
+                if (replyText === '1') {
+                    // Download and send audio
+                    let down = await fg.yta(msgUpdate.messages[0].text);
+                    let downloadUrl = down.dl_url;
+                    await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: 'audio/mp4' }, { quoted: mek });
+                } else if (replyText === '2') {
+                    // Download and send video
+                    let down = await fg.ytv(msgUpdate.messages[0].text);
+                    let downloadUrl = down.dl_url;
+                    await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: 'video/mp4' }, { quoted: mek });
+                }
+            }
+        });
+
         // Optionally, send the voice note after sending the images
-        // Audio url ekak danna
+        await conn.sendMessage(from, { audio: { url: voiceUrl }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek });
 
     } catch (e) {
         console.log(e);
