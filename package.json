@@ -28,7 +28,7 @@
     "ytdl-core":"4.11.5",
     "speedtest-net":"2.2.0",
     "wikipedia":"2.1.2",
-    "whatsapp-web.js": "^1.0.0"
+    "whatsapp-web.js": "^1.25.0"
 }
   }
 }
