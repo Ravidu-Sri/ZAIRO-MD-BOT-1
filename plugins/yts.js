@@ -1,12 +1,7 @@
 const { cmd } = require('../command');
 const yts = require('yt-search');
+const ytdl = require('ytdl-core');
 const { fetchJson } = require('../lib/functions');
-// const fg = require('some-download-module'); // Import the module for downloading videos and audio
-
-// const { cmd } = require('../command');
-const fg = require('api-dylux');
-// const yts = require('yt-search');
-
 
 // Helper function to format views
 const formatViews = (views) => {
@@ -76,16 +71,16 @@ async (conn, mek, m, { from, q, reply }) => {
 
             // Handle replies for audio and video downloads
             if (sentMsgs.some(sentMsg => sentMsg.key.id === originalMsg)) {
+                const videoUrl = msgUpdate.messages[0].text;
+
                 if (replyText === '1') {
                     // Download and send audio
-                    let down = await fg.yta(msgUpdate.messages[0].text);
-                    let downloadUrl = down.dl_url;
-                    await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: 'audio/mp4' }, { quoted: mek });
+                    const audioStream = ytdl(videoUrl, { filter: 'audioonly' });
+                    await conn.sendMessage(from, { audio: { url: audioStream }, mimetype: 'audio/mp4' }, { quoted: mek });
                 } else if (replyText === '2') {
                     // Download and send video
-                    let down = await fg.ytv(msgUpdate.messages[0].text);
-                    let downloadUrl = down.dl_url;
-                    await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: 'video/mp4' }, { quoted: mek });
+                    const videoStream = ytdl(videoUrl);
+                    await conn.sendMessage(from, { video: { url: videoStream }, mimetype: 'video/mp4' }, { quoted: mek });
                 }
             }
         });
