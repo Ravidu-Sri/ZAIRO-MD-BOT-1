@@ -55,14 +55,30 @@ _.ping_
 _.system_
 
 *GROUPMENU⤵*
-_.closetime_
-_.opentime_
 _.kick_
-_.add_
-_.promote_
-_.demote_
-_.setdesc_
-_.setppgc_
+
+
+> _.add_
+Ex.( .add 94776734030 )
+ගෲපයේ නැති සමාජිකයෙක් Add කරයි.
+
+> _.promote_
+ Ex.( .promote @mention member )
+ගෲපයේ සමාජිකයෙක් Admin බල තල ලබාදෙයි.✅
+
+> _.demote_
+ Ex.( .demote @mention member )
+ගෲපයේ සමාජිකයෙක් Admin බල තල ඉවත් කරයි.✅
+
+_.setabout
+ Ex.( .setabout ZAIRO MD )
+ගෲපයේ ඇති Bio එක වෙනස් කරයි.✅.
+
+> _.setname_
+ Ex.( .setname ZAIRO MD )
+ගෲපයේ ඇති නම වෙනස් කරයි.✅.
+
+
 _.tagall_
 _.hidetag_
 _.totag_
