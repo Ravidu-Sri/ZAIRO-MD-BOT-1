@@ -28,21 +28,28 @@ cmd({
         const downloadSpeed = (speed.download.bandwidth / 125000).toFixed(2); // Convert from bits/sec to MB/sec
         const uploadSpeed = (speed.upload.bandwidth / 125000).toFixed(2); // Convert from bits/sec to MB/sec
 
-        let status = `*🕒 Uptime:* ${runtime(process.uptime())}
-*📶 Ping:* ${ping} ms
-*💾 RAM Usage:* 
-- *Used*: ${usedRAM} MB
+        let status = `
+> *🕒 Uptime:* ${runtime(process.uptime())}
+
+> *📶 Ping:* ${ping} ms
+
+> *💾 RAM Usage:* 
+> *Used*: ${usedRAM} MB
 - *Free*: ${freeRAM} MB
 - *Total*: ${totalRAM} MB
-*🌐 Network Speed:*
-- *Download*: ${downloadSpeed} MB/sec
-- *Upload*: ${uploadSpeed} MB/sec
-*🏠 HostName:* Ubuntu VPS
-*👤 Owner:* ᴍʀ ᴅɪʟᴀ
+
+> *🌐 Network Speed:*
+> *Download*: ${downloadSpeed} MB/sec
+
+>  *Upload*: ${uploadSpeed} MB/sec
+
+> *🏠 HostName:* Ubuntu VPS
+
+> *👤 Owner:* VIMAMODS ZAIRO MD BOT
 `;
 
         // URL of the image you want to include
-        const imageUrl = 'https://telegra.ph/file/50e9d2e8b43e5efe0b05f.jpg'; // Replace with your actual image URL
+        const imageUrl = 'null'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
         await conn.sendMessage(from, {
