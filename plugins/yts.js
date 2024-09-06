@@ -16,14 +16,14 @@ const formatViews = (views) => {
 };
 
 // URL for the voice note
-const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14xPMIOvebVGwoXh1rohu';
+
 
 //========= YTS Search Command for Horizontal Scroll Thumbnails =========//
 
 cmd({
     pattern: "yts",
     alias: ["yta", "ytv", "yt"],
-    desc: "Search and display YouTube video details with thumbnails in a horizontal scroll style",
+    desc: "Search and display YouTube video details with thumbnails for horizontal scrolling",
     category: "search",
     filename: __filename
 },
@@ -32,11 +32,11 @@ async (conn, mek, m, { from, q, reply }) => {
         if (!q) return reply("Please type a Name or Url... 🤖");
 
         const search = await yts(q);
-        const videos = search.videos.slice(0, 10); // Get only the first 10 videos for thumbnail scroll
+        const videos = search.videos.slice(0, 10); // Get only the first 10 videos
 
         if (videos.length === 0) return reply("No videos found for your query.");
 
-        // Loop through each video and send individual thumbnail and title
+        // Send video details in a horizontal scroll style
         for (let video of videos) {
             const message = `🎶 *Title*: _${video.title}_\n` +
                             `👤 *Channel*: _${video.author.name}_\n` +
@@ -44,7 +44,7 @@ async (conn, mek, m, { from, q, reply }) => {
                             `👁️ *Views*: _${formatViews(video.views)}_\n` +
                             `🔗 *Link*: ${video.url}\n\n`;
 
-            // Send thumbnail and title as separate messages
+            // Send thumbnail with details
             await conn.sendMessage(from, { image: { url: video.thumbnail }, caption: message }, { quoted: mek });
         }
 
