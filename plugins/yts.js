@@ -1,7 +1,12 @@
 const { cmd } = require('../command');
 const yts = require('yt-search');
 const { fetchJson } = require('../lib/functions');
-const fg = require('some-download-module'); // Import the module for downloading videos and audio
+// const fg = require('some-download-module'); // Import the module for downloading videos and audio
+
+// const { cmd } = require('../command');
+const fg = require('api-dylux');
+// const yts = require('yt-search');
+
 
 // Helper function to format views
 const formatViews = (views) => {
