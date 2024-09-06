@@ -28,7 +28,7 @@
     "ytdl-core":"4.11.5",
     "speedtest-net":"2.2.0",
     "wikipedia":"2.1.2",
-    "whatsapp-web.js": "^1.0.0" // සංස්කරණ සංඛ්‍යාව වෙනස් විය හැක
+    "whatsapp-web.js": "^1.0.0"
 }
   }
 }
