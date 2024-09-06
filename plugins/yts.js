@@ -15,18 +15,15 @@ const formatViews = (views) => {
     }
 };
 
-// URL for the thumbnail image
-const thumbnailUrl = 'https://telegra.ph/file/bdc5a5b7af8bea3139d42.jpg';
-
 // URL for the voice note
 const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14xPMIOvebVGwoXh1rohu';
 
-//========= YTS Search Command for 100 Videos =========//
+//========= YTS Search Command for Horizontal Scroll Thumbnails =========//
 
 cmd({
     pattern: "yts",
-    alias: ["yta","ytv","yt"],
-    desc: "Search and display up to 100 YouTube video details",
+    alias: ["yta", "ytv", "yt"],
+    desc: "Search and display YouTube video details with thumbnails in a horizontal scroll style",
     category: "search",
     filename: __filename
 },
@@ -35,32 +32,23 @@ async (conn, mek, m, { from, q, reply }) => {
         if (!q) return reply("Please type a Name or Url... 🤖");
 
         const search = await yts(q);
-        const videos = search.videos.slice(0, 100); // Get only the first 100 videos
+        const videos = search.videos.slice(0, 10); // Get only the first 10 videos for thumbnail scroll
 
         if (videos.length === 0) return reply("No videos found for your query.");
 
-        let message = `*𝗗𝗶𝗹𝗮𝗠𝗗 𝗬𝗼𝘂𝘁𝘂𝗯𝗲 𝗦𝗲𝗮𝗿𝗰𝗵 𝗥𝗲𝘀𝘂𝗹𝘁 🎥*\n\n`;
+        // Loop through each video and send individual thumbnail and title
+        for (let video of videos) {
+            const message = `🎶 *Title*: _${video.title}_\n` +
+                            `👤 *Channel*: _${video.author.name}_\n` +
+                            `⏳ *Duration*: _${video.timestamp}_\n` +
+                            `👁️ *Views*: _${formatViews(video.views)}_\n` +
+                            `🔗 *Link*: ${video.url}\n\n`;
 
-        videos.forEach((data, index) => {
-            message += `*No - ${index + 1} ⤵*\n`;
-            message += `🎶 *𝗧𝗶𝘁𝗹𝗲*: _${data.title}_\n`;
-            message += `👤 *𝗖𝗵𝗮𝗻𝗻𝗲𝗹*: _${data.author.name}_\n`;
-            message += `📝 *𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻*: _${data.description}_\n`;
-            message += `⏳ *𝗧𝗶𝗺𝗲*: _${data.timestamp}_\n`;
-            message += `⏱️ *𝗔𝗴𝗼*: _${data.ago}_\n`;
-            message += `👁️‍🗨️ *𝗩𝗶𝗲𝘄𝘀*: _${formatViews(data.views)}_\n`;
-            message += `🔗 *𝗟𝗶𝗻𝗸*: ${data.url}\n\n`;
-        });
+            // Send thumbnail and title as separate messages
+            await conn.sendMessage(from, { image: { url: video.thumbnail }, caption: message }, { quoted: mek });
+        }
 
-        message += `*𝗛𝗼𝘄 𝗧𝗼 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗩𝗶𝗱𝗲𝗼 𝗢𝗿 𝗔𝘂𝗱𝗶𝗼 ✅*\n\n`;
-        message += `Example -  .video (enter video title)\n`;
-        message += `Example - .song (enter video title)\n\n`;
-        message += "dilalk.vercel.app\nᵐᵃᵈᵆ ʙʏ ᴍʳᴅɪʟᴀ ᵒᶠᶜ";
-
-        // Send the video details with the image
-        await conn.sendMessage(from, { image: { url: thumbnailUrl }, caption: message }, { quoted: mek });
-
-        // Send the voice note after sending the message
+        // Send the voice note after sending the thumbnails
         await conn.sendMessage(from, { audio: { url: voiceUrl }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek });
 
     } catch (e) {
