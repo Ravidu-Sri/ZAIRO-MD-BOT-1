@@ -9,6 +9,7 @@ cmd({
     alias: ["status", "botinfo", "runtime", "uptime","ping"],
     desc: "Check uptime, RAM usage, network speed, and more",
     category: "main",
+    react:"✅",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
@@ -28,34 +29,27 @@ cmd({
         const downloadSpeed = (speed.download.bandwidth / 125000).toFixed(2); // Convert from bits/sec to MB/sec
         const uploadSpeed = (speed.upload.bandwidth / 125000).toFixed(2); // Convert from bits/sec to MB/sec
 
-        let status = `
-> *🕒 Uptime:* ${runtime(process.uptime())}
-
-> *📶 Ping:* ${ping} ms
-
-> *💾 RAM Usage:* 
-> *Used*: ${usedRAM} MB
+        let status = `*🕒 Uptime:* ${runtime(process.uptime())}
+*📶 Ping:* ${ping} ms
+*💾 RAM Usage:* 
+- *Used*: ${usedRAM} MB
 - *Free*: ${freeRAM} MB
 - *Total*: ${totalRAM} MB
-
-> *🌐 Network Speed:*
-> *Download*: ${downloadSpeed} MB/sec
-
->  *Upload*: ${uploadSpeed} MB/sec
-
-> *🏠 HostName:* Ubuntu VPS
-
-> *👤 Owner:* VIMAMODS ZAIRO MD BOT
+*🌐 Network Speed:*
+- *Download*: ${downloadSpeed} MB/sec
+- *Upload*: ${uploadSpeed} MB/sec
+*🏠 HostName:* Ubuntu VPS
+*👤 Owner:* VIMAMODS ( ZAIRO MD BOT )
 `;
 
         // URL of the image you want to include
-        const imageUrl = 'null'; // Replace with your actual image URL
+        const imageUrl = 'https://telegra.ph/file/5c008a272ac9c899cd97a.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status
-        }, { quoted: mek || null });
+      //  await conn.sendMessage(from, {
+          //  image: { url: imageUrl },
+  //          caption: status
+      //  }, { quoted: mek || null });
 
     } catch (e) {
         console.log(e);
