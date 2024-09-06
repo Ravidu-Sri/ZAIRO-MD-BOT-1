@@ -36,63 +36,63 @@ cmd({
 ⤵️⤵️*GROUPMENU⤵*⤵️⤵️
 
 
-> _.add_
+> *_.add_*
 Ex.( .add 94776734030 )
 ගෲපයේ නැති සමාජිකයෙක් Add කරයි.
 
-> _.promote_
+> *_.promote_*
  Ex.( .promote @mention member )
 ගෲපයේ සමාජිකයෙක් Admin බල තල ලබාදෙයි.✅
 
-> _.demote_
+> *_.demote_*
  Ex.( .demote @mention member )
 ගෲපයේ සමාජිකයෙක් Admin බල තල ඉවත් කරයි.✅
 
-> _.setabout_
+> *_.setabout_*
  Ex.( .setabout ZAIRO MD )
 ගෲපයේ ඇති Bio එක වෙනස් කරයි.✅.
 
-> _.setname_
+> *_.setname_*
  Ex.( .setname ZAIRO MD )
 ගෲපයේ ඇති නම වෙනස් කරයි.✅.
 
-> _.tagall_
+> *_.tagall_*
 Ex.( .tagall )
 ගෲපයේ සියලුම සමාජිකකයන් එක වර ටැග් කරයි.✅
 
-> _.grouplink_
+> *_.grouplink_*
 Ex.( .grouplink )
 ඔබ සිටින ගෲපයේ ලින්ක් එක ලබා දෙයි.✅
 
-> _.mute_
+> *_.mute_*
 Ex.( .mute )
 ගෲපය වසා දමයි.✅ 
 
-> _.unmute_
+> *_.unmute_*
 Ex.( .upmute )
 ගෲපය නැවත Open කරයි✅ 
 
-> _.kick_
+> *_.kick_*
 Ex.( .kick @9477xxxxxxx )
 ගෲපය Tag කරන සාමාජිකයා ඉවත් කරයි.✅ 
 
-> _.kickall_
+> *_.kickall_*
 Ex.( .kickall )
 ගෲපයේ සියලුම සාමාජිකයන් එකවර ඉවත් කරයි.✅ 
 
-> _.endgroup_
+> *_.endgroup_*
 Ex.( .endgroup )
 ගෲපය අවසාන කර දමයි.✅ 
 
-> _.delall_
+> *_.delall_*
 Ex.( .delall )
 ගෲපයේ සියලුම මැසේජ් මකා දමයි.✅ 
 
-> _.gjid_
+> *_.gjid_*
 Ex.( .gjid )
 ගෲපයේ ලිපිනය ලබා දෙයි.✅ 
 
-> _.left_
+> *_.left_*
 Ex.( .left )
 ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ 
 
@@ -101,28 +101,27 @@ Ex.( .left )
 ⤵️⤵️*DOWNLOADMENU⤵*⤵️⤵️
 
 
-> _.song_
+> *_.song_*
 Ex.( .song <Type Song Name> )
 ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
 
-> _.video_
+> *_.video_*
 Ex.( .video <Type Video Name> )
 ඔබ ටයිප් කරන විඩියෝව බාගත⬇️ කරයි.✅
 
-_.fb_
+> *_.fb_*
 Ex.( .fb <Type fb video link> )
 ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
 
-> _.tiktok_
+> *_.tiktok_*
 Ex.( .tiktok <Type Tiktok Link> )
 ඔබ ටයිප් කරන යික්ටොක් විඩියෝව බාගත⬇️ කරයි.✅
 
-_.insta_
-_.mediafire_
+> *_.mediafire_*
 Ex. ( .mediafire <Enter media fire link> )
 ඔබගේ Mediafire File එක බාගත⬇️ කරයි✅
 
-_.gdrive_
+> *_.gdrive_*
 Ex. ( .gdrive <Enter Google Drive Link> )
 Google drive File එක බාගත⬇️ කරයි✅
 
