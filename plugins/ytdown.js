@@ -116,18 +116,18 @@ async (conn, mek, m, { from, q, reply }) => {
 cmd({
     pattern: "video",
     react: "🎬",
-    desc: "Download songs",
+    desc: "Download videos",
     category: "download",
     filename: __filename
 },
 async (conn, mek, m, { from, q, reply }) => {
     try {
         if (!q) {
-            await conn.sendMessage(from, { audio: { url: voiceUrl }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek });
+            reply("කරුණාකර සෙවීම සඳහා වීඩියෝවක නමක් හෝ URL එකක් යවන්න.");
             return;
         }
 
-        const search = await yts(q);
+        const search = await yts(q); // YouTube search
         const data = search.videos[0];
         const url = data.url;
 
@@ -152,96 +152,61 @@ async (conn, mek, m, { from, q, reply }) => {
 
 මෙම විඩියෝව ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Video ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න
 
-*1 🎬 Video Type*
+1️⃣ 240p
+2️⃣ 360p
+3️⃣ 480p
+4️⃣ 720p
+5️⃣ 1080p
 
-*2 💾 Document Type*
+Reply with the number corresponding to the quality.
+`;
 
-> 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
-
-        // Send video details with thumbnail
         const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
-        // Wait for reply with "1"
+        // Quality download logic
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
             if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
                 
-                // If reply is "1", start downloading
-              
-        // Download and send video
-        let down = await fg.ytv(url);
-        // Filter to get the 480p quality video URL
-        240p quality video URL
-let downloadUrl240 = down.formats.find(format => format.qualityLabel === '240p')?.url;
+                const selectedQuality = msg.message.extendedTextMessage.text.trim();
 
-360p quality video URL let downloadUrl360 = down.formats.find(format => format.qualityLabel === '360p')?.url;
+                // Download video using selected quality
+                let down = await fg.ytv(url); // Fetch available formats
+                let downloadUrl;
 
-480p quality video URL let downloadUrl480 = down.formats.find(format => format.qualityLabel === '480p')?.url;
+                switch (selectedQuality) {
+                    case '1': // 240p
+                        downloadUrl = down.formats.find(f => f.qualityLabel === '240p')?.url;
+                        break;
+                    case '2': // 360p
+                        downloadUrl = down.formats.find(f => f.qualityLabel === '360p')?.url;
+                        break;
+                    case '3': // 480p
+                        downloadUrl = down.formats.find(f => f.qualityLabel === '480p')?.url;
+                        break;
+                    case '4': // 720p
+                        downloadUrl = down.formats.find(f => f.qualityLabel === '720p')?.url;
+                        break;
+                    case '5': // 1080p
+                        downloadUrl = down.formats.find(f => f.qualityLabel === '1080p')?.url;
+                        break;
+                    default:
+                        reply("Invalid option. Please select a valid number.");
+                        return;
+                }
 
-7200p quality video URL
-let downloadUrl720 = down.formats.find(format => format.qualityLabel === '720p')?.url;
-
-1080p quality video URL
-let downloadUrl1080 = down.formats.find(format => format.qualityLabel === '1080p')?.url;
-
-if (downloadUrl) {
-    // Send the video in 240p
-    await conn.sendMessage(from, { video: { url: downloadUrl240 }, mimetype: "video/mp4" }, {react:"⤵️"}, { quoted: mek });
-} else {
-    reply('240p quality is not available for this video.');
-    
-    await conn.sendMessage(from, { video: { url: downloadUrl360 }, mimetype: "video/mp4" }, {react:"⤵️"}, { quoted: mek });
-} else {
-    reply('360p quality is not available for this video.');
-    
-    await conn.sendMessage(from, { video: { url: downloadUrl480 }, mimetype: "video/mp4" }, {react:"⤵️"}, { quoted: mek });
-} else {
-    reply('480p quality is not available for this video.');
-    
-    await conn.sendMessage(from, { video: { url: downloadUrl720 }, mimetype: "video/mp4" }, {react:"⤵️"}, { quoted: mek });
-} else {
-    reply('7200p quality is not available for this video.');
-    
-    await conn.sendMessage(from, { video: { url: downloadUrl1080 }, mimetype: "video/mp4" }, {react:"⤵️"}, { quoted: mek });
-} else {
-    reply('1080p quality is not available for this video.');
-    
-}   
+                if (downloadUrl) {
+                    await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4", caption: `${selectedQuality} quality video download.` }, { quoted: mek });
+                } else {
+                    reply(`${selectedQuality} quality is not available for this video.`);
+                }
             }
         });
-
-
-// Wait for reply with "2"
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
-                
-                // If reply is "yes", start downloading
-                let down = await fg.yta(url);
-                let downloadUrl = down.dl_url;
-
-                await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎" }, { quoted: mek });
-            }
-        });
-        
-        
-        
-        
-        
-        let down = await fg.ytv(url); // ytv to download video
-
-
 
     } catch (e) {
         console.log(e);
         reply(`Error: ${e.message}`);
     }
 });
+
