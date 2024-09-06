@@ -395,8 +395,6 @@ cmd({
     }
 });
 
-const { cmd, commands } = require('../command');
-
 cmd({
     pattern: "viewonce", // Command name
     react: "👁️", // Reaction shown when command is called
