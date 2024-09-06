@@ -175,14 +175,17 @@ async (conn, mek, m, { from, q, reply }) => {
         // Download and send video
         let down = await fg.ytv(url);
         // Filter to get the 480p quality video URL
-        80p quality video URL
+        240p quality video URL
 let downloadUrl240 = down.formats.find(format => format.qualityLabel === '240p')?.url;
-80p quality video URL
-let downloadUrl360 = down.formats.find(format => format.qualityLabel === '360p')?.url;
-let downloadUrl480 = down.formats.find(format => format.qualityLabel === '480p')?.url;
-80p quality video URL
+
+360p quality video URL let downloadUrl360 = down.formats.find(format => format.qualityLabel === '360p')?.url;
+
+480p quality video URL let downloadUrl480 = down.formats.find(format => format.qualityLabel === '480p')?.url;
+
+7200p quality video URL
 let downloadUrl720 = down.formats.find(format => format.qualityLabel === '720p')?.url;
-80p quality video URL
+
+1080p quality video URL
 let downloadUrl1080 = down.formats.find(format => format.qualityLabel === '1080p')?.url;
 
 if (downloadUrl) {
