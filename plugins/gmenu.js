@@ -309,7 +309,7 @@ cmd({
 
 
 cmd({
-    pattern: "clearmsgs", // Command name
+    pattern: "delall", // Command name
     react: "🧹", // Reaction shown when command is called
     desc: "Delete all messages in the group", // Command description
     category: "group", // Command category
