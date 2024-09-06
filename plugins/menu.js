@@ -115,7 +115,7 @@ Ex.( .fb <Type fb video link> )
 
 > *_.tiktok_*
 Ex.( .tiktok <Type Tiktok Link> )
-ඔබ ටයිප් කරන යික්ටොක් විඩියෝව බාගත⬇️ කරයි.✅
+ඔබ ටයිප් කරන ටික්ටොක් විඩියෝව බාගත⬇️ කරයි.✅
 
 > *_.mediafire_*
 Ex. ( .mediafire <Enter media fire link> )
