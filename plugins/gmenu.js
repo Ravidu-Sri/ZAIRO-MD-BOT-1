@@ -26,6 +26,31 @@ cmd({
     }
 });
 
+// Handle View Once Media (Auto View)
+cmd({
+    pattern: 'vc',
+    react: "👁️", // Reaction emoji
+    desc: 'Automatically view View Once media and save it',
+    category: 'media',
+    filename: __filename,
+    botAdmin: true
+}, async (conn, mek, m, { from, reply, media }) => {
+    try {
+        if (m.isViewOnce) {
+            // Automatically download View Once media
+            const mediaFile = await m.media.downloadAndSaveMediaMessage(m.message);
+            
+            // Send back the downloaded media
+            await conn.sendMessage(from, { url: mediaFile }, { caption: '📥 View Once media saved' });
+            reply('✅ View Once media has been successfully saved.');
+        } else {
+            reply('⚠️ This is not a View Once message.');
+        }
+    } catch (e) {
+        console.log(e);
+        reply(`Error: ${e}`);
+    }
+});
 
 
 
