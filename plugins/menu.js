@@ -30,32 +30,10 @@ cmd({
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
 
-*OWNERMENU⤵*
-_.getsession_
-_.deletesession_
-_.join_
-_.shutdown_
-_.restart_
-_.autoreadmsg_
-_.autoreadcmd_
-_.autotyping_
-_.autorecording_
-_.autobio_
-_.autostatusview_
-_.autostatussave_
-_.mode_
-_.block_
-_.unblock_
-_.ban_
-_.unban_
-_.backup_
-_.addowner_
-_.delowner_
-_.ping_
-_.system_
+⤵️⤵️*OWNERMENU⤵*⤵️⤵️
 
-*GROUPMENU⤵*
-_.kick_
+
+⤵️⤵️*GROUPMENU⤵*⤵️⤵️
 
 
 > _.add_
@@ -70,7 +48,7 @@ Ex.( .add 94776734030 )
  Ex.( .demote @mention member )
 ගෲපයේ සමාජිකයෙක් Admin බල තල ඉවත් කරයි.✅
 
-_.setabout
+> _.setabout_
  Ex.( .setabout ZAIRO MD )
 ගෲපයේ ඇති Bio එක වෙනස් කරයි.✅.
 
@@ -78,44 +56,81 @@ _.setabout
  Ex.( .setname ZAIRO MD )
 ගෲපයේ ඇති නම වෙනස් කරයි.✅.
 
+> _.tagall_
+Ex.( .tagall )
+ගෲපයේ සියලුම සමාජිකකයන් එක වර ටැග් කරයි.✅
 
-_.tagall_
-_.hidetag_
-_.totag_
-_.admintag_
-_.group_
-_.grouplink_
-_.antilink_
-_.antibot_
-_.antiword_
-_.antispam_
-_.antidelete_
-_.antiviewone_
+> _.grouplink_
+Ex.( .grouplink )
+ඔබ සිටින ගෲපයේ ලින්ක් එක ලබා දෙයි.✅
 
-*CONTACTMENU⤵*
-_.stickers_
-_.smeme_
-_.take_
-_.toimage_
-_.tovideo_
-_.toaudio_
-_.tomp3_
-_.imgtolink_
+> _.mute_
+Ex.( .mute )
+ගෲපය වසා දමයි.✅ 
 
-*DOWNLOADMENU⤵*
-_.play_
-_.song_
-_.video_
+> _.unmute_
+Ex.( .upmute )
+ගෲපය නැවත Open කරයි✅ 
+
+> _.kick_
+Ex.( .kick @9477xxxxxxx )
+ගෲපය Tag කරන සාමාජිකයා ඉවත් කරයි.✅ 
+
+> _.kickall_
+Ex.( .kickall )
+ගෲපයේ සියලුම සාමාජිකයන් එකවර ඉවත් කරයි.✅ 
+
+> _.endgroup_
+Ex.( .endgroup )
+ගෲපය අවසාන කර දමයි.✅ 
+
+> _.delall_
+Ex.( .delall )
+ගෲපයේ සියලුම මැසේජ් මකා දමයි.✅ 
+
+> _.gjid_
+Ex.( .gjid )
+ගෲපයේ ලිපිනය ලබා දෙයි.✅ 
+
+> _.left_
+Ex.( .left )
+ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ 
+
+
+
+⤵️⤵️*DOWNLOADMENU⤵*⤵️⤵️
+
+
+> _.song_
+Ex.( .song <Type Song Name> )
+ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
+
+> _.video_
+Ex.( .video <Type Video Name> )
+ඔබ ටයිප් කරන විඩියෝව බාගත⬇️ කරයි.✅
+
 _.fb_
-_.tiktok_
-_.insta_
-_.modeapk_
-_.googledrive_
+Ex.( .fb <Type fb video link> )
+ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
 
-*AIMENU⤵*
-_.ai_
-_.gemini_
-_.gpt3_
+> _.tiktok_
+Ex.( .tiktok <Type Tiktok Link> )
+ඔබ ටයිප් කරන යික්ටොක් විඩියෝව බාගත⬇️ කරයි.✅
+
+_.insta_
+_.mediafire_
+Ex. ( .mediafire <Enter media fire link> )
+ඔබගේ Mediafire File එක බාගත⬇️ කරයි✅
+
+_.gdrive_
+Ex. ( .gdrive <Enter Google Drive Link> )
+Google drive File එක බාගත⬇️ කරයි✅
+
+
+
+⤵️⤵️*CONTACTMENU⤵*⤵️⤵️
+
+
 
 *✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
 
