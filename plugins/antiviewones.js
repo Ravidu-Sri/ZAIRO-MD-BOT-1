@@ -1,4 +1,4 @@
-const { smd, bot_ } = require('../lib'); // අවශ්‍ය මොඩියුල ආනයනය කරයි
+const {cmd, commands} = require('../command'); // අවශ්‍ය මොඩියුල ආනයනය කරයි
 let bgmm = false; // boolean විචල්‍යයක් ආරම්භ කරයි
 
 // කමන්ඩ් එක නිර්මාණය කරන්න
