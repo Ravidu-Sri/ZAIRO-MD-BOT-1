@@ -29,14 +29,58 @@ cmd({
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
-
-⤵️⤵️*OWNERMENU⤵*⤵️⤵️
-
-
-⤵️⤵️*GROUPMENU⤵*⤵️⤵️
+මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
 
 
-> *_.add_*
+ 1 ⤵️⤵️*OWNERMENU⤵*⤵️⤵️
+
+ 2 ⤵️⤵️*GROUPMENU⤵*⤵️⤵️
+ 
+ 3 ⤵️⤵️*DOWNLOADMENU⤵*⤵️⤵️
+ 
+ 4 ⤵️⤵️*CONTACTMENU⤵*⤵️⤵️
+
+
+*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
+
+
+        // URL of the image you want to include
+        const imageUrl = 'https://ibb.co/L86DZLX'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+        await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status
+        }, { quoted: mek || null });
+        
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+
+            // Check if the message is a reply to the thumbnail message and contains "yes"
+            if (msg.message && msg.message.extendedTextMessage && 
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
+                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
+                
+                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+             ⤵️⤵️*OWNERMENU⤵*⤵️⤵️
+             
+                         }
+        });
+        
+        
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+
+            // Check if the message is a reply to the thumbnail message and contains "yes"
+            if (msg.message && msg.message.extendedTextMessage && 
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
+                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
+                
+                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+            ⤵️⤵️*GROUPMENU⤵*⤵️⤵️
+                
+        
+        > *_.add_*
 Ex.( .add 94776734030 )
 ගෲපයේ නැති සමාජිකයෙක් Add කරයි.
 
@@ -96,8 +140,18 @@ Ex.( .gjid )
 Ex.( .left )
 ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ 
 
+            }
+        });
+        
+        
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
 
-
+            // Check if the message is a reply to the thumbnail message and contains "yes"
+            if (msg.message && msg.message.extendedTextMessage && 
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
+                msg.message.extendedTextMessage.text.toLowerCase() === '3') {
+     ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 ⤵️⤵️*DOWNLOADMENU⤵*⤵️⤵️
 
 
@@ -125,25 +179,30 @@ Ex. ( .mediafire <Enter media fire link> )
 Ex. ( .gdrive <Enter Google Drive Link> )
 Google drive File එක බාගත⬇️ කරයි✅
 
+            }
+        });
+        
+        
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
 
+            // Check if the message is a reply to the thumbnail message and contains "yes"
+            if (msg.message && msg.message.extendedTextMessage && 
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
+                msg.message.extendedTextMessage.text.toLowerCase() === '4') {
 
+     ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 ⤵️⤵️*CONTACTMENU⤵*⤵️⤵️
 
-
-
-*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
-
-        // URL of the image you want to include
-        const imageUrl = 'https://ibb.co/L86DZLX'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status
-        }, { quoted: mek || null });
+            }
+        });
+        
+        
         
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
     }
 })
+
+
