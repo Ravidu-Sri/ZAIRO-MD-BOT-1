@@ -16,14 +16,14 @@ const formatViews = (views) => {
 };
 
 // URL for the voice note
+const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14xPMIOvebVGwoXh1rohu';
 
-
-//========= YTS Search Command for Horizontal Scroll Thumbnails =========//
+//========= YTS Search Command for Horizontal Frame Layout =========//
 
 cmd({
     pattern: "yts",
     alias: ["yta", "ytv", "yt"],
-    desc: "Search and display YouTube video details with thumbnails for horizontal scrolling",
+    desc: "Search and display YouTube video details in a horizontal frame layout",
     category: "search",
     filename: __filename
 },
@@ -36,7 +36,8 @@ async (conn, mek, m, { from, q, reply }) => {
 
         if (videos.length === 0) return reply("No videos found for your query.");
 
-        // Send video details in a horizontal scroll style
+        // Prepare messages with thumbnails and details
+        let messageQueue = [];
         for (let video of videos) {
             const message = `🎶 *Title*: _${video.title}_\n` +
                             `👤 *Channel*: _${video.author.name}_\n` +
@@ -44,12 +45,17 @@ async (conn, mek, m, { from, q, reply }) => {
                             `👁️ *Views*: _${formatViews(video.views)}_\n` +
                             `🔗 *Link*: ${video.url}\n\n`;
 
-            // Send thumbnail with details
-            await conn.sendMessage(from, { image: { url: video.thumbnail }, caption: message }, { quoted: mek });
+            // Collect messages
+            messageQueue.push({ image: { url: video.thumbnail }, caption: message });
         }
 
-        // Send the voice note after sending the thumbnails
-        await conn.sendMessage(from, { audio: { url: voiceUrl }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek });
+        // Send images in sequence
+        for (let msg of messageQueue) {
+            await conn.sendMessage(from, msg, { quoted: mek });
+        }
+
+        // Optionally, send the voice note after sending the images
+        // Audio url ekak danna
 
     } catch (e) {
         console.log(e);
