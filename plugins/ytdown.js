@@ -72,60 +72,48 @@ async (conn, mek, m, { from, q, reply }) => {
         // Send video details with thumbnail
         const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
-
-// Listening to user replies for menu options
+        // Listening to user replies for menu options
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
 
             if (msg.message && msg.message.extendedTextMessage &&
                 msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
-                
-                const selectedOption = msg.message.extendedTextMessage.text.toLowerCase();
 
-                // Handling different menu selections
+                const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
+
                 switch (selectedOption) {
                     case '1':
-                        reply(`
-// If reply is "1", start downloading
-                let down = await fg.yta(url);
-                let downloadUrl = down.dl_url;
+                        const downAudio = await fg.yta(url);
+                        const downloadAudioUrl = downAudio.dl_url;
 
-                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });`);
+                        await conn.sendMessage(from, { audio: { url: downloadAudioUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
+                        break;
+
+                    case '1.1':
+                        const downAudioDoc = await fg.yta(url);
+                        const downloadAudioDocUrl = downAudioDoc.dl_url;
+
+                        await conn.sendMessage(from, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });
                         break;
 
                     case '2':
-                        reply(`
-// If reply is "1", start downloading
-                let down = await fg.yta(url);
-                let downloadUrl = down.dl_url;
+                        const downVideo = await fg.ytv(url);
+                        const downloadVideoUrl = downVideo.dl_url;
 
-await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });`);
-                        break;
-
-                    case '2':
-                        reply(`
-        let down = await fg.ytv(url);
-        let downloadUrl = down.dl_url;
-
-        await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });`);
+                        await conn.sendMessage(from, { video: { url: downloadVideoUrl }, mimetype: "video/mp4" }, { quoted: mek });
                         break;
 
                     case '2.1':
-                        reply(`
+                        const downVideoDoc = await fg.ytv(url);
+                        const downloadVideoDocUrl = downVideoDoc.dl_url;
 
-        let down = await fg.ytv(url);
-        let downloadUrl = down.dl_url;
-
-await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });`);
+                        await conn.sendMessage(from, { document: { url: downloadVideoDocUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙈𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });
                         break;
 
                     default:
-                        reply("Invalid option. Please select a valid menu option (1.1).");
+                        reply("Invalid option. Please select a valid menu option (1, 1.1, 2, 2.1).");
                         break;
                 }
-            
-
-        
             }
         });
 
@@ -134,8 +122,3 @@ await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/
         reply(`Error: ${e.message}`);
     }
 });
-
-
-
-
-
