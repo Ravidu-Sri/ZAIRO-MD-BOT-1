@@ -108,7 +108,7 @@ async (conn, mek, m, { from, q, reply }) => {
                         const downVideoDoc = await fg.ytv(url);
                         const downloadVideoDocUrl = downVideoDoc.dl_url;
 
-                        await conn.sendMessage(from, { document: { url: downloadVideoDocUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙈𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });
+                        await conn.sendMessage(from, { document: { url: downloadVideoDocUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });
                         break;
 
                     default:
@@ -124,6 +124,9 @@ async (conn, mek, m, { from, q, reply }) => {
     }
 });
 
+
+
+//========= Audio derect Download Command =========//
 
 cmd({
     pattern: "play",
@@ -150,10 +153,15 @@ async (conn, mek, m, { from, q, reply }) => {
 
 > 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
 
-        
-                let down = await fg.yta(url);
-                let downloadUrl = down.dl_url;
+        // Audio download
+        let down = await fg.yta(url);
+        let downloadUrl = down.dl_url;
 
-                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });
-            }
-        });
+        // Sending audio file
+        await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
+        
+    } catch (e) {
+        console.log(e);
+        reply(`Error: ${e.message}`);
+    }
+});
