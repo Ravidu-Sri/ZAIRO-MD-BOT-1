@@ -16,8 +16,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         let response = data.data;
 
         // Format the reply
-        let replyText = `
-> *ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋* 𝗔𝗜 𝗖𝗵𝗮𝘁 🧠*
+        let replyText = `ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝗔𝗜 𝗖𝗵𝗮𝘁 🧠*
 
 🔍 *𝗤𝘂𝗲𝗿𝘆*: _${q}_
 
