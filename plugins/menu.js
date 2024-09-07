@@ -5,7 +5,7 @@ const {runtime} = require('../lib/functions')
 
 cmd({
     pattern: "menu",
-    alias: ["panel","penal","list","allmenu"],
+    alias: ["panel", "penal", "list", "allmenu"],
     react: "🪴",
     desc: "Check menu all",
     category: "main",
@@ -20,13 +20,9 @@ cmd({
         let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 
 > *Uptime:* ${runtime(process.uptime())}
-
 > *Used*: ${usedRAM} MB
-
 > *Free*: ${freeRAM} MB
-
 > *Total*: ${totalRAM} MB
-
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
 මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️`;
