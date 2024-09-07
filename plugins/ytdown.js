@@ -43,20 +43,15 @@ async (conn, mek, m, { from, q, reply }) => {
  ~*𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝘼𝙐𝘿𝙄𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿⤵⤵ 🎧*~
 
 > 🎶 *𝗧𝗶𝘁𝗹𝗲*: _${data.title}_
-
 > 👤 *𝗖𝗵𝗮𝗻𝗻𝗲𝗹*: _${data.author.name}_
-
 > 📝 *𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻*: _${data.description}_
-
 > ⏳ *𝗧𝗶𝗺𝗲*: _${data.timestamp}_
-
 > ⏱️ *𝗔𝗴𝗼*: _${data.ago}_
-
 > 👁️‍🗨️ *𝗩𝗶𝗲𝘄𝘀*: _${formatViews(data.views)}_
-
 > 🔗 *𝗟𝗶𝗻𝗸*: ${url}
 
 ⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵
+𝚅𝙸𝙼𝙰 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝚄𝙳𝙸𝙾 & 𝚅𝙸𝙳𝙴𝙾 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚜⤵️
 
 > *1.1  Audio Type* 🎧 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
