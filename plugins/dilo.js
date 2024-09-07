@@ -2,7 +2,7 @@ const config = require('../config')
 const {cmd, commands} = require('../command')
 
 cmd({
-    pattern: "dilo",
+    pattern: "vima",
     desc: "Check if the bot is online.",
     category: "main",
     filename: __filename
@@ -13,14 +13,32 @@ cmd({
     groupAdmins, isBotAdmins, isAdmins, reply 
 }) => {
     try {
-        const status = `*Name*: Dilan
-*From*: Matara
-*Age*: 20
-*Web*: dilalk.vercel.app
+        const status = `
+> *Name*: 𝐕𝐈𝐌𝐀𝐌𝐎𝐃𝐒
 
-_you .....?_ ♥✊`;
+> *From*: 𝐆𝐀𝐋𝐋𝐄
 
-        const imageUrl = 'https://telegra.ph/file/dcd097f9f7a124d47e5b2.jpg';
+> *VIMAMOD WhatsApp BOT DEPLOY PAYMENT METHOD*
+
+BOT DEPLOY PRICE:
+
+*Bank payment* = 8023114957
+                 Susantha Thilangani
+                 Galle Branch
+                 Commercial bank   Rs 300/=
+
+*EZ CASH*    =       0762983012     RS 300/=
+
+
+පේමන්ට් එක කරලා ස්ක්‍රීන් ශොට් එකක් දාන්න
+
+විනාඩි 10ක් ඇතුලත් බොට්ව හදලා දෙනවා
+
+https://wa.me/94776734030
+
+thanks for purchase`;
+
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
         const audioUrl = 'https://drive.google.com/uc?export=download&id=1YYPnkKWdrxFe8C2kWdwf8qkeE0PO5RjW';
 
         // Check if mek is valid before using it
@@ -33,11 +51,11 @@ _you .....?_ ♥✊`;
         }, { quoted: quotedMessage });
 
         // Send the voice recording
-        await conn.sendMessage(from, {
-            audio: { url: audioUrl }, 
-            mimetype: 'audio/mp4', // Adjust this if your audio file is in another format
-            ptt: true // This makes the audio act like a voice note
-        }, { quoted: quotedMessage });
+     //   await conn.sendMessage(from, {
+         //   audio: { url: audioUrl }, 
+      //      mimetype: 'audio/mp4', // Adjust this if your //audio file is in another format
+          //  ptt: true // This makes the audio act like a voice note
+     //   }, { quoted: quotedMessage });
 
     } catch (e) {
         console.error('Error sending message:', e);
