@@ -16,7 +16,7 @@ const formatViews = (views) => {
 };
 
 // Voice recording URL
-const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14xPMIOvebVGwoXh1rohu';
+//const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14xPMIOvebVGwoXh1rohu';
 
 //========= Audio Download Command =========//
 
@@ -104,6 +104,8 @@ async (conn, mek, m, { from, q, reply }) => {
 
 case '3':
 
+        let desc = `
+
 𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝙑𝙄𝘿𝙀𝙊 𝘿𝘼𝙏𝘼𝙄𝙇𝙎 ⬇️
 
 > 🎶 *𝗧𝗶𝘁𝗹𝗲*: _${data.title}_
@@ -118,7 +120,9 @@ case '3':
 
 > 👁️‍🗨️ *𝗩𝗶𝗲𝘄𝘀*: _${formatViews(data.views)}_
 
-> 🔗 *𝗟𝗶𝗻𝗸*: ${url}
+> 🔗 *𝗟𝗶𝗻𝗸*: ${url}';
+
+const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
 break;
 
