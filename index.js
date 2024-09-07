@@ -8,8 +8,6 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const fs = require('fs');
-const path = require('path');
 
 
 
@@ -20,10 +18,11 @@ const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
+const viewOncePlugin = require('./plugins/antiviewones');
 const axios = require('axios')
 const { File } = require('megajs')
 const prefix = '.'
-const viewOncePlugin = require('./plugins/antiviewones');
+
 
 const ownerNumber = ['94776734030']
 
