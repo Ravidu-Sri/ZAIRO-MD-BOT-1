@@ -218,39 +218,8 @@ client.initialize();
 
 
 
-const client = new Client({
-    authStrategy: new LocalAuth()
-});
 
-client.on('message_revoke_everyone', async (after, before) => {
-    // පණිවිඩය මකා දැමූ විට trigger වන code block එක
-    if (before.hasMedia) {
-        try {
-            // මකා දැමූ පණිවිඩය media එකක් ද පරීක්ෂා කරන්න
-            const mediaMessage = before;
-            const mediaFile = await mediaMessage.downloadMedia();
-            const fileName = `deleted_${Date.now()}.${mediaFile.mimetype.split('/')[1]}`;
-            
-            // media එක save කරන්න
-            fs.writeFileSync(path.join(__dirname, fileName), mediaFile.data, 'base64');
 
-            // Media එක successfully save කලා කියලා ප්‍රතිචාරයක් යවන්න
-            client.sendMessage(mediaMessage.from, '✅ Deleted media has been successfully saved.');
-        } catch (e) {
-            console.error(e);
-            client.sendMessage(mediaMessage.from, `Error: ${e}`);
-        }
-    } else {
-        // Non-media පණිවිඩයක් නම්, text එක save කරන්න
-        const fileName = `deleted_message_${Date.now()}.txt`;
-        fs.writeFileSync(path.join(__dirname, fileName), `Deleted message: ${before.body}`);
-        
-        // Text message එක save කලා කියලා ප්‍රතිචාරයක් යවන්න
-        client.sendMessage(before.from, '✅ Deleted text message has been successfully saved.');
-    }
-});
-
-client.initialize();
 
 
 
