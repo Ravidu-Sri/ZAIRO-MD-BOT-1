@@ -89,13 +89,13 @@ async (conn, mek, m, { from, q, reply }) => {
                 await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });`);
                         break;
 
-                    case '1.1':
+                    case '2':
                         reply(`
 // If reply is "1", start downloading
                 let down = await fg.yta(url);
                 let downloadUrl = down.dl_url;
 
-await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "💻 *ᴍᴀᴅᴇ ʙʏ ᴍʀᴅɪʟᴀ*" }, { quoted: mek });`);
+await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });`);
                         break;
 
                     case '2':
@@ -112,7 +112,7 @@ await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/
         let down = await fg.ytv(url);
         let downloadUrl = down.dl_url;
 
-await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "💻 *ᴍᴀᴅᴇ ʙʏ ᴍʀᴅɪʟᴀ*" }, { quoted: mek });`);
+await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });`);
                         break;
 
                     default:
