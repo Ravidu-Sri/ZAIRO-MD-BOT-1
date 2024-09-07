@@ -52,26 +52,18 @@ cmd({
             caption: status
         }, { quoted: mek || null });
 
-        // Listening to user replies for menu options
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
-
-            if (msg.message && msg.message.extendedTextMessage &&
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
-                
-                const selectedOption = msg.message.extendedTextMessage.text.toLowerCase();
-
-                // Handling different menu selections
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+            
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
                 switch (selectedOption) {
                     case '1':
                         reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*`);
                         break;
-
                     case '2':
-                        reply(`         ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-            💥*𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔⤵*💥
-                
-        
+                        reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔
 > *_.add_*
 Ex.( .add 94776734030 )
 ගෲපයේ නැති සමාජිකයෙක් Add කරයි.
@@ -132,12 +124,8 @@ Ex.( .gjid )
 Ex.( .left )
 ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ `);
                         break;
-
                     case '3':
-                        reply(`     ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-💥*𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔⤵*💥
-
-
+                        reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
 > *_.song_*
 Ex.( .song <Type Song Name> )
 ඔබ ටයිප් කරන ගීතය බාගත⬇️ කරයි.✅
@@ -162,18 +150,16 @@ Ex. ( .mediafire <Enter media fire link> )
 Ex. ( .gdrive <Enter Google Drive Link> )
 Google drive File එක බාගත⬇️ කරයි✅`);
                         break;
-
                     case '4':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 
-     💥*𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔⤵*💥`);
+                        reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔`);
                         break;
-
                     default:
                         reply("Invalid option. Please select a valid menu option (1-4).");
-                        break;
                 }
             }
         });
+        
+
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
