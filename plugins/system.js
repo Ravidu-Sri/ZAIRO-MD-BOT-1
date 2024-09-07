@@ -43,7 +43,7 @@ cmd({
 `;
 
         // URL of the image you want to include
-        const imageUrl = 'https://telegra.ph/file/5c008a272ac9c899cd97a.jpg'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
       //  await conn.sendMessage(from, {
