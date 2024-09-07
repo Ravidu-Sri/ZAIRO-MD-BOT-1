@@ -1,5 +1,5 @@
 const { cmd } = require('../command');  // command නිර්මාණය සඳහා
-const ownerNumber = "94776734030@s.whatsapp.net",94762983012@s.whatsapp.net";  // ඔබේ අංකය
+const ownerNumber = "94776734030@s.whatsapp.net","94762983012@s.whatsapp.net";  // ඔබේ අංකය
 
 // Owner-only command
 cmd({
