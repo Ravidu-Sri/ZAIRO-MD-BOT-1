@@ -104,6 +104,10 @@ async (conn, mek, m, { from, q, reply }) => {
 
 case '3':
 
+const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
+
         let desc = `
 
 𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝙑𝙄𝘿𝙀𝙊 𝘿𝘼𝙏𝘼𝙄𝙇𝙎 ⬇️
