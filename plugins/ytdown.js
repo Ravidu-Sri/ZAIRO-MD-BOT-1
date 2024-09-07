@@ -16,7 +16,7 @@ const formatViews = (views) => {
 };
 
 // Voice recording URL
-//const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14xPMIOvebVGwoXh1rohu';
+const voiceUrl = 'null';
 
 //========= Audio Download Command =========//
 
