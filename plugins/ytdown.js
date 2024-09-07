@@ -21,7 +21,7 @@ const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14x
 //========= Audio Download Command =========//
 
 cmd({
-    pattern: "song,video,play",
+    pattern: "song",
     react: "🎧",
     desc: "Download songs",
     category: "download",
