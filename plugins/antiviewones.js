@@ -8,7 +8,7 @@ const client = new Client({
 
 client.on('message', async msg => {
     // "viewonce" command එක සහ mentions තිබේදැයි පරීක්ෂා කරන්න
-    if (msg.body.startsWith('ve') && msg.mentionedJidList.length > 0) {
+    if (msg.body.startsWith('viewonce') && msg.mentionedJidList.length > 0) {
         try {
             // View Once media එක ලබා ගන්න
             const viewOnceMessage = msg;
