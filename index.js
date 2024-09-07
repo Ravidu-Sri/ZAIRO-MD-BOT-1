@@ -7,6 +7,9 @@ getContentType,
 fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
+const { Client, LocalAuth } = require('whatsapp-web.js');
+const viewOncePlugin = require('./plugins/viewonece'); // viewOnce plugin එක import කරන්න
+
 
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
