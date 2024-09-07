@@ -22,6 +22,7 @@ const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14x
 
 cmd({
     pattern: "song",
+    alias: ["video","yt","ytmp3","ytmp4","yt"],
     react: "🎧",
     desc: "Download songs",
     category: "download",
@@ -57,15 +58,15 @@ async (conn, mek, m, { from, q, reply }) => {
 
 ⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵
 
-මෙම ගීතය ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Song ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න
+> *1.1  Audio Type* 🎧 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
-*1   Audio Type* 🎧 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
+> *1.2  Audio Document Type* 🎧 💾 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
-*1.1 Audio Document Type* 🎧 💾 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
+> *2.1  Video Type* 🎬 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
-*2   Video Type 🎬 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
+> *2.2  Video Document Type* 🎬 💾 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
-*2.1 Video Document Type 🎬 💾 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
+~_මෙම ගීතය ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Song & Video ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න_~
 
 > 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
 
@@ -82,28 +83,28 @@ async (conn, mek, m, { from, q, reply }) => {
                 const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
 
                 switch (selectedOption) {
-                    case '1':
+                    case '1.1':
                         const downAudio = await fg.yta(url);
                         const downloadAudioUrl = downAudio.dl_url;
 
                         await conn.sendMessage(from, { audio: { url: downloadAudioUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
                         break;
 
-                    case '1.1':
+                    case '1.2':
                         const downAudioDoc = await fg.yta(url);
                         const downloadAudioDocUrl = downAudioDoc.dl_url;
 
                         await conn.sendMessage(from, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });
                         break;
 
-                    case '2':
+                    case '2.1':
                         const downVideo = await fg.ytv(url);
                         const downloadVideoUrl = downVideo.dl_url;
 
                         await conn.sendMessage(from, { video: { url: downloadVideoUrl }, mimetype: "video/mp4" }, { quoted: mek });
                         break;
 
-                    case '2.1':
+                    case '2.2':
                         const downVideoDoc = await fg.ytv(url);
                         const downloadVideoDocUrl = downVideoDoc.dl_url;
 
@@ -111,7 +112,7 @@ async (conn, mek, m, { from, q, reply }) => {
                         break;
 
                     default:
-                        reply("Invalid option. Please select a valid menu option (1, 1.1, 2, 2.1).");
+                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
                         break;
                 }
             }
@@ -122,3 +123,37 @@ async (conn, mek, m, { from, q, reply }) => {
         reply(`Error: ${e.message}`);
     }
 });
+
+
+cmd({
+    pattern: "play",
+    react: "🎧",
+    desc: "Download songs",
+    category: "download",
+    filename: __filename
+},
+async (conn, mek, m, { from, q, reply }) => {
+    try {
+        if (!q) {
+            await conn.sendMessage(from, { audio: { url: voiceUrl }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek });
+            return;
+        }
+
+        const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
+
+        let desc = `
+ ~*𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝘿𝙀𝙍𝙀𝘾𝙏 𝘼𝙐𝘿𝙄𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿⤵⤵ 🎧*~
+
+⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵
+
+> 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎`;
+
+        
+                let down = await fg.yta(url);
+                let downloadUrl = down.dl_url;
+
+                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });
+            }
+        });
