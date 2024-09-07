@@ -44,7 +44,7 @@ cmd({
 *✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
 
         // URL of the image you want to include
-        const imageUrl = 'https://ibb.co/L86DZLX'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
         const sentMsg = await conn.sendMessage(from, {
