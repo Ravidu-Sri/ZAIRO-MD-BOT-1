@@ -8,7 +8,9 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const viewOncePlugin = require('./plugins/antiviewones'); // viewOnce plugin එක import කරන්න
+const fs = require('fs');
+const path = require('path');
+
 
 
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
@@ -21,6 +23,7 @@ const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
 const prefix = '.'
+const viewOncePlugin = require('./plugins/antiviewones');
 
 const ownerNumber = ['94776734030']
 
