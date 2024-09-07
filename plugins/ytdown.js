@@ -190,7 +190,7 @@ async (conn, mek, m, { from, q, reply }) => {
                 msg.message.extendedTextMessage.text.toLowerCase() === '2') {
                 
                 // If reply is "yes", start downloading
-                let down = await fg.yta(url);
+                let down = await fg.ytv(url);
                 let downloadUrl = down.dl_url;
 
                 await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎" }, { quoted: mek });
