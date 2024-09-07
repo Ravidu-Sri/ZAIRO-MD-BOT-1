@@ -21,7 +21,7 @@ const voiceUrl = 'https://drive.google.com/uc?export=download&id=1_Pd4yQVfofr14x
 //========= Audio Download Command =========//
 
 cmd({
-    pattern: "song",
+    pattern: "song,video,play",
     react: "🎧",
     desc: "Download songs",
     category: "download",
@@ -106,7 +106,7 @@ await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/
         await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });`);
                         break;
 
-                    case '4':
+                    case '2.1':
                         reply(`
 
         let down = await fg.ytv(url);
