@@ -38,14 +38,11 @@ cmd({
             { buttonId: '4', buttonText: { displayText: '💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔💥' }, type: 1 }
         ];
 
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        let buttonMessage = {
-            image: { url: imageUrl },
-            caption: status,
+        const buttonMessage = {
+            text: status,
             footer: config.FOOTER,
             buttons: buttons,
-            headerType: 4
+            headerType: 1
         };
 
         await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
