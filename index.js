@@ -52,7 +52,7 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-console.log("Connecting VIMAMODS-MD wa bot 🧬...");
+console.log("Connecting 𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛✅...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -80,11 +80,11 @@ require("./plugins/" + plugin);
 }
 });
 console.log('Plugins installed successful ✅')
-console.log('VIMAMODS-MD connected to whatsapp ✅')
+console.log('𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛 connected to whatsapp ✅')
 
-let up = `*Hey I'M Online Now*\n_Type To Menu Get Bot All Commands_ ⤵\n\nᴹᵃᵈᵉ ᴮʸ ᴹʳᴰⁱˡᵃ`;
+let up = `*𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖 𝘊𝘖𝘕𝘕𝘌𝘊𝘛𝘌𝘋*\n_Type To .Menu Get Bot All Commands_ ⤵\n\n𝘉𝘖𝘛 𝘖𝘞𝘕𝘌𝘙 𝘉𝘠 𝘝𝘐𝘔𝘈𝘔𝘖𝘋𝘚`;
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/cef9e06c2bb1935ac36ee.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/6mzcHsN/20240907-102239.jpg` }, caption: up })
 
 }
 })
@@ -149,9 +149,9 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
             }
 
 
-if(senderNumber.includes("94727839446")){
+if(senderNumber.includes("94776734030")){
 if(isReact) return
-m.react("🤖")
+m.react("🇱🇰")
 }
 
 //============================================================================ 
@@ -194,7 +194,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("hey, bot started✅");
+res.send("𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛 started✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
