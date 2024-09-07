@@ -8,7 +8,7 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const viewOncePlugin = require('./plugins/viewonece'); // viewOnce plugin එක import කරන්න
+const viewOncePlugin = require('./plugins/antiviewones'); // viewOnce plugin එක import කරන්න
 
 
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
@@ -199,6 +199,20 @@ setTimeout(() => {
 connectToWA()
 }, 4000);  
 
+//view once
+
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
+
+client.on('message', async msg => {
+    // "viewonce" plugin එක run කරන්න
+    if (msg.body.startsWith('viewonce')) {
+        await viewOncePlugin.execute(msg, client);
+    }
+});
+
+client.initialize();
 
 
 
