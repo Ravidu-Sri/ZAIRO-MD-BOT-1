@@ -26,7 +26,7 @@ let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄�
 ®𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂®`
 
 // URL of the image you want to include
-    const imageUrl = 'https://ibb.co/L86DZLX'; 
+    const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; 
 
 // Replace with your actual image URL
 
