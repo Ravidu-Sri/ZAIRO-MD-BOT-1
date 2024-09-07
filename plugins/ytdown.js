@@ -68,38 +68,81 @@ async (conn, mek, m, { from, q, reply }) => {
         // Send video details with thumbnail
         const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
-        // Wait for reply with "1"
+
+// Listening to user replies for menu options
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
 
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
+            if (msg.message && msg.message.extendedTextMessage &&
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
                 
-                // If reply is "1", start downloading
+                const selectedOption = msg.message.extendedTextMessage.text.toLowerCase();
+
+                // Handling different menu selections
+                switch (selectedOption) {
+                    case '1':
+                        reply(`
+// If reply is "1", start downloading
                 let down = await fg.yta(url);
                 let downloadUrl = down.dl_url;
 
-                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });
+                await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" },{react:"⤵️"}, { quoted: mek });`);
+                        break;
+
+                    case '1.1':
+                        reply(`
+// If reply is "1", start downloading
+                let down = await fg.yta(url);
+                let downloadUrl = down.dl_url;
+
+await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "💻 *ᴍᴀᴅᴇ ʙʏ ᴍʀᴅɪʟᴀ*" }, { quoted: mek });`);
+                        break;
+
+                    case '2':
+                        reply(`
+        let down = await fg.ytv(url);
+        let downloadUrl = down.dl_url;
+
+        await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });`);
+                        break;
+
+                    case '4':
+                        reply(`
+
+        let down = await fg.ytv(url);
+        let downloadUrl = down.dl_url;
+
+await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "💻 *ᴍᴀᴅᴇ ʙʏ ᴍʀᴅɪʟᴀ*" }, { quoted: mek });`);
+                        break;
+
+                    default:
+                        reply("Invalid option. Please select a valid menu option (1.1).");
+                        break;
+                }
             }
         });
 
 
-// Wait for reply with "2"
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
 
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
-                
-                // If reply is "yes", start downloading
-                let down = await fg.yta(url);
-                let downloadUrl = down.dl_url;
 
-                await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 𝘽𝙔 𝙑𝙄𝙈𝘼𝙈𝙊𝘿𝙎" }, { quoted: mek });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
             }
         });
 
