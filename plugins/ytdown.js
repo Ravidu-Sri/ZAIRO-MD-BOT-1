@@ -43,12 +43,6 @@ async (conn, mek, m, { from, q, reply }) => {
  ~*𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝘼𝙐𝘿𝙄𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿⤵⤵ 🎧*~
 
 > 🎶 *𝗧𝗶𝘁𝗹𝗲*: _${data.title}_
-> 👤 *𝗖𝗵𝗮𝗻𝗻𝗲𝗹*: _${data.author.name}_
-> 📝 *𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻*: _${data.description}_
-> ⏳ *𝗧𝗶𝗺𝗲*: _${data.timestamp}_
-> ⏱️ *𝗔𝗴𝗼*: _${data.ago}_
-> 👁️‍🗨️ *𝗩𝗶𝗲𝘄𝘀*: _${formatViews(data.views)}_
-> 🔗 *𝗟𝗶𝗻𝗸*: ${url}
 
 ⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵
 𝚅𝙸𝙼𝙰 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝚄𝙳𝙸𝙾 & 𝚅𝙸𝙳𝙴𝙾 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚜⤵️
@@ -60,6 +54,8 @@ async (conn, mek, m, { from, q, reply }) => {
 > *2.1  Video Type* 🎬 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
 > *2.2  Video Document Type* 🎬 💾 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
+
+> *  3  Video & Song Datails 💥 ( 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶 )
 
 ~_මෙම ගීතය ඩවුන්ලෝඩ් කිරීමට මෙම මැසේජ් එකට රිප්ලයි කර අදාල Song & Video ටයිප් එකේ නම්බර් එක ටයිප් කර Send කරන්න_~
 
@@ -106,8 +102,28 @@ async (conn, mek, m, { from, q, reply }) => {
                         await conn.sendMessage(from, { document: { url: downloadVideoDocUrl }, mimetype: "video/mp4", fileName: `${data.title}.mp4`, caption: "𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙱𝚈 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }, { quoted: mek });
                         break;
 
+case '3':
+
+𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝙑𝙄𝘿𝙀𝙊 𝘿𝘼𝙏𝘼𝙄𝙇𝙎 ⬇️
+
+> 🎶 *𝗧𝗶𝘁𝗹𝗲*: _${data.title}_
+
+> 👤 *𝗖𝗵𝗮𝗻𝗻𝗲𝗹*: _${data.author.name}_
+
+> 📝 *𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻*: _${data.description}_
+
+> ⏳ *𝗧𝗶𝗺𝗲*: _${data.timestamp}_
+
+> ⏱️ *𝗔𝗴𝗼*: _${data.ago}_
+
+> 👁️‍🗨️ *𝗩𝗶𝗲𝘄𝘀*: _${formatViews(data.views)}_
+
+> 🔗 *𝗟𝗶𝗻𝗸*: ${url}
+
+break;
+
                     default:
-                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
+                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2, 3).");
                         break;
                 }
             }
