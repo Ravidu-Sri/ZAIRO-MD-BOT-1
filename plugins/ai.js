@@ -15,14 +15,15 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         let data = await fetchJson(`https://chatgptforprabath-md.vercel.app/api/gptv1?q=${q}`);
         let response = data.data;
 
-        // Format the reply
-        let replyText = `ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝗔𝗜 𝗖𝗵𝗮𝘁 🧠*
+                // Format the reply
+        let replyText = `
+*𝗭𝗔𝗜𝗥𝗢 𝗠𝗗 𝗔𝗜 𝗕𝗢𝗧 𝗥𝗘𝗣𝗟𝗬*
 
 🔍 *𝗤𝘂𝗲𝗿𝘆*: _${q}_
 
 💬 *𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲*: _${response}_
 
-𝐕𝐈𝐌𝐀𝐌𝐎𝐃𝐒 𝐀𝐈 𝐁𝐎𝐓';
+ZAIRO MD AI BOT`;
 
         // Send the reply with the thumbnail image
         await conn.sendMessage(from, { image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' }, caption: replyText }, { quoted: mek });
