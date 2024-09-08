@@ -1,7 +1,7 @@
-const {readEnv} = require('../lib/database')
-const {cmd, commands} = require('../command')
-const os = require("os")
-const {runtime} = require('../lib/functions')
+const {readEnv} = require('../lib/database');
+const {cmd, commands} = require('../command');
+const os = require("os");
+const {runtime} = require('../lib/functions');
 
 cmd({
     pattern: "alive",
@@ -11,35 +11,36 @@ cmd({
     filename: __filename
 }, async (conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
     try {
+        const config = await readEnv();
 
-const config = await readEnv();
-
-// RAM usage
+        // RAM usage
         const totalRAM = Math.round(require('os').totalmem() / 1024 / 1024); // Total RAM in MB
         const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
         const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
 
+        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 
-let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 
-
-𝙽𝙾𝚆 𝚄𝚂𝙴𝙳 𝚁𝙰𝙼: ${usedRAM} 𝙼𝙱 
+𝙽𝙾𝚂𝙴𝙳 𝚁𝙰𝙼: ${usedRAM} 𝙼𝙱 
 𝚄𝙿 𝚃𝙸𝙼𝙴: ${runtime(process.uptime())} 
-®𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂®`
+®𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂®`;
 
-// URL of the image you want to include
-    const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; 
+        // URL of the image you want to include
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; 
 
-// Replace with your actual image URL
+        // Send the image with the status as the caption
+        const sentMsg = await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status
+        }, { quoted: mek || null });
 
-    // Send the image with the status as the caption
-    await conn.sendMessage(from, {
-        image: { url: imageUrl },
-        caption: status
-    }, { quoted: mek || null });
+        // Auto-delete the message after 10 seconds (10000 milliseconds)
+        setTimeout(async () => {
+            await conn.sendMessage(from, { delete: sentMsg.key });
+        }, 1000); // Adjust the time as needed
 
- } catch (e) {
-        console.log(e)
-        reply(`Error: ${e}`)
+    } catch (e) {
+        console.log(e);
+        reply(`Error: ${e}`);
     }
-})
+});
