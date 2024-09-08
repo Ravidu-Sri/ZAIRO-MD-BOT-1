@@ -1,7 +1,7 @@
-const {readEnv} = require('../lib/database');
-const {cmd, commands} = require('../command');
+const { readEnv } = require('../lib/database');
+const { cmd, commands } = require('../command');
 const os = require("os");
-const {runtime} = require('../lib/functions');
+const { runtime } = require('../lib/functions');
 
 cmd({
     pattern: "alive",
@@ -9,7 +9,7 @@ cmd({
     desc: "Check uptime, RAM usage, and more",
     category: "main",
     filename: __filename
-}, async (conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         const config = await readEnv();
 
@@ -29,15 +29,20 @@ cmd({
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; 
 
         // Send the image with the status as the caption
-        const sentMsg = await conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status
         }, { quoted: mek || null });
 
-        // Auto-delete the message after 10 seconds (10000 milliseconds)
+        // Auto-delete all messages in the chat after 10 seconds (10000 milliseconds)
         setTimeout(async () => {
-            await conn.sendMessage(from, { delete: sentMsg.key });
-        }, 1000); // Adjust the time as needed
+            // Fetch the chat messages
+            const messages = await conn.fetchMessages(from, { limit: 100 });
+            for (const message of messages) {
+                if (message.key.fromMe) continue; // Skip messages sent by the bot
+                await conn.sendMessage(from, { delete: message.key });
+            }
+        }, 10000); // Adjust the time as needed
 
     } catch (e) {
         console.log(e);
