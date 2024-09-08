@@ -21,7 +21,7 @@ cmd({
        //     sd: 'sd_video_url',  // මේ URL replace කරන්න
        //     hd: 'hd_video_url',  // මේ URL replace කරන්න
         //    thumbnail: 'thumbnail_url'  // මේකත් replace කරන්න
- //       };
+ //       }
 
         const buttons = [{
             name: "cta_url",
