@@ -59,12 +59,12 @@ const config = await readEnv();
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-        const sentMsg = await conn.sendMessage(from, {
+        const sentMsg = await conn.sendMessage(from, buttons, m, message, {
             image: { url: imageUrl },
             caption: status
         }, { quoted: mek || null });
 
-        return conn.sendButtonMessage(from, buttons, m, message)
+     //   return conn.sendButtonMessage(from, buttons, m, message)
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
