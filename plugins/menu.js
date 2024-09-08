@@ -14,31 +14,42 @@ cmd({
     try {
         const config = await readEnv();
 
-        const msg = `\`✦ 𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\``;
+        const msg = `✦ 𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦`;
 
         // SD සහ HD URL එක verify කරලා ඕනේ විදිහට නිර්වචනය කරන්න.
-    //    const result = {
-       //     sd: 'sd_video_url',  // මේ URL replace කරන්න
-       //     hd: 'hd_video_url',  // මේ URL replace කරන්න
-        //    thumbnail: 'thumbnail_url'  // මේකත් replace කරන්න
- //       }
+        const result = {
+            sd: 'sd_video_url',  // මේ URL replace කරන්න
+            hd: 'hd_video_url',  // මේ URL replace කරන්න
+            thumbnail: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'  // මේකත් replace කරන්න
+        };
 
-        const buttons = [{
-            name: "cta_url",
-            buttonParamsJson: JSON.stringify({
-                display_text: 'Watch on Facebook'
-           //     url: q || 'default_facebook_url',
-            //    merchant_url: q || 'https://'
-            }),
-  //      },
-       
-        }];
+        // Button object එක නිසි ලෙස ක්‍රියාත්මක කරනවා.
+        const buttons = [
+            {
+                buttonId: '1',
+                buttonText: { displayText: 'Watch on Facebook' },
+                type: 1
+            },
+            {
+                buttonId: '2',
+                buttonText: { displayText: 'SD Quality' },
+                type: 1
+            },
+            {
+                buttonId: '3',
+                buttonText: { displayText: 'HD Quality' },
+                type: 1
+            }
+        ];
 
-      //  const message = {
-         //   image: { url: result.thumbnail },
-        //    caption: msg,
-         //   footer: config.FOOTER
-      //  };
+        // message object එක නිසි ලෙස නිර්මාණය කරගන්න.
+        const message = {
+            image: { url: result.thumbnail },
+            caption: msg,
+            footer: config.FOOTER,
+            buttons: buttons,
+            headerType: 4
+        };
 
         return conn.sendMessage(from, message, { quoted: mek || null });
 
