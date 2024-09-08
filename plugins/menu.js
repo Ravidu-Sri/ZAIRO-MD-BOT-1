@@ -82,27 +82,3 @@ cmd({
         reply(`Error: ${e.message}`);
     }
 });
-            },
-            {
-                buttonId: '3',
-                buttonText: { displayText: 'HD Quality' },
-                type: 1
-            }
-        ];
-
-        // message object එක නිසි ලෙස නිර්මාණය කරගන්න.
-        const message = {
-            image: { url: result.thumbnail },
-            caption: msg,
-            footer: config.FOOTER,
-            buttons: buttons,
-            headerType: 4
-        };
-
-        return conn.sendMessage(from, message, { quoted: mek || null });
-
-    } catch (e) {
-        console.error(e);
-        reply(`දෝෂයක්: ${e.message}`);
-    }
-});
