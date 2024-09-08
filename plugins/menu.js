@@ -1,4 +1,4 @@
-const { cmd, commands } = require('../command');
+const { cmd } = require('../command');
 const { runtime } = require('../lib/functions');
 const os = require('os');
 
@@ -9,14 +9,14 @@ cmd({
     desc: "Check menu all",
     category: "main",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, isGroup, reply }) => {
+}, async (conn, mek, m, { from, reply }) => {
     try {
         // RAM usage
         const totalRAM = Math.round(os.totalmem() / 1024 / 1024); // Total RAM in MB
         const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
         const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
 
-        // Poll Message
+        // Poll message
         const status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
         
 > *Uptime:* ${runtime(process.uptime())}
@@ -33,58 +33,53 @@ cmd({
 3. 💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔💥
 4. 💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔💥`;
 
+        // Send status message
+        await conn.sendMessage(from, { text: status });
+
+        // Create poll message
         const pollMessage = {
+            type: 'poll',
             poll: {
-                title: 'Select Menu',
+                question: 'Select Menu',
                 options: [
-                    { optionName: 'Owner Menu' },
-                    { optionName: 'Group Menu' },
-                    { optionName: 'Download Menu' },
-                    { optionName: 'Other Menu' }
+                    { option: 'Owner Menu' },
+                    { option: 'Group Menu' },
+                    { option: 'Download Menu' },
+                    { option: 'Other Menu' }
                 ],
                 selectableOptionsCount: 1,
             }
         };
 
+        // Send poll message
         await conn.sendMessage(from, pollMessage);
 
-        // Listen for poll response
+        // Handle poll responses
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             try {
                 const msg = msgUpdate.messages[0];
-                
-                // Log for debugging purposes
-                console.log("Received Message:", msg);
 
                 if (!msg.message || !msg.message.pollVoteMessage) return;
 
-                // Ensure it's a pollVoteMessage
-                if (!msg.message.pollVoteMessage.selectedOptions) {
-                    return reply('Error: No valid option selected.');
-                }
-
-                const selectedOption = msg.message.pollVoteMessage.selectedOptions[0];
+                const selectedOption = msg.message.pollVoteMessage.selectedOptions[0]?.option;
 
                 if (!selectedOption) {
                     return reply('Error: No option selected.');
                 }
 
-                // Log selected option
-                console.log("Selected Option:", selectedOption);
-
-                // Handle poll options
-                switch (selectedOption.optionName) {
+                // Handle selected option
+                switch (selectedOption) {
                     case 'Owner Menu':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*`);
+                        reply('✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*');
                         break;
                     case 'Group Menu':
-                        reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔 content here`);
+                        reply('💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔 content here');
                         break;
                     case 'Download Menu':
-                        reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔 content here`);
+                        reply('💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔 content here');
                         break;
                     case 'Other Menu':
-                        reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔 content here`);
+                        reply('💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔 content here');
                         break;
                     default:
                         reply("Invalid selection. Please select a valid option.");
