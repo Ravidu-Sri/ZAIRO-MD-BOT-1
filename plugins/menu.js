@@ -14,47 +14,48 @@ cmd({
     try {
         const config = await readEnv();
 
-        // RAM usage
-        const msg = `\`✦ 𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\`
-`
+        const msg = `\`✦ 𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\``;
 
-                let buttons = [{
-                    name: "cta_url",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: 'Watch on Facebook',
-                        url: q,
-                        merchant_url: q
-                    }),
-                },
-                {
-                    name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "SD Quality",
-                        id: ".downfb " + result.sd
-                    }),
-                },
-                {
-                    name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "HD Quality",
-                        id: ".downfb " + result.hd
-                    }),
-                }
-                ]
-                let message = {
-                    image: result.thumbnail,
-                    header: '',
-                    footer: config.FOOTER,
-                    body: msg
+        // SD සහ HD URL එක verify කරලා ඕනේ විදිහට නිර්වචනය කරන්න.
+        const result = {
+            sd: 'sd_video_url',  // මේ URL replace කරන්න
+            hd: 'hd_video_url',  // මේ URL replace කරන්න
+            thumbnail: 'thumbnail_url'  // මේකත් replace කරන්න
+        };
 
-                }
-                return conn.sendButtonMessage(from, buttons, m, message)
-            }).catch((err) => {
-                console.log(err)
-            })
+        const buttons = [{
+            name: "cta_url",
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Watch on Facebook',
+                url: q || 'default_facebook_url',
+                merchant_url: q || 'default_facebook_url'
+            }),
+        },
+        {
+            name: "quick_reply",
+            buttonParamsJson: JSON.stringify({
+                display_text: "SD Quality",
+                id: ".downfb " + result.sd
+            }),
+        },
+        {
+            name: "quick_reply",
+            buttonParamsJson: JSON.stringify({
+                display_text: "HD Quality",
+                id: ".downfb " + result.hd
+            }),
+        }];
+
+        const message = {
+            image: { url: result.thumbnail },
+            caption: msg,
+            footer: config.FOOTER
+        };
+
+        return conn.sendMessage(from, message, { quoted: mek || null });
 
     } catch (e) {
         console.error(e);
-        reply(`Error: ${e.message}`);
+        reply(`දෝෂයක්: ${e.message}`);
     }
 });
