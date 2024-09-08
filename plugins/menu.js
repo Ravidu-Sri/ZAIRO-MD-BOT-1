@@ -59,7 +59,7 @@ cmd({
                 msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
                 msg.message.extendedTextMessage.text.toLowerCase() === '1') {
                 
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
              ⤵️⤵️*OWNERMENU⤵*⤵️⤵️
              
                          }
@@ -73,7 +73,7 @@ cmd({
                 msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
                 msg.message.extendedTextMessage.text.toLowerCase() === '2') {
                 
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
              ⤵️⤵️*OWNERMENU⤵*⤵️⤵️2
              
                          }
@@ -90,7 +90,7 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
                 msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
                 msg.message.extendedTextMessage.text.toLowerCase() === '3') {
                 
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
              ⤵️⤵️*OWNERMENU⤵*⤵️⤵️3
              
                          }
@@ -106,7 +106,7 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
                 msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
                 msg.message.extendedTextMessage.text.toLowerCase() === '4') {
                 
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
              ⤵️⤵️*OWNERMENU⤵*⤵️⤵️4
              
                          }
