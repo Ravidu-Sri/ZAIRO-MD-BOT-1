@@ -59,6 +59,7 @@ cmd({
                     }),
                 }
                 ]
+        ];
                 let message = {
                     image: result.thumbnail,
                     header: '',
