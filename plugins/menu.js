@@ -36,22 +36,23 @@ cmd({
 
         // Create buttons
         const buttons = [
-            {buttonId: '1', buttonText: {displayText: '💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔'}, type: 1},
-            {buttonId: '2', buttonText: {displayText: '💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔'}, type: 1},
-            {buttonId: '3', buttonText: {displayText: '💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔'}, type: 1},
-            {buttonId: '4', buttonText: {displayText: '💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔'}, type: 1}
-        ];
+    { buttonId: '1', buttonText: { displayText: '💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔' }, type: 1 },
+    { buttonId: '2', buttonText: { displayText: '💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔' }, type: 1 },
+    { buttonId: '3', buttonText: { displayText: '💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔' }, type: 1 },
+    { buttonId: '4', buttonText: { displayText: '💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔' }, type: 1 }
+];
 
-        const buttonMessage = {
-            image: { url: imageUrl },
-            caption: status,
-            footer: 'මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️',
-            buttons: buttons,
-            headerType: 4
-        };
+const buttonMessage = {
+    image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' }, // Replace with your image URL
+    caption: `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*\n\n> *Uptime:* ${runtime(process.uptime())}\n\n> *Used*: ${usedRAM} MB\n\n> *Free*: ${freeRAM} MB\n\n> *Total*: ${totalRAM} MB\n\n> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂`,
+    footer: 'මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️',
+    buttons: buttons,
+    headerType: 1 // Set headerType to 1
+};
 
-        // Send the image with buttons
-        const sentMsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
+// Send the message with buttons
+await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
+
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
