@@ -53,8 +53,19 @@ cmd({
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.pollVoteMessage) return;
 
+            // Ensure it's a pollVoteMessage
+            if (!msg.message.pollVoteMessage.selectedOptions) {
+                return reply('Error: No valid option selected.');
+            }
+
             const selectedOption = msg.message.pollVoteMessage.selectedOptions[0];
-            switch (selectedOption) {
+
+            if (!selectedOption) {
+                return reply('Error: No option selected.');
+            }
+
+            // Handle poll options
+            switch (selectedOption.optionName) {
                 case 'Owner Menu':
                     reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*`);
                     break;
@@ -74,6 +85,6 @@ cmd({
 
     } catch (err) {
         console.error(err);
-        reply("An error occurred.");
+        reply("An error occurred: " + err.message);
     }
 });
