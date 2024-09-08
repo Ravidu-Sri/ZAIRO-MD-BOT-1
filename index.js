@@ -1,3 +1,4 @@
+
 const {
 default: makeWASocket,
 useMultiFileAuthState,
@@ -18,7 +19,6 @@ const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
-//const viewOncePlugin = require('./plugins/antiviewones');
 const axios = require('axios')
 const { File } = require('megajs')
 
@@ -163,10 +163,10 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
             }
 
 
-if(senderNumber.includes("94776734030")){
-if(isReact) return
-m.react("🇱🇰")
-}
+//if(senderNumber.includes("94776734030")){
+//if(isReact) return
+//m.react("🇱🇰")
+//}
 
 //============================================================================ 
 
@@ -216,22 +216,7 @@ res.send("𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛 started✅");
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
 connectToWA()
-}, 4000);  
-
-//view once
-
-const client = new Client({
-    authStrategy: new LocalAuth()
-});
-
-client.on('message', async msg => {
-    // "viewonce" plugin එක run කරන්න
-    if (msg.body.startsWith('viewonce')) {
-        await viewOncePlugin.execute(msg, client);
-    }
-});
-
-client.initialize();
+}, 4000); 
 
 
 
