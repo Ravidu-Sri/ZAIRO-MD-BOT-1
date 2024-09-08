@@ -36,6 +36,58 @@ cmd({
 
         // Create buttons
         const buttons = [
+            {
+                buttonId: '1',
+                buttonText: { displayText: 'Option 1' },
+                type: 1
+            },
+            {
+                buttonId: '2',
+                buttonText: { displayText: 'Option 2' },
+                type: 1
+            }
+            // Add more buttons as needed
+        ];
+
+        const buttonMessage = {
+            image: { url: imageUrl },
+            caption: status,
+            footer: config.FOOTER,
+            buttons: buttons,
+            headerType: 4
+        };
+
+        // Send the message with buttons
+        const sentMsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
+
+        // Handle button responses
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.buttonsResponseMessage) return;
+
+            const selectedOption = msg.message.buttonsResponseMessage.selectedButtonId;
+
+            if (msg.message.contextInfo && msg.message.contextInfo.stanzaId === sentMsg.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                        reply(`You selected Option 1.`);
+                        break;
+                    case '2':
+                        reply(`You selected Option 2.`);
+                        break;
+                    default:
+                        reply("Invalid option. Please select a valid menu option.");
+                }
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        reply(`Error: ${e.message}`);
+    }
+});
+        // Create buttons
+        const buttons = [
         let buttons = [{
                     name: "cta_url",
                     buttonParamsJson: JSON.stringify({
