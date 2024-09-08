@@ -35,7 +35,7 @@ cmd({
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Create buttons
-        const buttons = [
+      const buttons = [
     { buttonId: '1', buttonText: { displayText: '💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔' }, type: 1 },
     { buttonId: '2', buttonText: { displayText: '💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔' }, type: 1 },
     { buttonId: '3', buttonText: { displayText: '💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔' }, type: 1 },
@@ -43,11 +43,10 @@ cmd({
 ];
 
 const buttonMessage = {
-    image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' }, // Replace with your image URL
-    caption: `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*\n\n> *Uptime:* ${runtime(process.uptime())}\n\n> *Used*: ${usedRAM} MB\n\n> *Free*: ${freeRAM} MB\n\n> *Total*: ${totalRAM} MB\n\n> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂`,
+    text: `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*\n\n> *Uptime:* ${runtime(process.uptime())}\n\n> *Used*: ${usedRAM} MB\n\n> *Free*: ${freeRAM} MB\n\n> *Total*: ${totalRAM} MB\n\n> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂\n\nමෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️`,
     footer: 'මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️',
     buttons: buttons,
-    headerType: 1 // Set headerType to 1
+    headerType: 1
 };
 
 // Send the message with buttons
