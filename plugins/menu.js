@@ -1,84 +1,92 @@
-const { readEnv } = require('../lib/database');
-const { cmd, commands } = require('../command');
-const os = require("os");
+const { cmd } = require('../command');
 const { runtime } = require('../lib/functions');
 
+// Menu categories
+const menuCategory = {
+    main: "Main Menu",
+    admin: "Admin Commands",
+    downloaders: "Downloaders",
+    tools: "Tools",
+    others: "Other Commands"
+};
+
+// Button-based menu command
 cmd({
     pattern: "menu",
-    alias: ["panel", "penal", "list", "allmenu"],
-    react: "🪴",
-    desc: "Check menu all",
+    react: "📜",
+    desc: "Displays a button-based menu",
     category: "main",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const config = await readEnv();
+}, async (conn, mek, m, { from, reply }) => {
 
-        // RAM usage
-        const totalRAM = Math.round(os.totalmem() / 1024 / 1024); // Total RAM in MB
-        const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
-        const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
+    const buttonMessage = {
+        text: "Please select a menu category:",
+        footer: "ZAIRO MD BOT",
+        buttons: [
+            { buttonId: "menu1", buttonText: { displayText: "1. Main Menu" }, type: 1 },
+            { buttonId: "menu2", buttonText: { displayText: "2. Admin Commands" }, type: 1 },
+            { buttonId: "menu3", buttonText: { displayText: "3. Downloaders" }, type: 1 },
+            { buttonId: "menu4", buttonText: { displayText: "4. Tools" }, type: 1 },
+            { buttonId: "menu5", buttonText: { displayText: "5. Other Commands" }, type: 1 }
+        ],
+        headerType: 1
+    };
 
-        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
-
-> *Uptime:* ${runtime(process.uptime())}
-
-> *Used*: ${usedRAM} MB
-
-> *Free*: ${freeRAM} MB
-
-> *Total*: ${totalRAM} MB
-
-> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
-
-මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
-
- 1 💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
- 2 💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔⤵💥
- 3 💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔⤵💥
- 4 💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
-
-*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`;
-
-        // URL of the image you want to include
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        const sentMsg = await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status
-        }, { quoted: mek || null });
-
-        // Unified event listener to handle different menu options
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
-                const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
-
-                switch (selectedOption) {
-                    case '1':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*OWNERMENU*⤵️⤵️`);
-                        break;
-                    case '2':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*GROUPMENU*⤵️⤵️`);
-                        break;
-                    case '3':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*DOWNLOADMENU*⤵️⤵️`);
-                        break;
-                    case '4':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*OTHERMENU*⤵️⤵️`);
-                        break;
-                    default:
-                        reply("Invalid option. Please select a valid menu option (1-4).");
-                }
-            }
-        });
-
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
-    }
+    await conn.sendMessage(from, buttonMessage, { quoted: mek });
 });
-            
+
+// Button handler
+cmd({
+    pattern: "menu1",
+    react: "📜",
+    desc: "Shows Main Menu",
+    category: "main",
+    filename: __filename
+}, async (conn, mek, m, { from, reply }) => {
+    let menuText = `*${menuCategory.main}*\n\n🔹 .alive - Check bot status\n🔹 .menu - Show menu options\n`;
+    reply(menuText);
+});
+
+cmd({
+    pattern: "menu2",
+    react: "📜",
+    desc: "Shows Admin Commands",
+    category: "admin",
+    filename: __filename
+}, async (conn, mek, m, { from, reply }) => {
+    let menuText = `*${menuCategory.admin}*\n\n🔹 .promote - Promote a user\n🔹 .demote - Demote a user\n`;
+    reply(menuText);
+});
+
+cmd({
+    pattern: "menu3",
+    react: "📜",
+    desc: "Shows Downloaders",
+    category: "downloaders",
+    filename: __filename
+}, async (conn, mek, m, { from, reply }) => {
+    let menuText = `*${menuCategory.downloaders}*\n\n🔹 .download - Download media\n`;
+    reply(menuText);
+});
+
+cmd({
+    pattern: "menu4",
+    react: "📜",
+    desc: "Shows Tools",
+    category: "tools",
+    filename: __filename
+}, async (conn, mek, m, { from, reply }) => {
+    let menuText = `*${menuCategory.tools}*\n\n🔹 .calc - Use the calculator\n`;
+    reply(menuText);
+});
+
+cmd({
+    pattern: "menu5",
+    react: "📜",
+    desc: "Shows Other Commands",
+    category: "others",
+    filename: __filename
+}, async (conn, mek, m, { from, reply }) => {
+    let menuText = `*${menuCategory.others}*\n\n🔹 .help - Get help\n`;
+    reply(menuText);
+});
