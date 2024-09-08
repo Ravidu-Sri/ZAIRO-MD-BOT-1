@@ -7,7 +7,7 @@ getContentType,
 fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
-//const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 
 
 
