@@ -7,7 +7,7 @@ getContentType,
 fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
-const { Client, LocalAuth } = require('whatsapp-web.js');
+//const { Client, LocalAuth } = require('whatsapp-web.js');
 
 
 
@@ -18,7 +18,7 @@ const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
-const viewOncePlugin = require('./plugins/antiviewones');
+//const viewOncePlugin = require('./plugins/antiviewones');
 const axios = require('axios')
 const { File } = require('megajs')
 const prefix = '.'
