@@ -26,11 +26,11 @@ cmd({
         const buttons = [{
             name: "cta_url",
             buttonParamsJson: JSON.stringify({
-                display_text: 'Watch on Facebook',
+                display_text: 'Watch on Facebook'
            //     url: q || 'default_facebook_url',
             //    merchant_url: q || 'https://'
             }),
-        },
+  //      },
        
         }];
 
