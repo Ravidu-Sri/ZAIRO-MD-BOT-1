@@ -1,129 +1,99 @@
-const { cmd } = require('../command');
-const { runtime } = require('../lib/functions');
+const { readEnv } = require('../lib/database');
+const { cmd, commands } = require('../command');
 const os = require('os');
+const { runtime } = require('../lib/functions');
+const { MessageType } = require('@adiwajshing/baileys');
 
-const commandConfig = {
-  pattern: 'menu2',
-  react: '📒',
-  alias: ['help'],
-  desc: "Get bot's command list.",
-  category: 'main',
-  use: '.menu',
-  filename: __filename
-};
+cmd({
+    pattern: "menu",
+    alias: ["panel", "penal", "list", "allmenu"],
+    react: "🪴",
+    desc: "Check menu all",
+    category: "main",
+    filename: __filename
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        const config = await readEnv();
 
-cmd(commandConfig, async (
-  conn,
-  message,
-  from,
-  {
-    from: chatId,
-    l: language,
-    quoted: quotedMessage,
-    body: messageBody,
-    isCmd: isCommand,
-    command: cmdName,
-    args: arguments,
-    q: query,
-    isGroup: isGroupChat,
-    sender: senderId,
-    senderNumber: senderPhoneNumber,
-    botNumber2: botNumberSecondary,
-    botNumber: botNumberPrimary,
-    pushname: senderName,
-    isSachintha: isSachinthaUser,
-    isSavi: isSaviUser,
-    isSadas: isSadasUser,
-    isMani: isManiUser,
-    isMe: isMeUser,
-    isOwner: isOwnerUser,
-    groupMetadata: groupMeta,
-    groupName: groupName,
-    participants: groupParticipants,
-    groupAdmins: groupAdmins,
-    isBotAdmins: isBotAdmin,
-    isAdmins: isAdmin,
-    reply: replyToMessage
-  }
-) => {
-  try {
-    let downloadCommands = '';
-    let searchCommands = '';
-    let convertCommands = '';
-    let logoCommands = '';
-    let mainCommands = '';
-    let groupCommands = '';
-    let bugCommands = '';
-    let otherCommands = '';
+        // RAM usage
+        const totalRAM = Math.round(require('os').totalmem() / 1024 / 1024); // Total RAM in MB
+        const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
+        const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
 
-    // Categorize commands
-    for (let i = 0; i < commands.length; i++) {
-      const command = commands[i];
-      if (command.category === 'download' && !command.dontAddCommandList) {
-        downloadCommands += `*┃▶* .${command.pattern}\n`;
-      }
-      if (command.category === 'search' && !command.dontAddCommandList) {
-        searchCommands += `*┃⩥* .${command.pattern}\n`;
-      }
-      if (command.category === 'convert' && !command.dontAddCommandList) {
-        convertCommands += `*┃▶* .${command.pattern}\n`;
-      }
-      if (command.category === 'logo' && !command.dontAddCommandList) {
-        logoCommands += `*┃▶* .${command.pattern}\n`;
-      }
-      if (command.category === 'main' && !command.dontAddCommandList) {
-        mainCommands += `*┃▶* .${command.pattern}\n`;
-      }
-      if (command.category === 'group' && !command.dontAddCommandList) {
-        groupCommands += `*┃⩥* .${command.pattern}\n`;
-      }
-      if (command.category === 'bug' && !command.dontAddCommandList) {
-        bugCommands += `*┃⩥* .${command.pattern}\n`;
-      }
-      if (command.category === 'other' && !command.dontAddCommandList) {
-        otherCommands += `*┃⩥* .${command.pattern}\n`;
-      }
+        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+
+> *Uptime:* ${runtime(process.uptime())}
+
+> *Used*: ${usedRAM} MB
+
+> *Free*: ${freeRAM} MB
+
+> *Total*: ${totalRAM} MB
+
+> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
+
+මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
+
+
+ 1 💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
+
+ 2 💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔⤵💥
+ 
+ 3 💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔⤵💥
+ 
+ 4 💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
+
+
+*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`;
+
+        // Send the image with the status as the caption
+        const sentMsg = await conn.sendMessage(from, {
+            image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' }, // Replace with your image URL
+            caption: status,
+            buttons: [
+                { buttonId: '1', buttonText: { displayText: '1 💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔⤵' }, type: 1 },
+                { buttonId: '2', buttonText: { displayText: '2 💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔⤵' }, type: 1 },
+                { buttonId: '3', buttonText: { displayText: '3 💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔⤵' }, type: 1 },
+                { buttonId: '4', buttonText: { displayText: '4 💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔⤵' }, type: 1 }
+            ],
+            headerType: 1
+        }, { quoted: mek || null });
+
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.buttonsResponseMessage) return;
+            const selectedOption = msg.message.buttonsResponseMessage.selectedButtonId;
+
+            if (msg.message.buttonsResponseMessage.contextInfo && msg.message.buttonsResponseMessage.contextInfo.stanzaId === sentMsg.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                        await conn.sendMessage(from, { text: "✔️ Option 1 selected. Opening URL..." });
+                        // Open URL
+                        await conn.sendMessage(from, { text: "www.google.com" });
+                        break;
+                    case '2':
+                        await conn.sendMessage(from, { text: "✔️ Option 2 selected. Opening URL..." });
+                        // Open URL
+                        await conn.sendMessage(from, { text: "www.google.com" });
+                        break;
+                    case '3':
+                        await conn.sendMessage(from, { text: "✔️ Option 3 selected. Opening URL..." });
+                        // Open URL
+                        await conn.sendMessage(from, { text: "www.google.com" });
+                        break;
+                    case '4':
+                        await conn.sendMessage(from, { text: "✔️ Option 4 selected. Opening URL..." });
+                        // Open URL
+                        await conn.sendMessage(from, { text: "www.google.com" });
+                        break;
+                    default:
+                        await conn.sendMessage(from, { text: "Invalid option. Please select a valid menu option (1-4)." });
+                }
+            }
+        });
+
+    } catch (e) {
+        console.log(e);
+        reply(`Error: ${e}`);
     }
-
-    // Generate the command list message
-    const statusMessage = `
-*Hello👨‍💻* ${senderName}
-
-*\u256D\u2500 Commands Panel*
-*\u2502🕵️‍♂️ Uptime* ${runtime(process.uptime())}
-*\u2502🕵️‍♂️ Memory* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem() / 1024 / 1024)}MB
-*\u2570\u2500 Command Lists*
-*\u2502🕵️‍♂️ DOWNLOAD COMMANDS*
-${downloadCommands}
-*\u2502🕵️‍♂️ SEARCH COMMANDS*
-${searchCommands}
-*\u2502🕵️‍♂️ CONVERT COMMANDS*
-${convertCommands}
-*\u2502🕵️‍♂️ LOGO COMMANDS*
-${logoCommands}
-*\u2502🕵️‍♂️ MAIN COMMANDS*
-${mainCommands}
-*\u2502🕵️‍♂️ GROUP COMMANDS*
-${groupCommands}
-*\u2502🕵️‍♂️ BUG COMMANDS*
-${bugCommands}
-*\u2502🕵️‍♂️ OTHER COMMANDS*
-${otherCommands}
-*🤖 VAJIRA MD by Technical Cybers*`;
-
-    const logoImage = { url: config.LOGO };
-    const messageOptions = {
-      image: logoImage,
-      caption: statusMessage
-    };
-
-    // Send the message
-    await conn.sendMessage(chatId, messageOptions, {
-      quoted: quotedMessage,
-      messageId: genMsgId(),
-    });
-  } catch (error) {
-    replyToMessage('*Error !!*');
-    console.error(error);
-  }
 });
