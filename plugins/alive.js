@@ -37,12 +37,12 @@ cmd({
         // Auto-delete all messages in the chat after 10 seconds (10000 milliseconds)
         setTimeout(async () => {
             // Fetch the chat messages
-            const messages = await conn.fetchMessages(from, { limit: 100 });
+            const messages = await conn.fetchMessages(from, { delete: message.key });
             for (const message of messages) {
                 if (message.key.fromMe) continue; // Skip messages sent by the bot
                 await conn.sendMessage(from, { delete: message.key });
             }
-        }, 10000); // Adjust the time as needed
+        }, 1000); // Adjust the time as needed
 
     } catch (e) {
         console.log(e);
