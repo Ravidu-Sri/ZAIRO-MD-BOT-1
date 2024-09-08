@@ -1,5 +1,28 @@
 const {cmd, commands} = require('../command');
 
+//const {cmd} = require('../command')
+
+cmd({
+  pattern: "cc",
+  reqct:"💞",
+  desc: "Show menu with buttons",
+  category: "main",
+  filename: __filename
+}, async (conn, mek, m, {from, reply}) => {
+    const buttons = [
+        { buttonId: 'id1', buttonText: { displayText: 'Option 1' }, type: 1 },
+        { buttonId: 'id2', buttonText: { displayText: 'Option 2' }, type: 1 }
+    ];
+
+    const buttonMessage = {
+        text: "Choose an option",
+        buttons: buttons,
+        headerType: 1
+    };
+
+    await conn.sendMessage(from, buttonMessage);
+});
+
 cmd({
     pattern: "setname", // Command name
     react: "✏️", // Reaction shown when command is called
