@@ -81,21 +81,4 @@ cmd({
         reply(`Error: ${e.message}`);
     }
 });
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '4') {
-                
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
-             ⤵️⤵️*OWNERMENU⤵*⤵️⤵️4
-             
-                         }
-        });
-
-
-        
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
-    }
-});
+            
