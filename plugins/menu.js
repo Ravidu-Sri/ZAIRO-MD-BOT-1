@@ -49,58 +49,38 @@ cmd({
             caption: status
         }, { quoted: mek || null });
 
-        //1111111111111
-
+        // Unified event listener to handle different menu options
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
 
-            // Check if the message is a reply to the thumbnail message and contains "yes"
             if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '1') {
-                
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
-             ⤵️⤵️*OWNERMENU⤵*⤵️⤵️
-             
-                         }
-        });
-//222222222232222
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
+                const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
 
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '2') {
-                
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
-             ⤵️⤵️*OWNERMENU⤵*⤵️⤵️2
-             
-                         }
+                switch (selectedOption) {
+                    case '1':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*OWNERMENU*⤵️⤵️`);
+                        break;
+                    case '2':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*GROUPMENU*⤵️⤵️`);
+                        break;
+                    case '3':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*DOWNLOADMENU*⤵️⤵️`);
+                        break;
+                    case '4':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸\n⤵️⤵️*OTHERMENU*⤵️⤵️`);
+                        break;
+                    default:
+                        reply("Invalid option. Please select a valid menu option (1-4).");
+                }
+            }
         });
 
-        //333333333333
-
-
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
-            // Check if the message is a reply to the thumbnail message and contains "yes"
-            if (msg.message && msg.message.extendedTextMessage && 
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
-                msg.message.extendedTextMessage.text.toLowerCase() === '3') {
-                
-                ✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸
-             ⤵️⤵️*OWNERMENU⤵*⤵️⤵️3
-             
-                         }
-        });
-
-        ///////////44444444444444
-
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-
+    } catch (e) {
+        console.error(e);
+        reply(`Error: ${e.message}`);
+    }
+});
             // Check if the message is a reply to the thumbnail message and contains "yes"
             if (msg.message && msg.message.extendedTextMessage && 
                 msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id &&
