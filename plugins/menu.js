@@ -60,10 +60,25 @@ cmd({
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*`);
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
+
+💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔💥
+
+> *_.restart_*
+Ex.( .restart )
+Bot Restart කරයි✅
+
+> *-.settings-*
+Ex. ( .restart )
+Botගේ සෙටින් ලබා දෙයි✅
+
+
+
+`);
                         break;
                     case '2':
-                        reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔
+                        reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔💥
+
 > *_.add_*
 Ex.( .add 94776734030 )
 ගෲපයේ නැති සමාජිකයෙක් Add කරයි.
@@ -125,7 +140,8 @@ Ex.( .left )
 ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ `);
                         break;
                     case '3':
-                        reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
+                        reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔💥
+
 > *_.play_*
 Ex.( .play <Song name> )
 ඔබ ටයිප් කරන සෝන් එකේ Audio එක පමනක් ලබා දෙයි✅
@@ -155,7 +171,7 @@ Ex. ( .gdrive <Enter Google Drive Link> )
 Google drive File එක බාගත⬇️ කරයි✅`);
                         break;
                     case '4':
-                        reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔`);
+                        reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔💥`);
                         break;
                     default:
                         reply("Invalid option. Please select a valid menu option (1-4).");
