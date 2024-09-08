@@ -50,41 +50,53 @@ cmd({
 
         // Listen for poll response
         conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.pollVoteMessage) return;
+            try {
+                const msg = msgUpdate.messages[0];
+                
+                // Log for debugging purposes
+                console.log("Received Message:", msg);
 
-            // Ensure it's a pollVoteMessage
-            if (!msg.message.pollVoteMessage.selectedOptions) {
-                return reply('Error: No valid option selected.');
-            }
+                if (!msg.message || !msg.message.pollVoteMessage) return;
 
-            const selectedOption = msg.message.pollVoteMessage.selectedOptions[0];
+                // Ensure it's a pollVoteMessage
+                if (!msg.message.pollVoteMessage.selectedOptions) {
+                    return reply('Error: No valid option selected.');
+                }
 
-            if (!selectedOption) {
-                return reply('Error: No option selected.');
-            }
+                const selectedOption = msg.message.pollVoteMessage.selectedOptions[0];
 
-            // Handle poll options
-            switch (selectedOption.optionName) {
-                case 'Owner Menu':
-                    reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*`);
-                    break;
-                case 'Group Menu':
-                    reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔 content here`);
-                    break;
-                case 'Download Menu':
-                    reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔 content here`);
-                    break;
-                case 'Other Menu':
-                    reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔 content here`);
-                    break;
-                default:
-                    reply("Invalid selection. Please select a valid option.");
+                if (!selectedOption) {
+                    return reply('Error: No option selected.');
+                }
+
+                // Log selected option
+                console.log("Selected Option:", selectedOption);
+
+                // Handle poll options
+                switch (selectedOption.optionName) {
+                    case 'Owner Menu':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*`);
+                        break;
+                    case 'Group Menu':
+                        reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔 content here`);
+                        break;
+                    case 'Download Menu':
+                        reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔 content here`);
+                        break;
+                    case 'Other Menu':
+                        reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔 content here`);
+                        break;
+                    default:
+                        reply("Invalid selection. Please select a valid option.");
+                }
+            } catch (pollError) {
+                console.error("Error in Poll Handling:", pollError);
+                reply('Error processing your vote. Please try again.');
             }
         });
 
     } catch (err) {
-        console.error(err);
+        console.error("Main Error:", err);
         reply("An error occurred: " + err.message);
     }
 });
