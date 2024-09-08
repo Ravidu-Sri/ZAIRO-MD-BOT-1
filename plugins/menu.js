@@ -19,7 +19,7 @@ cmd({
         const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
         const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
 
-        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕒 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 
 > *Uptime:* ${runtime(process.uptime())}
 
@@ -56,70 +56,6 @@ cmd({
             buttons: buttons,
             headerType: 4
         };
-
-        // Send the message with buttons
-        const sentMsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
-
-        // Handle button responses
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.buttonsResponseMessage) return;
-
-            const selectedOption = msg.message.buttonsResponseMessage.selectedButtonId;
-
-            if (msg.message.contextInfo && msg.message.contextInfo.stanzaId === sentMsg.key.id) {
-                switch (selectedOption) {
-                    case '1':
-                        reply(`You selected Option 1.`);
-                        break;
-                    case '2':
-                        reply(`You selected Option 2.`);
-                        break;
-                    default:
-                        reply("Invalid option. Please select a valid menu option.");
-                }
-            }
-        });
-
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
-    }
-});
-        // Create buttons
-        const buttons = [
-        let buttons = [{
-                    name: "cta_url",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: 'Watch on Facebook',
-                        url: q,
-                        merchant_url: q
-                    }),
-                },
-                {
-                    name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "SD Quality",
-                        id: ".downfb " + result.sd
-                    }),
-                },
-                {
-                    name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "HD Quality",
-                        id: ".downfb " + result.hd
-                    }),
-                }
-                ]
-        ];
-                let message = {
-                    image: result.thumbnail,
-                    header: '',
-                    footer: config.FOOTER,
-                    body: msg
-
-                }
-                return conn.sendButtonMessage(from, buttons, m, message)
 
         // Send the message with buttons
         const sentMsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
