@@ -13,6 +13,35 @@ cmd({
     category: "main",
     filename: __filename
 }, async (conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+
+  let buttons = [{
+                    name: "cta_url",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: 'Watch on Facebook',
+                        url: q,
+                        merchant_url: q
+                    }),
+                },
+                {
+                    name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "SD Quality",
+                        id: ".downfb " + result.sd
+                    }),
+                },
+                {
+                    name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "HD Quality",
+                        id: ".downfb " + result.hd
+                    }),
+                }
+                ]
+
+
+
+
+
     try {
         // RAM usage
         const totalRAM = Math.round(require('os').totalmem() / 1024 / 1024); // Total RAM in MB
@@ -53,6 +82,8 @@ cmd({
             image: { url: imageUrl },
             caption: status
         }, { quoted: mek || null });
+
+return conn.sendButtonMessage(from, buttons, m, message);
 
         // Store the sent message for reference
         global.sentMsg = sentMsg;
