@@ -21,7 +21,7 @@ const { sms,downloadMediaMessage } = require('./lib/msg')
 //const viewOncePlugin = require('./plugins/antiviewones');
 const axios = require('axios')
 const { File } = require('megajs')
-const prefix = '.'
+
 
 
 const ownerNumber = ['94776734030']
@@ -52,6 +52,20 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
+
+//mongo dp
+
+const connectDB = require('./lib/mongodb')
+connectDB();
+
+//_______________
+
+const {readEnv} = require('./lib/database')
+const config =await readEnv();
+const prefix = config.PREFIX
+//=====≈=====≈
+
+
 console.log("Connecting 𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛✅...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
