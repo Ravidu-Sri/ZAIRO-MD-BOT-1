@@ -36,26 +36,37 @@ cmd({
 
         // Create buttons
         const buttons = [
-            {
-                buttonId: '1',
-                buttonText: { displayText: 'Option 1' },
-                type: 1
-            },
-            {
-                buttonId: '2',
-                buttonText: { displayText: 'Option 2' },
-                type: 1
-            }
-            // Add more buttons as needed
-        ];
+        let buttons = [{
+                    name: "cta_url",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: 'Watch on Facebook',
+                        url: q,
+                        merchant_url: q
+                    }),
+                },
+                {
+                    name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "SD Quality",
+                        id: ".downfb " + result.sd
+                    }),
+                },
+                {
+                    name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "HD Quality",
+                        id: ".downfb " + result.hd
+                    }),
+                }
+                ]
+                let message = {
+                    image: result.thumbnail,
+                    header: '',
+                    footer: config.FOOTER,
+                    body: msg
 
-        const buttonMessage = {
-            image: { url: imageUrl },
-            caption: status,
-            footer: 'Choose an option:',
-            buttons: buttons,
-            headerType: 4
-        };
+                }
+                return conn.sendButtonMessage(from, buttons, m, message)
 
         // Send the message with buttons
         const sentMsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
