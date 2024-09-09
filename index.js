@@ -9,7 +9,6 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const { default: makeWASocket, useSingleFileAuthState, delay } = require('@adiwajshing/baileys');
 const { unlink } = require('fs');
 
 
