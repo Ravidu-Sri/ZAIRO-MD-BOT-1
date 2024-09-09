@@ -21,6 +21,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         // Check bot's mode and assign appropriate status
         let liveMode;
         switch (finalMode1.toLowerCase()) {
+            case 'inbox':
+                liveMode = "Bot is active in Inbox only.";
+                break;
             case 'public':
                 liveMode = "Bot is in Public Mode.";
                 break;
@@ -30,9 +33,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             case 'groups':
                 liveMode = "Bot is active in Groups only.";
                 break;
-            case 'inbox':
-                liveMode = "Bot is active in Inbox only.";
-                break;
+            
             default:
                 liveMode = "Mode is not properly set.";
                 break;
@@ -40,7 +41,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
-        > *MODE*: ${MODE}
+        > *MODE*: ${liveMode}
 
         > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
 
