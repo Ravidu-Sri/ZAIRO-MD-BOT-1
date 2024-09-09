@@ -1,8 +1,12 @@
 const { cmd, commands } = require('../command');
-const {} = require('../plugins/update_env');  // finalMode and validModes imported
+const { EnvVar } = require('../models/envVarModel');
 
-// Default mode to 'public' if MODE environment variable is not set
-const MODE = allEnvVars.map(env => `${env.key}: ${env.value}`).join('\n');
+/**
+ * Fetches an environment variable and lists all existing variables if not found.
+ * @param {string} key - The key of the environment variable to fetch.
+ * @param {function} reply - Function to send the reply message.
+ */
+
 
 cmd({
     pattern: "settings",
@@ -15,11 +19,15 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         if(!isOwner) return;
 
+const envVar = await EnvVar.findOne({ key: key });
+
+const allEnvVars = await EnvVar.find({});
+            const envList = allEnvVars.map(env => `${env.key}: ${env.value}`).join('\n');
         
 
         let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
-        > *MODE*: ${MODE}
+        > *MODE*: ${envList}
 
         > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
 
