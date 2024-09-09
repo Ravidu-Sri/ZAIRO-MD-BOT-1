@@ -339,7 +339,7 @@ match = match || message.reply_message.jid;
 cmd({
     pattern: "kickall", // Command name
     react: "🧹", // Reaction shown when command is called
-    desc: "Remove all members from the group", // Command description
+    desc: "Remove all members from the group except the bot owner", // Command description
     category: "group", // Command category
     filename: __filename, // Current file name
     admin: true, // Admin permission required
@@ -349,13 +349,25 @@ cmd({
         if (!isAdmins) return reply('⚠️ ඔබට පරිපාලක අවසරය නැත.');
         if (!isBotAdmins) return reply('⚠️ මම පරිපාලක අයිතියක් නැත.');
 
-        // Get all group members
-        const participants = groupMetadata.participants;
-        const memberIds = participants.map(p => p.id);
+//const groupMetadata = await ////message.client.groupMetadata(message.jid);
+  //    const participants = groupMetadata.participants;
+   //   const admins = participants.filter(p => p.admin).map(p => p.id);
+  //    const botOwner = message.client.user.id.split(":")[0] + "@s.whatsapp.net";
 
-        // Remove all members from the group
+
+
+        // Bot owner ID (Replace with your bot owner's ID)
+        const botOwner = message.client.user.id.split(":")[0] + "@s.whatsapp.net";
+
+        // Get all group members except the bot owner
+        const participants = groupMetadata.participants;
+        const memberIds = participants
+            .map(p => p.id)
+            .filter(id => id !== botOwner);
+
+        // Remove all members except the bot owner from the group
         await conn.groupParticipantsUpdate(from, memberIds, 'remove');
-        reply('✅ All members have been removed from the group.');
+        reply('✅ All members except the bot owner have been removed from the group.');
         
     } catch (e) {
         console.log(e);
