@@ -1,3 +1,4 @@
+const { updateEnv, readEnv } = require('../lib/database');
 const { cmd, commands } = require('../command');
 //const { EnvVar } = require('../plugins/update_env');
 const EnvVar = require('../lib/mongodbenv');
@@ -19,6 +20,10 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         if(!isOwner) return;
+
+// Extract key and value
+    const key = q.substring(0, delimiterIndex).trim();
+    const value = q.substring(delimiterIndex + 1).trim();
 
 const envVar = await EnvVar.findOne({ key: key });
 
