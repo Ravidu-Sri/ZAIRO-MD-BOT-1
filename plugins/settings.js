@@ -1,5 +1,8 @@
 const { cmd, commands } = require('../command');
 
+// Default mode to 'public' if MODE environment variable is not set
+const MODE = process.env.MODE || 'public';
+
 cmd({
     pattern: "settings",
     alias: ["setting"],
@@ -11,9 +14,29 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
     if(!isOwner) return
 
+// Check bot's mode and assign appropriate status
+let liveMode;
+switch (MODE.toLowerCase()) {
+    case 'public':
+        liveMode = "Bot is in Public Mode.";
+        break;
+    case 'private':
+        liveMode = "Bot is in Private Mode.";
+        break;
+    case 'groups':
+        liveMode = "Bot is active in Groups only.";
+        break;
+    case 'inbox':
+        liveMode = "Bot is active in Inbox only.";
+        break;
+    default:
+        liveMode = "Mode is not properly set.";
+        break;
+}
+
 let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
-> *MODE*: ${process.env.MODE || 'Not Set'}
+> *MODE*: ${liveMode}
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
 
