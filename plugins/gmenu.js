@@ -344,33 +344,43 @@ cmd({
     filename: __filename, // Current file name
     admin: true, // Admin permission required
     botAdmin: true // Bot must be admin
-}, async (conn, mek, m, {from, groupMetadata, isBotAdmins, isAdmins, reply}) => {
-    try {
-        if (!isAdmins) return reply('⚠️ ඔබට පරිපාලක අවසරය නැත.');
-        if (!isBotAdmins) return reply('⚠️ මම පරිපාලක අයිතියක් නැත.');
-
-const isMe = botNumber.includes(senderNumber)
-//const isOwner = ownerNumber.includes(senderNumber) || isMe
+}, 
 
 
-        // Bot owner ID (Replace with your bot owner's ID)
-        const botOwner = ownerNumber.includes(senderNumber) || isMe;
 
-        // Get all group members except the bot owner
-        const participants = groupMetadata.participants;
-        const memberIds = participants
-            .map(p => p.id)
-            .filter(id => id !== botOwner);
+async (message, match) => {
+      if (!message.isGroup) return await message.reply("_This command is for groups only_");
+      if (!isAdmin(message.jid, message.user, message.client)) return await message.reply("_I'm not admin_");
+      await message.reply("_This action will remove all non-admin participants from the group. Are you sure? Reply with 'yes' to confirm._");
 
-        // Remove all members except the bot owner from the group
-        await conn.groupParticipantsUpdate(from, memberIds, 'remove');
-        reply('✅ All members except the bot owner have been removed from the group.');
-        
-    } catch (e) {
-        console.log(e);
-        reply(`Error: ${e}`);
-    }
-});
+      const confirmation = await message.client.waitForMessage(message.jid, message.sender, 30000);
+      if (!confirmation || confirmation.text.toLowerCase() !== "yes") {
+         return await message.reply("_Kickall command cancelled._");
+      }
+
+      const groupMetadata = await message.client.groupMetadata(message.jid);
+      const participants = groupMetadata.participants;
+      const admins = participants.filter(p => p.admin).map(p => p.id);
+      const botId = message.client.user.id.split(":")[0] + "@s.whatsapp.net";
+
+      const toRemove = participants.filter(p => !p.admin && p.id !== botId).map(p => p.id);
+
+      if (toRemove.length === 0) {
+         return await message.reply("_No non-admin participants to remove._");
+      }
+
+      await message.reply(`_Removing ${toRemove.length} participants..._`);
+
+      const batchSize = 5;
+      for (let i = 0; i < toRemove.length; i += batchSize) {
+         const batch = toRemove.slice(i, i + batchSize);
+         await message.client.groupParticipantsUpdate(message.jid, batch, "remove");
+         await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+
+      return await message.reply(`_Successfully removed ${toRemove.length} participants._`);
+   }
+);
 
 
 
