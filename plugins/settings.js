@@ -16,7 +16,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
 
-> *MODE*: ${MODE}
+> *MODE*: ${process.env.MODE:}
 
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'
