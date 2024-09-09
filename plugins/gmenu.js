@@ -3,25 +3,25 @@ const {cmd, commands} = require('../command');
 //const {cmd} = require('../command')
 
 cmd({
-  pattern: "cc",
+  pattern: "bb",
   reqct:"💞",
   desc: "Show menu with buttons",
   category: "main",
   filename: __filename
-}, async (conn, mek, m, {from, reply}) => {
-    const buttons = [
-        { buttonId: 'id1', buttonText: { displayText: 'Option 1' }, type: 1 },
-        { buttonId: 'id2', buttonText: { displayText: 'Option 2' }, type: 1 }
-    ];
+}, async (conn, mek, m, {from, args, isBotAdmins, isAdmins, reply}) => {
+    try {
+    if (!message.reply_message) return await message.reply("Reply a ViewOnce");
+    let buff = await m.quoted.download();
+    return await message.sendFile(buff);
 
-    const buttonMessage = {
-        text: "Choose an option",
-        buttons: buttons,
-        headerType: 1
-    };
 
-    await conn.sendMessage(from, buttonMessage);
+} catch (e) {
+        console.log(e);
+        reply(`Error: ${e}`);
+    }
 });
+
+
 
 cmd({
     pattern: "setname", // Command name
