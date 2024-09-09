@@ -1,7 +1,7 @@
 const { cmd, commands } = require('../command');
 
 // Default mode to 'public' if MODE environment variable is not set
-const MODE = process.env.MODE || 'public';
+const MODE = process.env.MODE || '../lib/database';
 
 cmd({
     pattern: "settings",
