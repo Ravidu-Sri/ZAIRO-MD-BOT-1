@@ -171,7 +171,7 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
 //============================================================================ 
 
 
-const events = require('./command')
+/*const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
 if (isCmd) {
 const cmd = events.commands.find((cmd) => cmd.pattern === (cmdName)) || events.commands.find((cmd) => cmd.alias && cmd.alias.includes(cmdName))
@@ -200,7 +200,114 @@ command.on === "sticker" &&
 mek.type === "stickerMessage"
 ) {
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
-}});
+}});/*
+
+const events = require('./command');
+
+// Get command name
+const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
+
+if (isCmd) {
+    // Find the matching command
+    const cmd = events.commands.find((cmd) => cmd.pattern === (cmdName)) || events.commands.find((cmd) => cmd.alias && cmd.alias.includes(cmdName));
+
+    if (cmd) {
+        if (cmd.react) conn.sendMessage(from, { react: { text: cmd.react, key: mek.key }});
+
+        try {
+            // Execute the command function
+            const msg = await cmd.function(conn, mek, m, {
+                from, quoted, body, isCmd, command, args, q, isGroup, 
+                sender, senderNumber, botNumber2, botNumber, pushname, 
+                isMe, isOwner, groupMetadata, groupName, participants, 
+                groupAdmins, isBotAdmins, isAdmins, reply
+            });
+
+            // Auto-delete the message after 5 seconds for everyone
+            if (msg && msg.key && msg.key.id) {
+                setTimeout(async () => {
+                    await conn.sendMessage(from, {
+                        delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+                    });
+                }, 5000); // Auto delete after 5 seconds
+            }
+        } catch (e) {
+            console.error("[PLUGIN ERROR] " + e);
+        }
+    }
+}
+
+// Handle other commands based on body, image, text, etc.
+events.commands.map(async (command) => {
+    if (body && command.on === "body") {
+        const msg = await command.function(conn, mek, m, {
+            from, l, quoted, body, isCmd, command, args, q, 
+            isGroup, sender, senderNumber, botNumber2, botNumber, 
+            pushname, isMe, isOwner, groupMetadata, groupName, 
+            participants, groupAdmins, isBotAdmins, isAdmins, reply
+        });
+
+        // Auto-delete the message after 5 seconds
+        if (msg && msg.key && msg.key.id) {
+            setTimeout(async () => {
+                await conn.sendMessage(from, {
+                    delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+                });
+            }, 5000);
+        }
+
+    } else if (mek.q && command.on === "text") {
+        const msg = await command.function(conn, mek, m, {
+            from, l, quoted, body, isCmd, command, args, q, 
+            isGroup, sender, senderNumber, botNumber2, botNumber, 
+            pushname, isMe, isOwner, groupMetadata, groupName, 
+            participants, groupAdmins, isBotAdmins, isAdmins, reply
+        });
+
+        // Auto-delete the message after 5 seconds
+        if (msg && msg.key && msg.key.id) {
+            setTimeout(async () => {
+                await conn.sendMessage(from, {
+                    delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+                });
+            }, 5000);
+        }
+
+    } else if ((command.on === "image" || command.on === "photo") && mek.type === "imageMessage") {
+        const msg = await command.function(conn, mek, m, {
+            from, l, quoted, body, isCmd, command, args, q, 
+            isGroup, sender, senderNumber, botNumber2, botNumber, 
+            pushname, isMe, isOwner, groupMetadata, groupName, 
+            participants, groupAdmins, isBotAdmins, isAdmins, reply
+        });
+
+        // Auto-delete the message after 5 seconds
+        if (msg && msg.key && msg.key.id) {
+            setTimeout(async () => {
+                await conn.sendMessage(from, {
+                    delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+                });
+            }, 5000);
+        }
+
+    } else if (command.on === "sticker" && mek.type === "stickerMessage") {
+        const msg = await command.function(conn, mek, m, {
+            from, l, quoted, body, isCmd, command, args, q, 
+            isGroup, sender, senderNumber, botNumber2, botNumber, 
+            pushname, isMe, isOwner, groupMetadata, groupName, 
+            participants, groupAdmins, isBotAdmins, isAdmins, reply
+        });
+
+        // Auto-delete the message after 5 seconds
+        if (msg && msg.key && msg.key.id) {
+            setTimeout(async () => {
+                await conn.sendMessage(from, {
+                    delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+                });
+            }, 5000);
+        }
+    }
+});
 
 if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
