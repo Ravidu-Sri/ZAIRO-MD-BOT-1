@@ -6,7 +6,16 @@ cmd({
     desc: "Send a message and auto delete it after 5 seconds",
     category: "main",
     filename: __filename
-}, async (conn, mek, m, { 
+}, 
+
+// Auto-delete the message after 5 seconds for everyone
+        setTimeout(async () => {
+            await conn.sendMessage(from, {
+                delete: { id: msg.key.id, remoteJid: from, fromMe: false }
+            });
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+async (conn, mek, m, { 
     from, quoted, body, isCmd, command, args, q, isGroup, 
     sender, senderNumber, botNumber2, botNumber, pushname, 
     isMe, isOwner, groupMetadata, groupName, participants, 
