@@ -302,14 +302,19 @@ cmd({
 cmd(
    {
       pattern: "kick",
-      fromMe: mode,
-      desc: "kicks a person from group",
-      type: "group",
-   },
-   async (message, match) => {
-      if (!message.isGroup) return await message.reply("_This command is for groups_");
+      react: "🧹", // Reaction shown when command is called
+    desc: "Remove all members from the group", // Command description
+    category: "group", // Command category
+    filename: __filename, // Current file name
+    admin: true, // Admin permission required
+    botAdmin: true // Bot must be admin
+}, async (conn, mek, m, {from, groupMetadata, isBotAdmins, isAdmins, reply}) => {
+    try {
+        if (!isAdmins) return reply('⚠️ ඔබට පරිපාලක අවසරය නැත.');
+        if (!isBotAdmins) return reply('⚠️ මම පරිපාලක අයිතියක් නැත.');
 
-      match = match || message.reply_message.jid;
+
+match = match || message.reply_message.jid;
       if (!match) return await message.reply("_Mention user to kick_");
 
       const isadmin = await isAdmin(message.jid, message.user, message.client);
@@ -322,8 +327,12 @@ cmd(
       return await message.reply(`_@${jid[0].split("@")[0]} kicked_`, {
          mentions: [jid],
       });
-   }
-);
+
+} catch (e) {
+        console.log(e);
+        reply(`Error: ${e}`);
+    }
+});
 
 
 
