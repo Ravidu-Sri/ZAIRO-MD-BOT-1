@@ -9,7 +9,6 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const { unlink } = require('fs');
 
 
 
@@ -174,47 +173,7 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
 
 
 
-// Baileys සම්බන්ධ කිරීම
-const { state, saveState } = useSingleFileAuthState('./auth_info.json');
 
-async function startWhatsAppBot() {
-    const sock = makeWASocket({
-        auth: state,
-        printQRInTerminal: true
-    });
-
-    sock.ev.on('messages.upsert', async ({ messages }) => {
-        const msg = messages[0];
-        if (!msg.message) return;
-
-        const chatId = msg.key.remoteJid;
-        
-        // Message යැවීම
-        const sentMsg = await sock.sendMessage(chatId, { text: 'මෙම පණිවිඩය තත්පර 5කින් මකනු ලැබේ' });
-
-        // Set a 5-second timeout to delete the message
-        setTimeout(async () => {
-            await sock.sendMessage(chatId, {
-                delete: {
-                    remoteJid: chatId,
-                    fromMe: true,
-                    id: sentMsg.key.id,
-                    participant: sentMsg.key.participant
-                }
-            });
-        }, 5000);
-    });
-
-    sock.ev.on('connection.update', (update) => {
-        if (update.connection === 'close') {
-            startWhatsAppBot(); // Reconnect if the connection drops
-        }
-    });
-
-    sock.ev.on('creds.update', saveState);
-}
-
-startWhatsAppBot();
 
 
 
