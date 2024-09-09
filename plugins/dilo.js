@@ -1,5 +1,5 @@
 const config = require('../config')
-const {cmd, commands} = require('../command')
+const { cmd, commands } = require('../command')
 
 cmd({
     pattern: "vima",
@@ -39,23 +39,29 @@ https://wa.me/94776734030
 thanks for purchase`;
 
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-        const audioUrl = 'https://drive.google.com/uc?export=download&id=1YYPnkKWdrxFe8C2kWdwf8qkeE0PO5RjW';
 
         // Check if mek is valid before using it
         const quotedMessage = mek ? mek : null;
 
         // Send the image with the caption
-        await conn.sendMessage(from, {
+        const msg = await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status
         }, { quoted: quotedMessage });
 
-        // Send the voice recording
-     //   await conn.sendMessage(from, {
-         //   audio: { url: audioUrl }, 
-      //      mimetype: 'audio/mp4', // Adjust this if your //audio file is in another format
-          //  ptt: true // This makes the audio act like a voice note
-     //   }, { quoted: quotedMessage });
+        // Send reply to Vimukthi and Sampath
+        const vimukthiMessage = `✅ *Vimukthi* has successfully received the message.`;
+        const sampathMessage = `✅ *Sampath* has successfully received the message.`;
+
+        await conn.sendMessage(from, { text: vimukthiMessage }, { quoted: msg });
+        await conn.sendMessage(from, { text: sampathMessage }, { quoted: msg });
+
+        // Auto-delete the messages after 5 seconds for everyone
+        setTimeout(async () => {
+            await conn.sendMessage(from, {
+                delete: { id: msg.key.id, fromMe: true }
+            });
+        }, 5000);
 
     } catch (e) {
         console.error('Error sending message:', e);
