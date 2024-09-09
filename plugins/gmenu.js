@@ -349,15 +349,11 @@ cmd({
         if (!isAdmins) return reply('⚠️ ඔබට පරිපාලක අවසරය නැත.');
         if (!isBotAdmins) return reply('⚠️ මම පරිපාලක අයිතියක් නැත.');
 
-//const groupMetadata = await ////message.client.groupMetadata(message.jid);
-  //    const participants = groupMetadata.participants;
-   //   const admins = participants.filter(p => p.admin).map(p => p.id);
-  //    const botOwner = message.client.user.id.split(":")[0] + "@s.whatsapp.net";
 
 
 
         // Bot owner ID (Replace with your bot owner's ID)
-        const botOwner = message.client.user.id.split(":")[0] + "@s.whatsapp.net";
+        const botOwner = ( + "@s.whatsapp.net";
 
         // Get all group members except the bot owner
         const participants = groupMetadata.participants;
