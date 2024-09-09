@@ -1,6 +1,40 @@
 const config = require('../config')
 const { cmd, commands } = require('../command')
 
+
+const config = require('../config')
+const { cmd, commands } = require('../command')
+
+cmd({
+    pattern: "kiya",
+    desc: "Send a message and auto delete it after 5 seconds",
+    category: "main",
+    filename: __filename
+}, async (conn, mek, m, { 
+    from, quoted, body, isCmd, command, args, q, isGroup, 
+    sender, senderNumber, botNumber2, botNumber, pushname, 
+    isMe, isOwner, groupMetadata, groupName, participants, 
+    groupAdmins, isBotAdmins, isAdmins, reply 
+}) => {
+    try {
+        const message = '✅ *Message from bot*: This is the `.kiyaa` command.';
+
+        // Send the message
+        const msg = await conn.sendMessage(from, { text: message }, { quoted: mek });
+
+        // Auto-delete the message after 5 seconds for everyone
+        setTimeout(async () => {
+            await conn.sendMessage(from, {
+                delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+            });
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+    } catch (e) {
+        console.error('Error sending message:', e);
+        reply(`An error occurred: ${e.message}`);
+    }
+});
+
 cmd({
     pattern: "vima",
     desc: "Check if the bot is online.",
