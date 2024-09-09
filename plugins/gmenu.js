@@ -299,7 +299,7 @@ cmd({
 
 
 
-command(
+cmd(
    {
       pattern: "kick",
       fromMe: mode,
