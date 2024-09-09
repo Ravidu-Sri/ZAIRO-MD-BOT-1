@@ -13,7 +13,7 @@ cmd({
             await conn.sendMessage(from, {
                 delete: { id: msg.key.id, remoteJid: from, fromMe: false }
             });
-        }, 5000); // 5000 milliseconds = 5 seconds
+        }, 5000) // 5000 milliseconds = 5 seconds
 
 async (conn, mek, m, { 
     from, quoted, body, isCmd, command, args, q, isGroup, 
