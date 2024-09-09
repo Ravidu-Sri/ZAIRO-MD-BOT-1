@@ -299,31 +299,31 @@ cmd({
 
 
 
-cmd({
-    pattern: "kick", // Command name
-    react: "👢", // Reaction shown when command is called
-    desc: "Remove a member from the group", // Command description
-    category: "group", // Command category
-    filename: __filename, // Current file name
-    admin: true, // Admin permission required
-    botAdmin: true // Bot must be admin
-}, async (conn, mek, m, {from, args, isBotAdmins, isAdmins, reply}) => {
-    try {
-        if (!isAdmins) return reply('⚠️ ඔබට පරිපාලක අවසරය නැත.');
-        if (!isBotAdmins) return reply('⚠️ මම පරිපාලක අයිතියක් නැත.');
+command(
+   {
+      pattern: "kick",
+      fromMe: mode,
+      desc: "kicks a person from group",
+      type: "group",
+   },
+   async (message, match) => {
+      if (!message.isGroup) return await message.reply("_This command is for groups_");
 
-        const userToKick = mek.message.extendedTextMessage ? mek.message.extendedTextMessage.contextInfo.mentionedJid : [];
-        if (userToKick.length === 0) return reply('කරුණාකර kick කිරීමට අවශ්‍ය සාමාජිකයන් mention කරන්න.');
+      match = match || message.reply_message.jid;
+      if (!match) return await message.reply("_Mention user to kick_");
 
-        // Kick the member(s) from the group
-        await conn.groupParticipantsUpdate(from, userToKick, 'remove');
-        reply(`✅ Member kicked successfully: @${userToKick[0].split('@')[0]}`);
-        
-    } catch (e) {
-        console.log(e);
-        reply(`Error: ${e}`);
-    }
-});
+      const isadmin = await isAdmin(message.jid, message.user, message.client);
+
+      if (!isadmin) return await message.reply("_I'm not admin_");
+      const jid = parsedJid(match);
+
+      await message.client.groupParticipantsUpdate(message.jid, jid, "remove");
+
+      return await message.reply(`_@${jid[0].split("@")[0]} kicked_`, {
+         mentions: [jid],
+      });
+   }
+);
 
 
 
