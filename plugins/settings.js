@@ -22,8 +22,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         if(!isOwner) return;
 
 // Extract key and value
-    const key = q.substring(0, delimiterIndex).trim();
-    const value = q.substring(delimiterIndex + 1).trim();
+//    const key = q.substring(0, delimiterIndex).trim();
+ //   const value = q.substring(delimiterIndex + 1).trim();
 
 const envVar = await EnvVar.findOne({ key: key });
 
