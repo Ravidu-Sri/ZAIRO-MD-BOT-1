@@ -1,5 +1,5 @@
 const { cmd, commands } = require('../command');
-const { EnvVar } = require('../models/envVarModel');
+const { EnvVar } = require('../plugins/update_env');
 
 /**
  * Fetches an environment variable and lists all existing variables if not found.
