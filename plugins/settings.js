@@ -3,7 +3,7 @@ const {finalMode} = require('../plugins/update_env');
 
 
 
-  //  const finalMode = validModes.includes(mode) ? mode : '';
+    const finalMode1 = validModes.includes(mode) ? mode : '';
 
 // Default mode to 'public' if MODE environment variable is not set
 const MODE = process.env.MODE || '../lib/database';
@@ -41,7 +41,7 @@ switch (MODE.toLowerCase()) {
 
 let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
-> *MODE*: ${finalMode}
+> *MODE*: ${finalMode1}
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
 
