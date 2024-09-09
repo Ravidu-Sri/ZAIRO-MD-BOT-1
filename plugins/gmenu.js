@@ -349,11 +349,12 @@ cmd({
         if (!isAdmins) return reply('⚠️ ඔබට පරිපාලක අවසරය නැත.');
         if (!isBotAdmins) return reply('⚠️ මම පරිපාලක අයිතියක් නැත.');
 
-
+const isMe = botNumber.includes(senderNumber)
+//const isOwner = ownerNumber.includes(senderNumber) || isMe
 
 
         // Bot owner ID (Replace with your bot owner's ID)
-        const botOwner = ( + "@s.whatsapp.net";
+        const botOwner = ownerNumber.includes(senderNumber) || isMe;
 
         // Get all group members except the bot owner
         const participants = groupMetadata.participants;
