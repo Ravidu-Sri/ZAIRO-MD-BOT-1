@@ -1,12 +1,8 @@
 const { cmd, commands } = require('../command');
-const {finalMode} = require('../plugins/update_env');
-
-
-
-    const finalMode1 = validModes.includes(mode) ? mode : '';
+const { finalMode, validModes } = require('../plugins/update_env');  // finalMode and validModes imported
 
 // Default mode to 'public' if MODE environment variable is not set
-const MODE = process.env.MODE || '../lib/database';
+const MODE = process.env.MODE || '{finalMode}';  // Correct default mode
 
 cmd({
     pattern: "settings",
@@ -17,33 +13,36 @@ cmd({
 }, 
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-    if(!isOwner) return
+        if(!isOwner) return;
 
-// Check bot's mode and assign appropriate status
-let liveMode;
-switch (MODE.toLowerCase()) {
-    case 'public':
-        liveMode = "Bot is in Public Mode.";
-        break;
-    case 'private':
-        liveMode = "Bot is in Private Mode.";
-        break;
-    case 'groups':
-        liveMode = "Bot is active in Groups only.";
-        break;
-    case 'inbox':
-        liveMode = "Bot is active in Inbox only.";
-        break;
-    default:
-        liveMode = "Mode is not properly set.";
-        break;
-}
+        // Assign finalMode1 from finalMode (external logic)
+        const finalMode1 = validModes.includes(finalMode) ? finalMode : MODE;
 
-let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
+        // Check bot's mode and assign appropriate status
+        let liveMode;
+        switch (finalMode1.toLowerCase()) {
+            case 'public':
+                liveMode = "Bot is in Public Mode.";
+                break;
+            case 'private':
+                liveMode = "Bot is in Private Mode.";
+                break;
+            case 'groups':
+                liveMode = "Bot is active in Groups only.";
+                break;
+            case 'inbox':
+                liveMode = "Bot is active in Inbox only.";
+                break;
+            default:
+                liveMode = "Mode is not properly set.";
+                break;
+        }
 
-> *MODE*: ${finalMode1}
+        let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
-> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
+        > *MODE*: ${liveMode}
+
+        > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
 
         return await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
