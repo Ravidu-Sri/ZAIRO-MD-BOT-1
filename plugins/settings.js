@@ -1,8 +1,8 @@
 const { cmd, commands } = require('../command');
-const { finalMode, validModes } = require('../plugins/update_env');  // finalMode and validModes imported
+const {} = require('../plugins/update_env');  // finalMode and validModes imported
 
 // Default mode to 'public' if MODE environment variable is not set
-const MODE = process.env.MODE || '{finalMode}';  // Correct default mode
+const MODE = allEnvVars.map(env => `${env.key}: ${env.value}`).join('\n');
 
 cmd({
     pattern: "settings",
@@ -15,33 +15,11 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         if(!isOwner) return;
 
-        // Assign finalMode1 from finalMode (external logic)
-        const finalMode1 = validModes.includes(finalMode) ? finalMode : MODE;
-
-        // Check bot's mode and assign appropriate status
-        let liveMode;
-        switch (finalMode1.toLowerCase()) {
-            case 'inbox':
-                liveMode = "Bot is active in Inbox only.";
-                break;
-            case 'public':
-                liveMode = "Bot is in Public Mode.";
-                break;
-            case 'private':
-                liveMode = "Bot is in Private Mode.";
-                break;
-            case 'groups':
-                liveMode = "Bot is active in Groups only.";
-                break;
-            
-            default:
-                liveMode = "Mode is not properly set.";
-                break;
-        }
+        
 
         let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
 
-        > *MODE*: ${liveMode}
+        > *MODE*: ${MODE}
 
         > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
 
