@@ -1,5 +1,6 @@
 const { cmd, commands } = require('../command');
-const { EnvVar } = require('../plugins/update_env');
+//const { EnvVar } = require('../plugins/update_env');
+const EnvVar = require('../lib/mongodbenv');
 
 /**
  * Fetches an environment variable and lists all existing variables if not found.
