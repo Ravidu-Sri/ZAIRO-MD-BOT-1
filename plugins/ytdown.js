@@ -9,7 +9,7 @@ cmd({
 },
 async (conn, mek, m, { from, q, reply }) => {
     try {
-        if () {
+        if (!q) {
             await conn.sendMessage(from, { audio: { url: voiceUrl }, mimetype: 'audio/mp4', ptt: true },);
             return;
             
