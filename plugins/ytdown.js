@@ -63,9 +63,9 @@ const downVideo = await fg.ytv(url);
 
    const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail },{ audio: { url: downloadUrl }, mimetype: "audio/mpeg" }});
 
-const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }});
+const sentMsg1 = await conn.sendMessage(from, { image: { url: data.thumbnail }, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }});
 
-const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, { video: { url: downloadVideoUrl }, mimetype: "video/mp4"}});
+const sentMsg2 = await conn.sendMessage(from, { image: { url: data.thumbnail }, { video: { url: downloadVideoUrl }, mimetype: "video/mp4"}});
             
 
         // Sending audio file
