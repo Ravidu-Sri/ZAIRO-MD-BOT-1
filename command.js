@@ -13,7 +13,7 @@ function cmd(info, func) {
 }
 
 
-conn.sendButtonMessage = async (jid, buttons, opts = {}) => {
+/*conn.sendButtonMessage = async (jid, buttons, opts = {}) => {
 
             let header;
             if (opts?.video) {
@@ -99,7 +99,7 @@ conn.sendButtonMessage = async (jid, buttons, opts = {}) => {
             return await sock.relayMessage(jid, message["message"], {
                 messageId: message.key.id
             })
-        }
+        }*/
 module.exports = {
     cmd,
     AddCommand:cmd,
