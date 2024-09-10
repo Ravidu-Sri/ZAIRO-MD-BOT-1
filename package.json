@@ -9,8 +9,7 @@
     "restart": "pm2 restart vimamd"
   },
   "dependencies": {
-    "whatsapp-web.js": "^1.25.0",
-//    "@whiskeysockets/baileys": "latest",  
+    "whatsapp-web.js": "^1.25.0", 
     "@whiskeysockets/baileys": "^6.7.5",                         
     "@adiwajshing/keyed-db": "latest",
     "pino": "^7.0.5",
