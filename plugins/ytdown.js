@@ -61,20 +61,16 @@ const downAudioDoc = await fg.yta(url);
 const downVideo = await fg.ytv(url);
                         const downloadVideoUrl = downVideo.dl_url;
 
-   const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail },{ audio: { url: downloadUrl }, mimetype: "audio/mpeg" }});
-
-const sentMsg1 = await conn.sendMessage(from, { image: { url: data.thumbnail }, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" }});
-
-const sentMsg2 = await conn.sendMessage(from, { image: { url: data.thumbnail }, { video: { url: downloadVideoUrl }, mimetype: "video/mp4"}});
+   
             
 
         // Sending audio file
-     //   await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" });
+      await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg", caption: "𝙰𝚄𝙳𝙸𝙾 type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
 
         
-     //   await conn.sendMessage(from, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
+       await conn.sendMessage(from, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
         
-     //   await conn.sendMessage(from, { video: { url: downloadVideoUrl }, mimetype: "video/mp4", caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
+       await conn.sendMessage(from, { video: { url: downloadVideoUrl }, mimetype: "video/mp4", caption: "𝚅𝙸𝙳𝙴𝙾 type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
         
     } catch (e) {
         console.log(e);
