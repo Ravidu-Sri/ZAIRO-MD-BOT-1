@@ -55,6 +55,12 @@ const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, c
         let down = await fg.yta(url);
         let downloadUrl = down.dl_url;
 
+const downAudioDoc = await fg.yta(url);
+                        const downloadAudioDocUrl = downAudioDoc.dl_url;
+
+const downVideo = await fg.ytv(url);
+                        const downloadVideoUrl = downVideo.dl_url;
+
         // Sending audio file
         await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
         
