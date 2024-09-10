@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "whatsapp-web.js": "^1.25.0",
-    "@whiskeysockets/baileys": "latest",                           
+//    "@whiskeysockets/baileys": "latest",  
+    "@whiskeysockets/baileys": "^6.7.5",                         
     "@adiwajshing/keyed-db": "latest",
     "pino": "^7.0.5",
     "pm2": "^5.2.0",
