@@ -20,7 +20,7 @@ cmd({
         const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
 
         // Check AUTO_STATUS_READ variable
-        const autoStatusRead = config.AUTO_STATUS_READ === 'true' ? 'Enabled' : 'Disabled';
+        const autoStatusRead = config.AUTO_READ_STATUS === 'true' ? 'Enabled' : 'Disabled';
 
         let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
 
