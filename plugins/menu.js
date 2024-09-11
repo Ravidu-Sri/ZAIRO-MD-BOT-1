@@ -83,11 +83,12 @@ const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
         await conn.sendMessage(from, {
             image: { url: imageUrl5 },
             caption: status,
-            buttons: buttons
 
-        }, { quoted: mek || null });
+        });
 
+return conn.sendButtonMessage(from, buttons);
 
+    
 
         // Send the image with the buttons and caption
       /*  cc = await conn.sendMessage(from, {
