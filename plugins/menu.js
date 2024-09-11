@@ -75,7 +75,8 @@ await conn.sendMessage(from, {
         }, { quoted: mek || null });
 
         await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
-await conn.sendButtonMessage(from, buttons,{image: {url: imageUrl5}}, {header: 'ZAIRO MD AI MENU}, {body: status}, );
+
+await conn.sendButtonMessage(from, buttons,{image: {url: imageUrl5}}, {header: 'ZAIRO MD AI MENU}, {body: status});
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
