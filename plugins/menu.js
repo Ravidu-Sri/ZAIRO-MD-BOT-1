@@ -79,12 +79,13 @@ id: ".d"
         ];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
- const vv = sendButtonMessage(from, buttons);
+ 
+        return conn.sendMessage(from, {
+            image: { url: imageUrl5 },
+            caption: status,
+            buttons: buttons
 
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status
-        }, { vv }, { quoted: mek || null });
+        }, { quoted: mek || null });
 
 
 
