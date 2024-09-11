@@ -52,31 +52,42 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OWNER MENU",
-                    id: ".a"
+                    id: ".a "
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "GROUP MENU",
-                    id: ".b"
+                    id: ".b "
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "DOWNLOAD MENU",
-                    id: ".c"
+                    id: ".c "
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OTHER MENU",
-                    id: ".d"
+                    id: ".d "
                 }),
             }
         ];
+
+             /*   let message = {
+                    image: { url: imageUrl },
+                    header: '',
+                    footer: "Test",
+                    body: msg
+
+                }
+                return conn.sendButtonMessage(from, buttons, message)*/
+
+
 
         // Send the image with the buttons and caption
       /*  cc = await conn.sendMessage(from, {
@@ -86,11 +97,10 @@ cmd({
         });*/
 
 
-return await conn.sendMessage(from, {
+return await conn.sendButtonMessage(from, {
     image: { url: imageUrl }, // Image eka url ekak use karanawa
     caption: status, // Caption ekak
-    buttons: buttons, // Buttons tika add karanawa
-    footer: 'vima', 
+     footer: 'vima', 
     headerType: 4 
 }, { quoted: mek || null });
 
