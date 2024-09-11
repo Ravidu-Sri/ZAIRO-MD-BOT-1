@@ -81,7 +81,7 @@ cmd({
         // Send the image with the buttons and caption
         cc = await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: status,
+            caption: status
        
         });
 
