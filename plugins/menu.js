@@ -78,7 +78,7 @@ cmd({
             }
         ];
 
-const cc = (image: { url: imageUrl);
+let cc = (image: { url: imageUrl });
                 return conn.sendButtonMessage(from, buttons, m, cc);
 
 
