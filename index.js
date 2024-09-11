@@ -232,7 +232,45 @@ conn.sendMessage(from, { text: teks }, { quoted: mek })
       })
   }
 
-    //=====================================================
+    //==========================
+
+
+
+conn.ev.on('messages.upsert', async (m) => {
+            const messages = m.messages || [];
+            for (const message of messages) {
+                try {
+                    if (!message || !message.key || !message.message) {
+                        continue;
+                    }
+
+                    const type = getContentType(message.message)
+                    const btnResponse =
+                        type === 'interactiveResponseMessage' ?
+                            (message.message.interactiveResponseMessage?.nativeFlowResponseMessage?.paramsJson ?
+                                JSON.parse(message.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson)?.id : '') :
+                            type === 'templateButtonReplyMessage' ?
+                                (message.message.templateButtonReplyMessage?.selectedId || '') : ''
+                    const text = message.message.conversation || message.message.extendedTextMessage?.text || btnResponse;
+                    const sender = message.key.remoteJid;
+
+                    if (text.startsWith('.')) {
+                        await handleCommands(sender, text, sock);
+                    }
+                } catch (error) {
+                    console.error('Error processing message:', error);
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+===========================
 
 conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               let mime = '';
