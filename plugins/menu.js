@@ -66,7 +66,7 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "DOWNLOAD MENU",
-                    id: ".c" + result
+                    id: ".c"
                 }),
             },
             {
@@ -86,7 +86,7 @@ await conn.sendMessage(from, {
         }, { quoted: mek || null });
 
         await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
-return conn.sendButtonMessage(from, buttons, { quoted: mek || null });
+await conn.sendButtonMessage(from, buttons, { quoted: mek || null });
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
