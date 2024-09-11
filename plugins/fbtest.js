@@ -51,7 +51,7 @@ cmd({
                 let message = {
                     image: result.thumbnail,
                     header: '',
-                    footer: config.FOOTER,
+                    footer: "Test",
                     body: msg
 
                 }
