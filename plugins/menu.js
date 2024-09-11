@@ -78,8 +78,8 @@ cmd({
             }
         ];
 
-const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-                return conn.sendButtonMessage(from, buttons, m, imageUrl);
+const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+                return conn.sendButtonMessage(from, buttons, m, imageUrl5);
 
 
 
