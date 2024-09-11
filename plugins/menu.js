@@ -75,7 +75,7 @@ await conn.sendMessage(from, {
         }, { quoted: mek || null });
 
         await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
-await conn.sendButtonMessage(from, buttons, {caption: status});
+await conn.sendButtonMessage(from, buttons, {body: status});
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
