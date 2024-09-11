@@ -79,58 +79,24 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 });
 
 
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.extendedTextMessage) return;
-            const selectedOption = msg.message.extendedTextMessage.text.trim();
-            
-            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === mgmsg.key.id) {
-                switch (selectedOption) {
-                    case 'vimu1':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
+// Capture button responses
+conn.on('message', async (message) => {
+    const buttonResponse = message.message?.buttonsResponseMessage?.selectedButtonId;
 
-💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔💥
-
-> *_.restart_*
-Ex.( .restart )
-Bot Restart කරයි✅
-
-> *-.settings-*
-Ex. ( .restart )
-Botගේ සෙටින් ලබා දෙයි✅
-
-
-
-`);
-                        break;
-
-case 'GROUP MENU':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
-
-💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔💥
-
-> *_.restart_*
-Ex.( .restart )
-Bot Restart කරයි✅
-
-> *-.settings-*
-Ex. ( .restart )
-Botගේ සෙටින් ලබා දෙයි✅
-
-
-
-`);
-                        break;
-default:
-                        reply("Invalid option. Please select a valid menu option (1-2).");
-                }
-            }
-        });
+    if (buttonResponse === 'vimu1') {
+        await conn.sendMessage(from, { text: 'You clicked Button 1!' });
+    } else if (buttonResponse === 'vimu2') {
+        await conn.sendMessage(from, { text: 'You clicked Button 2!' });
+    } else {
+        // Handle other cases
+        await conn.sendMessage(from, { text: 'Invalid button response or no button clicked.' });
+    }
+});
 
 
 // Command "a "
 cmd({
-    pattern: ".vimu1 ",
+    pattern: "vimu1 ",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
@@ -153,7 +119,7 @@ cmd({
     }
 });
 
-// Command ".vimu2"
+// Command "vimu2"
 cmd({
     pattern: "b",
     react: "🎥",
