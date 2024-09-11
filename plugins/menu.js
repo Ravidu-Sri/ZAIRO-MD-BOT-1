@@ -41,7 +41,7 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OWNER MENU",
-                    id: ".vimu1 "
+                    id: "vimu1 "
                 }),
             },
             {
@@ -70,13 +70,63 @@ id: ".vimu4 "
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
 
-await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
+const mgmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
     }
 });
+
+
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+            
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === mgmsg.key.id) {
+                switch (selectedOption) {
+                    case 'vimu1':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
+
+💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔💥
+
+> *_.restart_*
+Ex.( .restart )
+Bot Restart කරයි✅
+
+> *-.settings-*
+Ex. ( .restart )
+Botගේ සෙටින් ලබා දෙයි✅
+
+
+
+`);
+                        break;
+
+case 'GROUP MENU':
+                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
+
+💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔💥
+
+> *_.restart_*
+Ex.( .restart )
+Bot Restart කරයි✅
+
+> *-.settings-*
+Ex. ( .restart )
+Botගේ සෙටින් ලබා දෙයි✅
+
+
+
+`);
+                        break;
+default:
+                        reply("Invalid option. Please select a valid menu option (1-2).");
+                }
+            }
+        });
+
 
 // Command "a "
 cmd({
