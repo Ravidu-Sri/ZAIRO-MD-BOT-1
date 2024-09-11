@@ -1,1 +1,240 @@
-const _0x1d6de7=_0x4a50;(function(_0x16a5dc,_0x2932c8){const _0x15a4b1=_0x4a50,_0x265a5d=_0x16a5dc();while(!![]){try{const _0x541032=parseInt(_0x15a4b1(0x1ca))/(-0xbf*0x7+-0x7*-0x1d7+-0x28d*0x3)*(parseInt(_0x15a4b1(0x189))/(-0x1396+0x161d+-0x285))+parseInt(_0x15a4b1(0x1db))/(0x6a+-0x1713+0x1*0x16ac)*(-parseInt(_0x15a4b1(0x14b))/(-0x1*-0x263f+0x156b*0x1+-0x3ba6))+parseInt(_0x15a4b1(0x1a5))/(-0x3cb*0x5+0x83*0x3d+0x1f*-0x65)+-parseInt(_0x15a4b1(0x170))/(0xc7b+0x1ba5+-0xd5e*0x3)*(-parseInt(_0x15a4b1(0x13e))/(0x2632+0x815+-0x10*0x2e4))+-parseInt(_0x15a4b1(0x1b4))/(-0x58*-0x3b+-0x1f31+-0xaf1*-0x1)+parseInt(_0x15a4b1(0x192))/(-0x11*0x55+-0x1c83+0x2231)*(-parseInt(_0x15a4b1(0x145))/(-0x98d*0x2+0x504+-0x1c4*-0x8))+parseInt(_0x15a4b1(0x1e8))/(-0x18e6*0x1+0x2*-0x108e+0x3a0d);if(_0x541032===_0x2932c8)break;else _0x265a5d['push'](_0x265a5d['shift']());}catch(_0x23032a){_0x265a5d['push'](_0x265a5d['shift']());}}}(_0x10fb,0x40db3+-0x8280*0x10+0x8479d));const {readEnv}=require(_0x1d6de7(0x1e4)+_0x1d6de7(0x121)),{cmd,commands}=require(_0x1d6de7(0x168)),os=require('os'),{runtime}=require(_0x1d6de7(0x12f)+_0x1d6de7(0x109));function _0x4a50(_0x15c1db,_0x3f4e80){const _0x375622=_0x10fb();return _0x4a50=function(_0x2d1992,_0x3635f7){_0x2d1992=_0x2d1992-(0x584+-0x33*0xad+-0x2*-0xee7);let _0x4d2e7b=_0x375622[_0x2d1992];return _0x4d2e7b;},_0x4a50(_0x15c1db,_0x3f4e80);}cmd({'pattern':_0x1d6de7(0x162),'alias':[_0x1d6de7(0x153),_0x1d6de7(0xe0),_0x1d6de7(0xf7),_0x1d6de7(0x16e)],'react':'🪴','desc':_0x1d6de7(0x132)+_0x1d6de7(0x1bb),'category':_0x1d6de7(0x1ce),'filename':__filename},async(_0x4577de,_0xed4e98,_0x54175c,{from:_0x1f3f2b,quoted:_0x351bc7,body:_0x52717d,isCmd:_0x1a9417,command:_0x7ba626,args:_0x1902cc,q:_0x40f309,isGroup:_0x43b6ee,sender:_0x557780,senderNumber:_0x4a757d,botNumber2:_0x29851c,botNumber:_0x3cf9f0,pushname:_0x206e5a,isMe:_0x77fa0b,isOwner:_0x4c51d4,groupMetadata:_0x2b4dba,groupName:_0x37b2d8,participants:_0x259942,groupAdmins:_0x3f9735,isBotAdmins:_0x2bd796,isAdmins:_0x8b7293,reply:_0x22a911})=>{const _0x37731f=_0x1d6de7,_0x51ed33={'fYDgU':function(_0x13975b,_0x370a5c){return _0x13975b===_0x370a5c;},'PwtPs':function(_0x35a0d8,_0x588662){return _0x35a0d8(_0x588662);},'Awhng':function(_0x363c6d,_0x2d3462){return _0x363c6d(_0x2d3462);},'pvgaE':function(_0x33ae2c,_0x1ac706){return _0x33ae2c(_0x1ac706);},'GoEui':_0x37731f(0x17a)+_0x37731f(0x19a)+_0x37731f(0xf9)+_0x37731f(0x174)+_0x37731f(0xeb)+_0x37731f(0x172),'VrrdO':function(_0x2e33eb,_0x35cba5){return _0x2e33eb/_0x35cba5;},'nBycZ':function(_0x32968a,_0x32b066){return _0x32968a/_0x32b066;},'uWhxC':function(_0x42eea7,_0x270088){return _0x42eea7/_0x270088;},'OxZKo':function(_0xd8659d,_0x189d7e){return _0xd8659d/_0x189d7e;},'BGCWc':function(_0x524b20,_0x1e0083){return _0x524b20-_0x1e0083;},'eKMSv':function(_0x363900,_0x9cf23c){return _0x363900(_0x9cf23c);},'atgjT':_0x37731f(0x142)+_0x37731f(0x158)+_0x37731f(0x165)+_0x37731f(0x1b7)+_0x37731f(0x18a),'UCtgd':function(_0x431f98,_0x516faf){return _0x431f98||_0x516faf;},'Agyae':_0x37731f(0x12e)+_0x37731f(0x13a),'dMZXc':function(_0x1cabfd,_0x132695){return _0x1cabfd(_0x132695);}};try{const _0x3a1cab=Math[_0x37731f(0x175)](_0x51ed33[_0x37731f(0x1d8)](_0x51ed33[_0x37731f(0xdc)](_0x51ed33[_0x37731f(0x18b)](require,'os')[_0x37731f(0x115)](),-0x7*-0x2c8+0x34b*-0xa+0x1176),0x2510+-0x11e6+-0xf2a)),_0x32463e=_0x51ed33[_0x37731f(0x143)](_0x51ed33[_0x37731f(0x1cb)](process[_0x37731f(0x191)+'e']()[_0x37731f(0x114)],0x1a8c+0x6*-0x659+0xf8a),0x26fe+0x14*0x1eb+-0x52*0xe5)[_0x37731f(0xe7)](-0x6fd+0x81+0x67e*0x1),_0x192562=_0x51ed33[_0x37731f(0x161)](_0x3a1cab,_0x51ed33[_0x37731f(0xfe)](parseFloat,_0x32463e))[_0x37731f(0xe7)](0x25f6+0x2*-0x66e+-0x1918);let _0x6bad62=_0x37731f(0x1ad)+_0x37731f(0x15d)+_0x37731f(0x11e)+_0x37731f(0x193)+'\x20'+_0x51ed33[_0x37731f(0x18b)](runtime,process[_0x37731f(0x104)]())+(_0x37731f(0x1e5)+':\x20')+_0x32463e+(_0x37731f(0x1da)+_0x37731f(0x18f))+_0x192562+(_0x37731f(0xf6)+_0x37731f(0x1e7))+_0x3a1cab+(_0x37731f(0x1c8)+_0x37731f(0x15c)+_0x37731f(0x1af)+_0x37731f(0x1d3)+_0x37731f(0x199)+_0x37731f(0x1a1)+_0x37731f(0x129)+_0x37731f(0xf4)+_0x37731f(0x1e0)+_0x37731f(0x134)+_0x37731f(0xf1)+_0x37731f(0xe9)+_0x37731f(0x1c4)+_0x37731f(0xef)+_0x37731f(0xf8)+_0x37731f(0x1b5)+_0x37731f(0x1c3)+_0x37731f(0x117)+_0x37731f(0xfa)+_0x37731f(0x178));const _0x322c61=_0x51ed33[_0x37731f(0xe5)],_0x48735f=await _0x4577de[_0x37731f(0x1ba)+'e'](_0x1f3f2b,{'image':{'url':_0x322c61},'caption':_0x6bad62},{'quoted':_0x51ed33[_0x37731f(0x156)](_0xed4e98,null)});_0x4577de['ev']['on'](_0x51ed33[_0x37731f(0x116)],async _0x58d3ee=>{const _0x162da3=_0x37731f,_0x2fb795=_0x58d3ee[_0x162da3(0x1c7)][0xa*0x101+0x2387*0x1+-0x2d91];if(!_0x2fb795[_0x162da3(0x190)]||!_0x2fb795[_0x162da3(0x190)][_0x162da3(0x17b)+_0x162da3(0x194)])return;const _0x2480c4=_0x2fb795[_0x162da3(0x190)][_0x162da3(0x17b)+_0x162da3(0x194)][_0x162da3(0x159)][_0x162da3(0x108)]();if(_0x2fb795[_0x162da3(0x190)][_0x162da3(0x17b)+_0x162da3(0x194)][_0x162da3(0x16c)+'o']&&_0x51ed33[_0x162da3(0x137)](_0x2fb795[_0x162da3(0x190)][_0x162da3(0x17b)+_0x162da3(0x194)][_0x162da3(0x16c)+'o'][_0x162da3(0xee)],_0x48735f[_0x162da3(0x184)]['id']))switch(_0x2480c4){case'1':_0x51ed33[_0x162da3(0x113)](_0x22a911,_0x162da3(0x127)+_0x162da3(0x13d)+_0x162da3(0x1d0)+_0x162da3(0x102)+_0x162da3(0x1ae)+_0x162da3(0x197)+_0x162da3(0x171)+_0x162da3(0x14c)+_0x162da3(0x17e)+_0x162da3(0xf0)+_0x162da3(0x1d2)+_0x162da3(0x130)+_0x162da3(0x128)+_0x162da3(0x187)+_0x162da3(0x11c)+'\x0a\x0a');break;case'2':_0x51ed33[_0x162da3(0x113)](_0x22a911,_0x162da3(0x1bc)+_0x162da3(0x17d)+_0x162da3(0x1d9)+_0x162da3(0xe2)+_0x162da3(0xfd)+_0x162da3(0xea)+_0x162da3(0xed)+_0x162da3(0x1a6)+_0x162da3(0x111)+_0x162da3(0x155)+_0x162da3(0x1b8)+_0x162da3(0x1d5)+_0x162da3(0x16a)+_0x162da3(0x1b0)+_0x162da3(0x1ab)+_0x162da3(0x1ac)+_0x162da3(0x179)+_0x162da3(0x1cf)+_0x162da3(0xe4)+_0x162da3(0x169)+_0x162da3(0x12d)+_0x162da3(0x167)+_0x162da3(0x186)+_0x162da3(0x1c0)+_0x162da3(0x17c)+_0x162da3(0x16d)+_0x162da3(0x198)+_0x162da3(0x19e)+_0x162da3(0x1a2)+_0x162da3(0x183)+_0x162da3(0x1b2)+_0x162da3(0x1c9)+_0x162da3(0x1be)+_0x162da3(0x10d)+_0x162da3(0x1d4)+_0x162da3(0x1cd)+_0x162da3(0x120)+_0x162da3(0x136)+_0x162da3(0x195)+_0x162da3(0x196)+_0x162da3(0x1a3)+_0x162da3(0x101)+_0x162da3(0x11b)+_0x162da3(0x154)+_0x162da3(0x180)+_0x162da3(0x1dc)+_0x162da3(0x1de)+_0x162da3(0xf5)+_0x162da3(0x1c5)+_0x162da3(0x11d)+_0x162da3(0x185)+_0x162da3(0x105)+_0x162da3(0x1bf)+_0x162da3(0x14d)+_0x162da3(0x103)+_0x162da3(0xff)+_0x162da3(0x15f)+_0x162da3(0x119)+_0x162da3(0x12c)+_0x162da3(0x1e3)+_0x162da3(0x118)+_0x162da3(0x19c)+_0x162da3(0x15a)+_0x162da3(0x1d6)+_0x162da3(0x1e6)+_0x162da3(0x10f)+_0x162da3(0x1a4)+_0x162da3(0x1b1)+_0x162da3(0x14e)+_0x162da3(0x163)+_0x162da3(0x141)+_0x162da3(0xfc)+_0x162da3(0x10c)+_0x162da3(0x17f)+_0x162da3(0x18c)+_0x162da3(0xdb)+_0x162da3(0x18d)+_0x162da3(0x11a)+_0x162da3(0x160)+_0x162da3(0x1c1)+_0x162da3(0x1df)+_0x162da3(0xe3)+_0x162da3(0x19f)+_0x162da3(0x122)+_0x162da3(0xfc)+_0x162da3(0x146)+_0x162da3(0xdd)+_0x162da3(0x1b3)+_0x162da3(0x1aa)+_0x162da3(0x188)+_0x162da3(0x181)+_0x162da3(0x140)+_0x162da3(0x15b)+_0x162da3(0x166)+_0x162da3(0x1c6)+_0x162da3(0x148)+_0x162da3(0x1bd)+_0x162da3(0x1a8)+_0x162da3(0x18e)+_0x162da3(0x16b)+_0x162da3(0x123));break;case'3':_0x51ed33[_0x162da3(0x1e9)](_0x22a911,_0x162da3(0xf8)+_0x162da3(0x1b6)+_0x162da3(0x1dd)+_0x162da3(0xfb)+_0x162da3(0x13b)+_0x162da3(0x1a7)+_0x162da3(0x1e1)+_0x162da3(0x11f)+_0x162da3(0x1d1)+_0x162da3(0x19d)+_0x162da3(0x1b9)+_0x162da3(0x150)+_0x162da3(0x157)+_0x162da3(0x151)+_0x162da3(0x1a7)+_0x162da3(0x1c2)+_0x162da3(0x16f)+_0x162da3(0x103)+_0x162da3(0xdf)+_0x162da3(0x164)+_0x162da3(0x176)+_0x162da3(0xf2)+_0x162da3(0x126)+_0x162da3(0x112)+_0x162da3(0xde)+_0x162da3(0x103)+_0x162da3(0xe6)+_0x162da3(0x100)+_0x162da3(0x1cc)+_0x162da3(0x14a)+_0x162da3(0x1e2)+_0x162da3(0xec)+_0x162da3(0x152)+_0x162da3(0x10e)+_0x162da3(0x173)+_0x162da3(0x135)+_0x162da3(0x13c)+_0x162da3(0x177)+_0x162da3(0x1e2)+_0x162da3(0xf3)+_0x162da3(0x139)+_0x162da3(0x144)+_0x162da3(0x1a9)+_0x162da3(0xe1)+_0x162da3(0x19b)+_0x162da3(0x131)+_0x162da3(0x110)+_0x162da3(0xe8)+_0x162da3(0x12b)+_0x162da3(0x106)+_0x162da3(0x125)+_0x162da3(0x124)+_0x162da3(0x149)+_0x162da3(0x15e)+_0x162da3(0x1a0)+_0x162da3(0x182)+_0x162da3(0x12a)+_0x162da3(0x1d7)+_0x162da3(0x107)+_0x162da3(0x125)+_0x162da3(0x133));break;case'4':_0x51ed33[_0x162da3(0x18b)](_0x22a911,_0x162da3(0x13f)+_0x162da3(0x10b));break;default:_0x51ed33[_0x162da3(0x113)](_0x22a911,_0x51ed33[_0x162da3(0x138)]);}});}catch(_0x1f9313){console[_0x37731f(0x14f)](_0x1f9313),_0x51ed33[_0x37731f(0x147)](_0x22a911,_0x37731f(0x10a)+_0x1f9313);}});function _0x10fb(){const _0x29c752=['වෙයි.✅\x20','\x20කරයි✅\x0a\x0a>\x20','e\x20එක\x20බාගත⬇️','\x0aඔබ\x20ටයිප්\x20','✸ℤ𝔸𝕀ℝ𝕆\x20𝕄𝔻\x20','art\x20)\x0aBotග','ු\x20එකේ\x20නම්බ','Drive\x20Link',')\x0aඔබගේ\x20Med','දමයි.✅\x20\x0a\x0a>','ention\x20mem','messages.u','../lib/fun','x.\x20(\x20.rest','afire\x20<Ent','Check\x20menu','\x20කරයි✅','කරන්න\x20⤵️\x0a\x0a\x0a','tiktok\x20<Ty','D\x20)\x0aගෲපයේ\x20','fYDgU','GoEui','විඩියෝව\x20බා','psert','<Song\x20name','pe\x20Tiktok\x20','𝔹𝕆𝕋✸\x20𝐀𝐈\x20𝐒𝐘','3683393Cnosqq','💥𝐎𝐓𝐇𝐄𝐑\x20𝐌𝐄𝐍','*_.gjid_*\x0a','ා\x20ඉවත්\x20කරය','https://i.','uWhxC','ගත⬇️\x20කරයි.✅','784010EuoUDi','.delall_*\x0a','dMZXc','දෙයි.✅\x20\x0a\x0a>','*_.gdrive_','link>\x20)\x0aඔබ','2060228gwlgaG','t\x20)\x0aBot\x20Re','\x20එක\x20ලබා\x20දෙ','ෲපය\x20Tag\x20කර','log','g_*\x0aEx.(\x20.','\x20Song\x20Name','⬇️\x20කරයි.✅\x0a\x0a','panel','\x0aගෲපයේ\x20සිය','mote_*\x0a\x20Ex','UCtgd','song\x20<Type','ibb.co/6mz','text','පය\x20නැවත\x20Op','Ex.(\x20.gjid','ner:*\x20𝚅𝙸𝙼𝙰','𝕋𝕆\x20ℤ𝔸𝕀ℝ𝕆\x20𝕄','*\x0aEx.\x20(\x20.g','.(\x20.mute\x20)','\x20කරයි.✅\x20\x0a\x0a','BGCWc','menu','න\x20සාමාජිකය','x.(\x20.video','cHsN/20240','\x20)\x0aගෲපයේ\x20ල','ber\x20)\x0aගෲපය','../command','.demote\x20@m','\x20member\x20)\x0a','්\x20ඔබ\x20ඉවත්\x20','contextInf','කරයි.✅\x0a\x0a>\x20','allmenu','ය\x20බාගත⬇️\x20කර','6WwpUcW','.(\x20.restar','(1-4).','k_*\x0aEx.(\x20.','a\x20valid\x20me','round','\x20<Type\x20Vid','Link>\x20)\x0aඔබ','𝕆𝕋✸*','බාදෙයි.✅\x0a\x0a','Invalid\x20op','extendedTe','ල\x20තල\x20ඉවත්\x20','𝐔💥\x0a\x0a>\x20*_.a','start\x20කරයි','\x0aEx.(\x20.kic','ලුම\x20සමාජික','මයි.✅\x20\x0a\x0a>\x20','er\x20Google\x20','ZAIRO\x20MD\x20)','key','uplink\x20)\x0aඔ','ේ\x20සමාජිකයෙ','ේ\x20සෙටින්\x20ල','සේජ්\x20මකා\x20ද','14194fnBqpH','.jpg','pvgaE','kall\x20)\x0aගෲප','සාමාජිකයන්','t\x20)\x0aගෲපයෙන','ee*:\x20','message','memoryUsag','9rbEDAH','\x20*Uptime:*','xtMessage','ඇති\x20නම\x20වෙන','ස්\x20කරයි.✅.','start_*\x0aEx','*_.setabou','\x20රිප්ලයි\x20ක','tion.\x20Plea','x.\x20(\x20.medi','pmute\x20)\x0aගෲ','\x20ලබා\x20දෙයි✅','t_*\x0a\x20Ex.(\x20','\x20)\x0aගෲපය\x20අව','drive\x20<Ent','ර\x20අදාල\x20මෙන','.setabout\x20','\x0a\x0a>\x20*_.tag','ick\x20@9477x','490635LMFbvi','\x20Add\x20කරයි.','>\x20)\x0aඔබ\x20ටයි','\x0aEx.(\x20.lef','\x0a\x0a>\x20*_.med','\x20සියලුම\x20මැ','ිකයෙක්\x20Adm','in\x20බල\x20තල\x20ල','*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼\x20','💥\x0a\x0a>\x20*_.re','𝙼𝙾𝙳𝚂\x0a\x0aමෙම\x20','ගෲපයේ\x20සමාජ','xxxxxx\x20)\x0aග','\x0aගෲපයේ\x20ඇති','ll\x20)\x0aගෲපයේ','2634960lgzqea','𝐌𝐄𝐍𝐔⤵💥\x0a\x20\x0a\x20','𝐌𝐄𝐍𝐔💥\x0a\x0a>\x20*','907-102239','.(\x20.promot','\x0a\x0a>\x20*_.son','sendMessag','\x20all','💥𝐆𝐑𝐎𝐔𝐏\x20𝐌𝐄𝐍','\x20*_.left_*','නස්\x20කරයි.✅','පයේ\x20ලින්ක්','ක්\x20Admin\x20බ','>\x20*_.endgr','ප්\x20කරන\x20ගීත','4\x20💥𝐎𝐓𝐇𝐄𝐑\x20𝐌','\x20💥𝐆𝐑𝐎𝐔𝐏\x20𝐌𝐄','rouplink_*','ිපිනය\x20ලබා\x20','messages','\x20MB\x0a\x0a>\x20*Ow','\x20Bio\x20එක\x20වෙ','21KZUfbT','OxZKo','\x20fb\x20video\x20','x.(\x20.setna','main','>\x20*_.demot','𝐒𝐓𝐄𝐌*⤵*\x0a\x0a💥','o\x20එක\x20පමනක්','ttings-*\x0aE','මැසේජ්\x20එකට','tname_*\x0a\x20E','e\x20@mention','en\x20කරයි✅\x20\x0a','>\x20)\x0aGoogle','VrrdO','dd_*\x0aEx.(\x20','\x20MB\x0a\x0a>\x20*Fr','3WcRGCz','කයන්\x20එක\x20වර','_.play_*\x0aE','\x20ටැග්\x20කරයි','oup_*\x0aEx.(','්\x20කර\x20Send\x20','ප්\x20කරන\x20සෝන','\x20ටයිප්\x20කරන','\x20*_.unmute','../lib/dat','\x0a\x0a>\x20*Used*','\x0a>\x20*_.kick','tal*:\x20','4655299pTGAIV','Awhng','යේ\x20සියලුම\x20','nBycZ','Ex.(\x20.dela','ව\x20බාගත⬇️\x20කර','.video_*\x0aE','penal','iafire_*\x0aE','.add\x2094776','\x20.endgroup','e_*\x0a\x20Ex.(\x20','atgjT','.fb_*\x0aEx.(','toFixed','ire\x20link>\x20','𝐌𝐄𝐍𝐔⤵💥\x0a\x0a\x202','ෲපයේ\x20නැති\x20','nu\x20option\x20','\x20ගීතය\x20බාගත','සමාජිකයෙක්','stanzaId','𝐍𝐔⤵💥\x0a\x20\x0a\x203\x20','✅\x0a\x0a>\x20*-.se','\x201\x20💥𝐎𝐖𝐍𝐄𝐑\x20','eo\x20Name>\x20)','\x20ටික්ටොක්\x20','ර්\x20එක\x20ටයිප','.✅\x0a\x0a>\x20*_.g','\x20MB\x0a\x0a>\x20*To','list','💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃\x20','se\x20select\x20','ℤ𝔸𝕀ℝ𝕆\x20𝕄𝔻\x20𝔹','x.(\x20.play\x20','ි.✅\x20\x0a\x0a>\x20*_','734030\x20)\x0aග','eKMSv','.mute_*\x0aEx','\x20.fb\x20<Type','all_*\x0aEx.(','𝐎𝐖𝐍𝐄𝐑\x20𝐌𝐄𝐍𝐔','යි.✅\x0a\x0a>\x20*_','uptime','බ\x20සිටින\x20ගෲ','iafire\x20Fil','\x20drive\x20Fil','trim','ctions','Error:\x20','𝐔💥','.kickall_*','.\x0a\x0a>\x20*_.se','>\x20*_.tikto','_*\x0aEx.(\x20.k','er\x20media\x20f','\x0a\x0a>\x20*_.pro','කරන\x20විඩියෝ','PwtPs','heapUsed','totalmem','Agyae','𝐄𝐍𝐔⤵💥\x0a\x0a\x0a*✸','_*\x0aEx.(\x20.u','\x0aගෲපය\x20වසා\x20','\x20එකවර\x20ඉවත්','\x20.tagall\x20)','බා\x20දෙයි✅\x0a\x0a','\x0aEx.(\x20.gro','𝔻\x20𝔹𝕆𝕋✸*\x0a\x0a>','්\x20එකේ\x20Audi','me\x20ZAIRO\x20M','abase','සාන\x20කර\x20දමය'];_0x10fb=function(){return _0x29c752;};return _0x10fb();}
+const {readEnv} = require('../lib/database')
+const {cmd, commands} = require('../command')
+const os = require("os")
+const {runtime} = require('../lib/functions')
+
+cmd({
+    pattern: "menu",
+    alias: ["panel","penal","list","allmenu"],
+    react: "🪴",
+    desc: "Check menu all",
+    category: "main",
+    filename: __filename
+}, async (conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+    try {
+        // RAM usage
+        const totalRAM = Math.round(require('os').totalmem() / 1024 / 1024); // Total RAM in MB
+        const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
+        const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
+
+        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+
+> *Uptime:* ${runtime(process.uptime())}
+
+> *Used*: ${usedRAM} MB
+
+> *Free*: ${freeRAM} MB
+
+> *Total*: ${totalRAM} MB
+
+> *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
+
+මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
+
+
+ 1 💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
+
+ 2 💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔⤵💥
+ 
+ 3 💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔⤵💥
+ 
+ 4 💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
+
+
+*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
+
+let buttons = [{
+
+
+name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "OWNER MENU",
+                        id: ".a" }),
+                },
+                {
+                    name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "GROUP MENU",
+                        id: ".b"
+                    }),
+                }
+
+name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "DOWNLOAD MENU",
+                        id: ".c"
+                    }),
+                },
+                {
+                    name: "quick_reply",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "OTHER MENU",
+                        id: ".d"
+                    }),
+                }
+                
+
+                ]
+
+
+await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status,
+buttons
+           
+        }, { quoted: mek || null });
+
+        // URL of the image you want to include
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+        const sentMsg = await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status
+        }, { quoted: mek || null });
+
+        
+                        
+        
+
+    } catch (e) {
+        console.log(e)
+        reply(`Error: ${e}`)
+    }
+});
+
+
+
+
+
+
+
+
+
+
+//😀😀😀😀😀😀😀😀😀😀😀😀😀😀
+
+
+
+
+cmd({
+    pattern: "a",
+    react: "🎥",
+    dontAddCommandList: true,
+    filename: __filename
+},
+
+    async (conn, mek, m, { from, q, reply }) => {
+        try {
+            if (!q) return await reply('*Not Found!*')
+
+
+let status1 = `vimamenu1'
+
+const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+      
+  await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status1
+        }, { quoted: mek || null }) 
+            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+
+        } catch (e) {
+            reply('*Error !!*')
+            console.log(e)
+        }
+    })
+
+cmd({
+    pattern: "b",
+    react: "🎥",
+    dontAddCommandList: true,
+    filename: __filename
+},
+
+    async (conn, mek, m, { from, q, reply }) => {
+        try {
+            if (!q) return await reply('*Not Found!*')
+
+
+let status2 = `vimamenu2'
+
+const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+      
+  await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status2
+        }, { quoted: mek || null }) 
+            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+
+        } catch (e) {
+            reply('*Error !!*')
+            console.log(e)
+        }
+    })
+
+
+cmd({
+    pattern: "c",
+    react: "🎥",
+    dontAddCommandList: true,
+    filename: __filename
+},
+
+    async (conn, mek, m, { from, q, reply }) => {
+        try {
+            if (!q) return await reply('*Not Found!*')
+
+
+let status3 = `vimamenu3'
+
+const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+      
+  await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status3
+        }, { quoted: mek || null }) 
+            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+
+        } catch (e) {
+            reply('*Error !!*')
+            console.log(e)
+        }
+    })
+
+
+cmd({
+    pattern: "d",
+    react: "🎥",
+    dontAddCommandList: true,
+    filename: __filename
+},
+
+    async (conn, mek, m, { from, q, reply }) => {
+        try {
+            if (!q) return await reply('*Not Found!*')
+
+
+let status4 = `vimamenu4'
+
+const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+      
+  await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status4
+        }, { quoted: mek || null }) 
+            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+
+        } catch (e) {
+            reply('*Error !!*')
+            console.log(e)
+        }
+    })
