@@ -78,14 +78,8 @@ cmd({
             }
         ];
 
-               let message = {
-                    image: { url: imageUrl },
-                    header: '66',
-                    footer: "Test",
-                    body: msg
-
-                };
-                return conn.sendButtonMessage(from, buttons, m, message);
+const cc = (image: { url: imageUrl);
+                return conn.sendButtonMessage(from, buttons, m, cc);
 
 
 
