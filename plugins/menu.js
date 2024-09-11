@@ -30,10 +30,10 @@ cmd({
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
 
-*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
+*✸𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 𝐁𝐘 𝐕𝐈𝐌𝐀𝐌𝐎𝐃𝐒✸*`
 
-        // Declare image URL here
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+     
+        
 
         // Define buttons
         let buttons = [
@@ -41,42 +41,37 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OWNER MENU",
-                    id: ".a "
+                    id: ".vimu1 "
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "GROUP MENU",
-                    id: ".b "
+                    id: ".vimu2 "
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "DOWNLOAD MENU",
-                    id: ".c"
+                    id: ".vimu3 "
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OTHER MENU",
-id: ".d"
+id: "".vimu4 "
                 }),
             }
         ];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
-await conn.sendMessage(from, {
-            image: { url: imageUrl5 },
-            
-        }, { quoted: mek || null });
 
-        await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
-
-await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status});
+await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status},  { quoted: mek || null }));
+await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
@@ -85,7 +80,7 @@ await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status});
 
 // Command "a "
 cmd({
-    pattern: "a ",
+    pattern: ".vimu1 ",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
@@ -108,7 +103,7 @@ cmd({
     }
 });
 
-// Command "b"
+// Command ".vimu2"
 cmd({
     pattern: "b",
     react: "🎥",
@@ -133,7 +128,7 @@ cmd({
     }
 });
 
-// Command "c"
+// Command ".vimu3"
 cmd({
     pattern: "c",
     react: "🎥",
@@ -158,9 +153,9 @@ cmd({
     }
 });
 
-// Command "d"
+// Command ".vimu4"
 cmd({
-    pattern: "d",
+    pattern: ".vimu4",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
