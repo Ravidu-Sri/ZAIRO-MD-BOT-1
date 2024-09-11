@@ -43,198 +43,150 @@ cmd({
 
 *✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
 
-let buttons = [{
-
-
-name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "OWNER MENU",
-                        id: ".a" }),
-                },
-                {
-                    name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "GROUP MENU",
-                        id: ".b"
-                    }),
-                }
-
-name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "DOWNLOAD MENU",
-                        id: ".c"
-                    }),
-                },
-                {
-                    name: "quick_reply",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: "OTHER MENU",
-                        id: ".d"
-                    }),
-                }
-                
-
-                ]
-
-
-await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status,
-buttons
-           
-        }, { quoted: mek || null });
-
-        // URL of the image you want to include
+        // Declare image URL here
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
-        // Send the image with the status as the caption
-        const sentMsg = await conn.sendMessage(from, {
+        // Define buttons
+        let buttons = [
+            {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                    display_text: "OWNER MENU",
+                    id: ".a"
+                }),
+            },
+            {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                    display_text: "GROUP MENU",
+                    id: ".b"
+                }),
+            },
+            {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                    display_text: "DOWNLOAD MENU",
+                    id: ".c"
+                }),
+            },
+            {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                    display_text: "OTHER MENU",
+                    id: ".d"
+                }),
+            }
+        ];
+
+        // Send the image with the buttons and caption
+        await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: status
+            caption: status,
+            buttons
         }, { quoted: mek || null });
-
         
-                        
-        
-
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
     }
 });
 
-
-
-
-
-
-
-
-
-
-//😀😀😀😀😀😀😀😀😀😀😀😀😀😀
-
-
-
-
+// Command "a"
 cmd({
     pattern: "a",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
-},
+}, async (conn, mek, m, { from, q, reply }) => {
+    try {
+        let status1 = `vimamenu1`;
 
-    async (conn, mek, m, { from, q, reply }) => {
-        try {
-            if (!q) return await reply('*Not Found!*')
-
-
-let status1 = `vimamenu1'
-
-const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-      
-  await conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status1
-        }, { quoted: mek || null }) 
-            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+        }, { quoted: mek || null });
 
-        } catch (e) {
-            reply('*Error !!*')
-            console.log(e)
-        }
-    })
+        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+    } catch (e) {
+        reply('*Error !!*');
+        console.log(e);
+    }
+});
 
+// Command "b"
 cmd({
     pattern: "b",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
-},
+}, async (conn, mek, m, { from, q, reply }) => {
+    try {
+        let status2 = `vimamenu2`;
 
-    async (conn, mek, m, { from, q, reply }) => {
-        try {
-            if (!q) return await reply('*Not Found!*')
-
-
-let status2 = `vimamenu2'
-
-const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-      
-  await conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status2
-        }, { quoted: mek || null }) 
-            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+        }, { quoted: mek || null });
 
-        } catch (e) {
-            reply('*Error !!*')
-            console.log(e)
-        }
-    })
+        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+    } catch (e) {
+        reply('*Error !!*');
+        console.log(e);
+    }
+});
 
-
+// Command "c"
 cmd({
     pattern: "c",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
-},
+}, async (conn, mek, m, { from, q, reply }) => {
+    try {
+        let status3 = `vimamenu3`;
 
-    async (conn, mek, m, { from, q, reply }) => {
-        try {
-            if (!q) return await reply('*Not Found!*')
-
-
-let status3 = `vimamenu3'
-
-const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-      
-  await conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status3
-        }, { quoted: mek || null }) 
-            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+        }, { quoted: mek || null });
 
-        } catch (e) {
-            reply('*Error !!*')
-            console.log(e)
-        }
-    })
+        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+    } catch (e) {
+        reply('*Error !!*');
+        console.log(e);
+    }
+});
 
-
+// Command "d"
 cmd({
     pattern: "d",
     react: "🎥",
     dontAddCommandList: true,
     filename: __filename
-},
+}, async (conn, mek, m, { from, q, reply }) => {
+    try {
+        let status4 = `vimamenu4`;
 
-    async (conn, mek, m, { from, q, reply }) => {
-        try {
-            if (!q) return await reply('*Not Found!*')
-
-
-let status4 = `vimamenu4'
-
-const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-      
-  await conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status4
-        }, { quoted: mek || null }) 
-            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+        }, { quoted: mek || null });
 
-        } catch (e) {
-            reply('*Error !!*')
-            console.log(e)
-        }
-    })
+        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+    } catch (e) {
+        reply('*Error !!*');
+        console.log(e);
+    }
+});
