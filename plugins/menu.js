@@ -70,8 +70,44 @@ id: ".vimu4 "
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
 
-return conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
+const sendmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
+
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+
+            if (msg.message && msg.message.extendedTextMessage &&
+                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
+
+                const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
+
+                switch (selectedOption) {
+                    case 'OWNER MENU':
+                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර ✅✅✅නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
+                        break;
+
+                    case 'GROUP MENU':
+                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2😁😁😁, 2.1, 2.2).");
+                        break;
+
+                    case 'DOWNLOAD MENU':
+                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2).");
+                        break;
+
+                    case 'OTHER MENU':
+                        reply("වැරදි ඇතුලත් ");
+                        break;
+
+                    default:
+                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
+                        break;
+                }
+            }
+        });
+
+
+
+
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
