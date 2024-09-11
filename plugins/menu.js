@@ -29,17 +29,6 @@ cmd({
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
-මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
-
-
- 1 💥𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
-
- 2 💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔⤵💥
- 
- 3 💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔⤵💥
- 
- 4 💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔⤵💥
-
 
 *✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
 
@@ -82,11 +71,11 @@ const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
 await conn.sendMessage(from, {
             image: { url: imageUrl5 },
-            caption: status
+            
         }, { quoted: mek || null });
 
         await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
-await conn.sendButtonMessage(from, buttons, { quoted: mek || null });
+await conn.sendButtonMessage(from, buttons, {caption: status});
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
