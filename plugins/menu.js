@@ -76,7 +76,7 @@ await conn.sendMessage(from, {
 
         await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
 
-await conn.sendButtonMessage(from, buttons, {image: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'}, {body: status});
+await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status});
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
