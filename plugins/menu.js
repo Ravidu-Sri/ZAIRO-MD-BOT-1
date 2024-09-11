@@ -80,7 +80,7 @@ id: ".d"
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
  
-        return conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             image: { url: imageUrl5 },
             caption: status,
             buttons: buttons
