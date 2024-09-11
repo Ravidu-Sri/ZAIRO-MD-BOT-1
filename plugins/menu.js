@@ -62,7 +62,7 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OTHER MENU",
-id: "".vimu4 "
+id: ".vimu4 "
                 }),
             }
         ];
