@@ -70,7 +70,7 @@ id: ".vimu4 "
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
 
-const mgmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
+return await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
    } catch (e) {
         console.log(e)
