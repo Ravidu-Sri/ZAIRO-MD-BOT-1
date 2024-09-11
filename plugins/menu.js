@@ -79,38 +79,15 @@ id: ".d"
         ];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
- 
-        await conn.sendMessage(from, {
+
+await conn.sendMessage(from, {
             image: { url: imageUrl5 },
-            caption: status,
-
-        });
-
-return conn.sendButtonMessage(from, buttons);
-
-    
-
-        // Send the image with the buttons and caption
-      /*  cc = await conn.sendMessage(from, {
-            image: { url: imageUrl },
             caption: status
-       
-        });*/
+        }, { quoted: mek || null });
 
-
-/*return await conn.sendButtonMessage(from, {
-    image: { url: imageUrl }, // Image eka url ekak use karanawa
-    caption: status, // Caption ekak
-     footer: 'vima', 
-    headerType: 4 
-}, { quoted: mek || null });
-
-
-
-/*return conn.sendButtonMessage(from, image: { url: imageUrl },
-            caption: status, buttons, m);*/
-        
-    } catch (e) {
+        await conn.sendMessage(from, { react: { text: '⚓', key: mek.key } });
+return conn.sendButtonMessage(from, buttons, { quoted: mek || null });
+   } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
     }
