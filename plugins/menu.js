@@ -66,20 +66,25 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "DOWNLOAD MENU",
-                    id: ".c "
+                    id: ".c" + result
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OTHER MENU",
-                    id: ".d "
+id: ".d"
                 }),
             }
         ];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-                return conn.sendButtonMessage(from, buttons, m, imageUrl5);
+ const vv = sendButtonMessage(from, buttons);
+
+        await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status
+        }, { vv }, { quoted: mek || null });
 
 
 
