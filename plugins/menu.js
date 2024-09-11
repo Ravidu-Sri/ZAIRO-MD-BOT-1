@@ -41,14 +41,14 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OWNER MENU",
-                    id: "vimu1 "
+                    id: "vimu1"
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "GROUP MENU",
-                    id: ".vimu2 "
+                    id: ".vimu2"
                 }),
             },
             {
@@ -82,41 +82,13 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
 // Capture button responses
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-    const buttonResponse = message.message?.buttonsResponseMessage?.selectedButtonId;
 
-    if (buttonResponse === 'vimu1') {
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status1
-        }, { quoted: mek || null });
-
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-    } else if (buttonResponse === 'vimu2') {
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status1
-        }, { quoted: mek || null });
-
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-    } else {
-        // Handle other cases
-        await conn.sendMessage(from, { text: 'Invalid button response or no button clicked.' });
-    }
-});
 
 
 // Command "a "
 cmd({
-    pattern: "vimu1 ",
+    pattern: "vimu1",
     react: "🎥",
-    dontAddCommandList: true,
     filename: __filename
 }, async (conn, mek, m, { from, q, reply }) => {
     try {
