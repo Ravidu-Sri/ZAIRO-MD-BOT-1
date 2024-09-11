@@ -74,40 +74,30 @@ const sendmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, b
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
+    const msg = msgUpdate.messages[0];
+    const buttonResponse = msg.message?.buttonsResponseMessage?.selectedButtonId;
 
-            if (msg.message && msg.message.extendedTextMessage &&
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
-
-                const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
-
-                switch (selectedOption) {
-                    case 'OWNER MENU':
-                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර ✅✅✅නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
-                        break;
-
-                    case 'GROUP MENU':
-                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2😁😁😁, 2.1, 2.2).");
-                        break;
-
-                    case 'DOWNLOAD MENU':
-                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2).");
-                        break;
-
-                    case 'OTHER MENU':
-                        reply("වැරදි ඇතුලත් ");
-                        break;
-
-                    default:
-                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
-                        break;
-                }
-            }
-        });
-
-
-
-
+    // Handle button responses
+    if (buttonResponse) {
+        switch (buttonResponse) {
+            case 'vimu1':
+                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර ✅✅✅නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2)." });
+                break;
+            case 'vimu2':
+                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2😁😁😁, 2.1, 2.2)." });
+                break;
+            case 'vimu3':
+                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2)." });
+                break;
+            case 'vimu4':
+                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක්." });
+                break;
+            default:
+                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2)." });
+                break;
+        }
+    }
+});
    } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
