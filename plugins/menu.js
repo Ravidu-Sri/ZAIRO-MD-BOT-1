@@ -78,14 +78,14 @@ cmd({
             }
         ];
 
-             /*   let message = {
+               let message = {
                     image: { url: imageUrl },
-                    header: '',
+                    header: '66',
                     footer: "Test",
                     body: msg
 
-                }
-                return conn.sendButtonMessage(from, buttons, message)*/
+                };
+                return conn.sendButtonMessage(from, buttons, message);
 
 
 
@@ -97,7 +97,7 @@ cmd({
         });*/
 
 
-return await conn.sendButtonMessage(from, {
+/*return await conn.sendButtonMessage(from, {
     image: { url: imageUrl }, // Image eka url ekak use karanawa
     caption: status, // Caption ekak
      footer: 'vima', 
