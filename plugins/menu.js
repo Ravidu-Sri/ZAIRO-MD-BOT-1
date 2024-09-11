@@ -86,9 +86,18 @@ cmd({
         });*/
 
 
+return await conn.sendMessage(from, {
+    image: { url: imageUrl }, // Image eka url ekak use karanawa
+    caption: status, // Caption ekak
+    buttons: buttons, // Buttons tika add karanawa
+    footer: 'vima', 
+    headerType: 4 
+}, { quoted: mek || null });
 
-return conn.sendButtonMessage(from, image: { url: imageUrl },
-            caption: status, buttons, m);
+
+
+/*return conn.sendButtonMessage(from, image: { url: imageUrl },
+            caption: status, buttons, m);*/
         
     } catch (e) {
         console.log(e)
