@@ -70,6 +70,5 @@ const downVideo = await fg.ytv(url);
         
     } catch (e) {
         console.log(e);
-        reply(`Error: ${e.message}`);
     }
 });
