@@ -79,13 +79,17 @@ cmd({
         ];
 
         // Send the image with the buttons and caption
-        cc = await conn.sendMessage(from, {
+      /*  cc = await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status
        
-        });
+        });*/
 
+let cc = {
+image: { url: imageUrl },
+caption: status
 
+};
 
 return conn.sendButtonMessage(from, buttons, m, cc);
         
