@@ -85,13 +85,10 @@ cmd({
        
         });*/
 
-let cc = {
-image: { url: imageUrl },
-caption: status
 
-};
 
-return conn.sendButtonMessage(from, buttons, m, cc);
+return conn.sendButtonMessage(from, image: { url: imageUrl },
+            caption: status, buttons, m);
         
     } catch (e) {
         console.log(e)
