@@ -85,7 +85,7 @@ ${menuc3}*╰───────────●●►*
 
 *•ᴹᴿ ᴷᴬˢᵁᴺ ᴍᴅ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ•*`
       
-await conn.sendMessage(from, { image: { url: config.LOGO }, caption: menumg }, { quoted: mek, messageId:genMsgId() })
+await conn.sendMessage(from, { caption: menumg }, { quoted: mek, messageId:genMsgId() })
 } catch (e) {
 reply('*Error !!*')
 l(e)
