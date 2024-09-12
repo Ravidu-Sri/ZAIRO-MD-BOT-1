@@ -71,37 +71,33 @@ const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
 
 const sendmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
-await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
+//await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 conn.ev.on('messages.upsert', async (msgUpdate) => {
     const msg = msgUpdate.messages[0];
-    const buttonResponse = msg.message?.buttonsResponseMessage?.selectedButtonId;
 
-    // Handle button responses
-    if (buttonResponse) {
-        switch (buttonResponse) {
+    if (msg.message && msg.message.buttonsResponseMessage) {
+        const buttonResponse = msg.message.buttonsResponseMessage.selectedButtonId;
+
+        switch (bu) {
             case 'vimu1':
-                        let status1 = `vimamenu1`;
-
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status1
-        }, { quoted: mek || null });
+                await conn.sendMessage(msg.key.remoteJid, { text: "Your balance is $100." });
                 break;
+
             case 'vimu2':
-                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2😁😁😁, 2.1, 2.2)." });
+                await conn.sendMessage(msg.key.remoteJid, { text: "You can recharge via our website." });
                 break;
+
             case 'vimu3':
-                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2)." });
+                await conn.sendMessage(msg.key.remoteJid, { text: "How can we assist you?" });
                 break;
-            case 'vimu4':
-                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක්." });
+
+        case 'vimu4':
+                await conn.sendMessage(msg.key.remoteJid, { text: "How can we assis🏦t you?" });
                 break;
+
             default:
-                await conn.sendMessage(from, { text: "වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2)." });
+                await conn.sendMessage(msg.key.remoteJid, { text: "Invalid selection!" });
                 break;
         }
     }
