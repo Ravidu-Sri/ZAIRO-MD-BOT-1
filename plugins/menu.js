@@ -87,12 +87,12 @@ case "GROUP MENU":
         default:
             console.log("Unknown button selected");
     }
-await conn.sendMessage(from, {
+conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status1
         }, { quoted: mek || null });
 
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+        conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
 
 };
 onButtonReply("OWNER MENU");
