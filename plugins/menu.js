@@ -85,33 +85,6 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
 
-let buttons = [
-    {
-        name: "quick_reply",
-        buttonParamsJson: JSON.stringify({
-            display_text: "OWNER MENU",
-        }),
-    },
-];
-
-const onButtonReply = (buttonText) => {
-    switch (buttonText) {
-        case "OWNER MENU":
-            console.log("Owner menu selected");
-            // OWNER MENU සඳහා ප්‍රතිචාර පෙන්වන්න
-            break;
-        // වෙනත් බොත්තම් සඳහා case එකක් එක් කරන්න
-        default:
-            console.log("Unknown button selected");
-    }
-};
-
-// බොත්තමෙන් display_text එක reply එකට pass කරන්න
-onButtonReply("OWNER MENU");
-
-
-
-
 
 /*conn.ev.on('messages.upsert', async (msgUpdate) => {
     const msg = msgUpdate.messages[0];
