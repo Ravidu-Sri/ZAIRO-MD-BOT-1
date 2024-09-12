@@ -75,26 +75,28 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 const onButtonReply = (buttonText) => {
     switch (buttonText) {
         case "OWNER MENU":
-            let status1 = `vimamenu1`;
+         status1 = `vimamenu1`;
+         imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+            break;
+case "GROUP MENU":
+         status1 = `vimamenu😀😀`;
+         imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+            break;
 
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
+        
+        default:
+            console.log("Unknown button selected");
+    }
+await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status1
         }, { quoted: mek || null });
 
         await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-            console.log("Owner menu selected");
-         
-            break;
-        
-        default:
-            console.log("Unknown button selected");
-    }
+
 };
 onButtonReply("OWNER MENU");
+onButtonReply("GROUP MENU");
 
 
 /*conn.ev.on('messages.upsert', async (msgUpdate) => {
