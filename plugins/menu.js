@@ -78,20 +78,17 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
 
-const onButtonClick = async (displayText) => {
-    // Print ".alive" to the console
-    console.log('alive');
+const onButtonReply = (buttonText) => {
+    if (buttonText === "OWNER MENU") {
+        console.log(".alive");
+        // OWNER MENU සඳහා ප්‍රතිචාර පෙන්වන්න
+    } else {
+        console.log("Unknown button selected");
+    }
 };
 
-// Listen for button clicks
-conn.on('button_click', async (button) => {
-    // Parse the buttonParamsJson to get the display text
-    const buttonParams = JSON.parse(button.buttonParamsJson);
-    const displayText = buttonParams.display_text;
-
-    console.log(`Button clicked: ${displayText}`);
-    await onButtonClick(displayText);  // Handle the button click
-});
+// බොත්තමෙන් display_text එක reply එකට pass කරන්න
+onButtonReply("OWNER MENU");
 
   } catch (error) {
         console.error(error);
