@@ -46,12 +46,16 @@ cmd({
         // URL of the image you want to include
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
+const tt = 'https://whatsapp.com/channel/0029Valajr83bbV7FTQnM042';
+
+const gg = 'https://whatsapp.com';
+
 let buttons = [{
                     name: "cta_url",
                     buttonParamsJson: JSON.stringify({
                         display_text: 'FOLLOW CHANNEL',
-                        url: https://whatsapp.com/channel/0029Valajr83bbV7FTQnM042',
-                        merchant_url: https://whatsapp.com'
+                        url: tt,
+                        merchant_url: gg
                     }),
                 },
 ];
