@@ -83,7 +83,7 @@ const onButtonReply = (buttonText) => {
             console.log("Unknown button selected");
     }
 };
-onButtonReply("💥OWNER MENU💥");
+onButtonReply("OWNER MENU");
 
 
 /*conn.ev.on('messages.upsert', async (msgUpdate) => {
