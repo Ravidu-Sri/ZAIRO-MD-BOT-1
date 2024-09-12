@@ -75,7 +75,7 @@ cmd({
         try {
             if (!q) return await reply('*Not Found!*')
 
-            await await reply('*Not Found💾8💾💾💾!*')
+            await reply('*Not Found💾8💾💾💾!*')
             await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
 
         } catch (e) {
