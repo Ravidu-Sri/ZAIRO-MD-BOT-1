@@ -65,14 +65,13 @@ let buttons = [{
 
 
 
-
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
+conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.extendedTextMessage) return;
-            const selectedOption = msg.message.extendedTextMessage.text.trim();
+            if (!msg.message || !msg.message.buttonsResponseMessage) return; // Check for button message response
             
-            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
-                switch (selectedOption) {
+            const selectedButton = msg.message.buttonsResponseMessage.selectedButtonId;
+            if (msg.message.buttonsResponseMessage.contextInfo && msg.message.buttonsResponseMessage.contextInfo.stanzaId === sentMsg.key.id) {
+                switch (selectedButton) {
                     case '1':
                         reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
 
