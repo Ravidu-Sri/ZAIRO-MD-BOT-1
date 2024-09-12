@@ -73,31 +73,46 @@ const _0x370846=_0x1579;(function(_0xc8784c,_0x391239){const _0x4ab981=_0x1579,_
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
-const onButtonReply = (buttonText) => {
+// Button reply function
+const onButtonReply = (buttonId) => {
     let status1 = '';
     let imageUrl = '';
-    
-    switch (buttonText) {
-        case "OWNER MENU":
-            status1 = 'vimamenu1';
+
+    switch (buttonId) {
+        case "vimu1": // OWNER MENU
+            status1 = 'Owner Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
             conn.sendMessage(from, {
                 image: { url: imageUrl },
                 caption: status1
             }, { quoted: mek || null });
-            
-            conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
             break;
 
-        case "GROUP MENU":
-            status1 = 'vimamenu😀😀';
+        case "vimu2": // GROUP MENU
+            status1 = 'Group Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
             conn.sendMessage(from, {
                 image: { url: imageUrl },
                 caption: status1
             }, { quoted: mek || null });
+            break;
 
-            conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+        case "vimu3": // DOWNLOAD MENU
+            status1 = 'Download Menu selected!';
+            imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+            conn.sendMessage(from, {
+                image: { url: imageUrl },
+                caption: status1
+            }, { quoted: mek || null });
+            break;
+
+        case "vimu4": // OTHER MENU
+            status1 = 'Other Menu selected!';
+            imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+            conn.sendMessage(from, {
+                image: { url: imageUrl },
+                caption: status1
+            }, { quoted: mek || null });
             break;
 
         default:
@@ -105,9 +120,11 @@ const onButtonReply = (buttonText) => {
     }
 };
 
-// Function call examples
-
-
+// Example function calls
+onButtonReply("vimu1");
+onButtonReply("vimu2");
+onButtonReply("vimu3");
+onButtonReply("vimu4");
 
 
   } catch (error) {
