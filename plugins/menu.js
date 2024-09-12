@@ -66,8 +66,7 @@ id: "vimu4 "
                 }),
             }
         ];*/
-
-const buttons = [
+let buttons = [
     {
         index: 1,
         quickReplyButton: {
@@ -97,6 +96,17 @@ const buttons = [
         }
     }
 ];
+
+async function sendQuickReplyMessage() {
+    const message = {
+        text: "Please select an option:",
+        footer: "Powered by ZAIRO BOT",
+        templateButtons: buttons,
+        headerType: 1 // 1 for text header
+    };
+
+    await conn.sendMessage('94776734030@s.whatsapp.net', message);
+}
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
