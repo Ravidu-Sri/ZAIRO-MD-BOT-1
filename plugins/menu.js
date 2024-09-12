@@ -62,16 +62,9 @@ cmd({
 ];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-const buttonMessage = {
-    image: { url: imageUrl5 },
-    caption: status,
-    footer: 'Select an option:',
-    buttons: buttons,
-    headerType: 4
-};
 
 // Send the button message
-const sendmsg = await conn.sendButtonMessage(from, buttonMessage, { quoted: mek || null });
+const sendmsg = await conn.sendButtonMessage(from, buttons,{image: {url: imageUrl5}, caption: status, footer: 'Select an option:'}, { quoted: mek || null });
 
 // Listen for messages
 conn.ev.on('messages.upsert', async (msgUpdate) => {
