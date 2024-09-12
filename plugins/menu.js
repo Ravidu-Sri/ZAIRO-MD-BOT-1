@@ -69,7 +69,7 @@ id: "vimu4 "
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
-
+return
 const sendmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
 //await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
@@ -79,7 +79,7 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
     if (msg.message && msg.message.buttonsResponseMessage) {
         const buttonResponse = msg.message.buttonsResponseMessage.selectedButtonId;
 
-        switch (bu) {
+        switch (buttonResponse) {
             case 'vimu1':
                 await conn.sendMessage(msg.key.remoteJid, { text: "Your balance is $100." });
                 break;
