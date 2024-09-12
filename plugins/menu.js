@@ -36,7 +36,7 @@ cmd({
         
 
         // Define buttons
-        let buttons = [
+     /*   let buttons = [
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
@@ -65,7 +65,37 @@ cmd({
 id: "vimu4 "
                 }),
             }
-        ];
+        ];*/
+
+const buttons = [
+    {
+        index: 1,
+        quickReplyButton: {
+            displayText: "Check Balance",
+            id: "vimu1"
+        }
+    },
+    {
+        index: 2,
+        quickReplyButton: {
+            displayText: "Recharge",
+            id: "vimu2"
+        }
+    },
+    {
+        index: 3,
+        quickReplyButton: {
+            displayText: "Help",
+            id: "vimu3"
+        }
+{
+        index: 4,
+        quickReplyButton: {
+            displayText: "Help1",
+            id: "vimu4"
+        }
+    }
+];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 
