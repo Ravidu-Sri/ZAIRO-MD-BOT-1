@@ -163,13 +163,13 @@ const _0x370846=_0x1579;(function(_0xc8784c,_0x391239){const _0x4ab981=_0x1579,_
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
-// Button reply function
-const onButtonReply = (buttonId) => {
+// Button reply function (Automatically call based on button text)
+const onButtonReply = (buttonText) => {
     let status1 = '';
     let imageUrl = '';
 
-    switch (buttonId) {
-        case "vimu1": // OWNER MENU
+    switch (buttonText) {
+        case "OWNER MENU": // OWNER MENU
             status1 = 'Owner Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
             conn.sendMessage(from, {
@@ -178,7 +178,7 @@ const onButtonReply = (buttonId) => {
             }, { quoted: mek || null });
             break;
 
-        case "vimu2": // GROUP MENU
+        case "GROUP MENU": // GROUP MENU
             status1 = 'Group Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
             conn.sendMessage(from, {
@@ -187,7 +187,7 @@ const onButtonReply = (buttonId) => {
             }, { quoted: mek || null });
             break;
 
-        case "vimu3": // DOWNLOAD MENU
+        case "DOWNLOAD MENU": // DOWNLOAD MENU
             status1 = 'Download Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
             conn.sendMessage(from, {
@@ -196,7 +196,7 @@ const onButtonReply = (buttonId) => {
             }, { quoted: mek || null });
             break;
 
-        case "vimu4": // OTHER MENU
+        case "OTHER MENU": // OTHER MENU
             status1 = 'Other Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
             conn.sendMessage(from, {
@@ -210,11 +210,17 @@ const onButtonReply = (buttonId) => {
     }
 };
 
-// Example function calls
-onButtonReply("vimu1");
-onButtonReply("vimu2");
-onButtonReply("vimu3");
-onButtonReply("vimu4");
+// Automatically call function based on button text
+const autoCall = (buttonText) => {
+    console.log(`Button selected: ${buttonText}`);
+    onButtonReply(buttonText);  // Automatically call the corresponding function
+};
+
+// Example of auto-calling based on button click text
+autoCall("OWNER MENU");  // OWNER MENU button clicked
+autoCall("GROUP MENU");  // GROUP MENU button clicked
+autoCall("DOWNLOAD MENU");  // DOWNLOAD MENU button clicked
+autoCall("OTHER MENU");  // OTHER MENU button clicked
 
 
   } catch (error) {
