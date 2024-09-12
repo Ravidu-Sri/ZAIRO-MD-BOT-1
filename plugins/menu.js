@@ -153,12 +153,12 @@ cmd({
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-        await conn.sendMessage(from, {
+        conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status1
         }, { quoted: mek || null });
 
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+        conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
     } catch (e) {
         reply('*Error !!*');
         console.log(e);
