@@ -71,7 +71,7 @@ const buttonMessage = {
 };
 
 // Send the button message
-const sendmsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
+const sendmsg = await conn.sendButtonMessage(from, buttonMessage, { quoted: mek || null });
 
 // Listen for messages
 conn.ev.on('messages.upsert', async (msgUpdate) => {
