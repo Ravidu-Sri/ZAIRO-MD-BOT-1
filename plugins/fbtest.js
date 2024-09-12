@@ -37,14 +37,14 @@ cmd({
                     name: "quick_reply",
                     buttonParamsJson: JSON.stringify({
                         display_text: "SD Quality",
-                        id: ".downfb "
+                        id: ".downfb"
                     }),
                 },
                 {
                     name: "quick_reply",
                     buttonParamsJson: JSON.stringify({
                         display_text: "HD Quality",
-                        id: ".downfb "
+                        id: ".downfb"
                     }),
                 }
                 ]
@@ -52,10 +52,10 @@ cmd({
                     image: result.thumbnail,
                     header: '',
                     footer: "Test",
-                    body: msg
+                   
 
                 }
-                return conn.sendButtonMessage(from, buttons, m, message)
+                return conn.sendButtonMessage(from, buttons, m, body: msg, message)
             }).catch((err) => {
                 console.log(err)
             })
@@ -75,7 +75,7 @@ cmd({
         try {
             if (!q) return await reply('*Not Found!*')
 
-            await conn.sendMessage(from, { video: { url: q } }, { quoted: mek })
+            await await reply('*Not Found💾8💾💾💾!*')
             await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
 
         } catch (e) {
