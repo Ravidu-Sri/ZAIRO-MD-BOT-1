@@ -41,6 +41,7 @@ cmd({
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "OWNER MENU",
+                    onButtonReply("OWNER MENU"),
                     id: "vimu1"
                 }),
             },
@@ -106,7 +107,6 @@ const onButtonReply = (buttonText) => {
 };
 
 // Function call examples
-onButtonReply("OWNER MENU");
 onButtonReply("GROUP MENU");
 
 
