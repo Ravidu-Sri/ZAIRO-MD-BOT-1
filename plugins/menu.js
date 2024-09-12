@@ -78,34 +78,20 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
 
-// Define a function to handle button clicks based on display text
-const onButtonClick = async (displayText, conn, from, mek) => {
-    let responseMessage = '';
-
-    switch (displayText) {
-        case "OWNER MENU":
-            responseMessage = 'You selected the Owner Menu!';
-            break;
-
-        case "GROUP MENU":
-            responseMessage = 'You selected the Group Menu!';
-            break;
-
-        case "DOWNLOAD MENU":
-            responseMessage = 'You selected the Download Menu!';
-            break;
-
-        case "OTHER MENU":
-            responseMessage = 'You selected the Other Menu!';
-            break;
-
-        default:
-            responseMessage = 'Unknown selection!';
-    }
-
-    // Send the reply message
-    await conn.sendMessage(from, { text: responseMessage }, { quoted: mek || null });
+const onButtonClick = async (displayText) => {
+    // Print ".alive" to the console
+    console.log('alive');
 };
+
+// Listen for button clicks
+conn.on('button_click', async (button) => {
+    // Parse the buttonParamsJson to get the display text
+    const buttonParams = JSON.parse(button.buttonParamsJson);
+    const displayText = buttonParams.display_text;
+
+    console.log(`Button clicked: ${displayText}`);
+    await onButtonClick(displayText);  // Handle the button click
+});
 
   } catch (error) {
         console.error(error);
