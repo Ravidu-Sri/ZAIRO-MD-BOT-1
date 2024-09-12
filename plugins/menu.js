@@ -73,6 +73,45 @@ const _0x370846=_0x1579;(function(_0xc8784c,_0x391239){const _0x4ab981=_0x1579,_
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 const onButtonReply = (buttonText) => {
+    let status1 = '';
+    let imageUrl = '';
+    
+    switch (buttonText) {
+        case "OWNER MENU":
+            status1 = 'vimamenu1';
+            imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+            conn.sendMessage(from, {
+                image: { url: imageUrl },
+                caption: status1
+            }, { quoted: mek || null });
+            
+            conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+            break;
+
+        case "GROUP MENU":
+            status1 = 'vimamenu😀😀';
+            imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+            conn.sendMessage(from, {
+                image: { url: imageUrl },
+                caption: status1
+            }, { quoted: mek || null });
+
+            conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+            break;
+
+        default:
+            console.log("Unknown button selected");
+    }
+};
+
+// Function call examples
+onButtonReply("OWNER MENU");
+onButtonReply("GROUP MENU");
+
+
+
+
+/*const onButtonReply = (buttonText) => {
     switch (buttonText) {
         case "OWNER MENU":
          status1 = `vimamenu1`;
@@ -97,6 +136,6 @@ conn.sendMessage(from, {
     }
 };
 onButtonReply("OWNER MENU");
-onButtonReply("GROUP MENU");
+onButtonReply("GROUP MENU");*/
 
 
