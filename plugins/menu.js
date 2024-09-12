@@ -38,67 +38,73 @@ cmd({
      
         
 
-        // Define buttons
-       let buttons = [
-            {
-                name: "quick_reply",
-                buttonParamsJson: JSON.stringify({
-                    display_text: "OWNER MENU",
-                    id: "vimu1"
-                }),
-            },
-
-
-            {
-                name: "quick_reply",
-                buttonParamsJson: JSON.stringify({
-                    display_text: "GROUP MENU",
-                    id: "vimu2"
-                }),
-            },
-            {
-                name: "quick_reply",
-                buttonParamsJson: JSON.stringify({
-                    display_text: "DOWNLOAD MENU",
-                    id: "vimu3 "
-                }),
-            },
-            {
-                name: "quick_reply",
-                buttonParamsJson: JSON.stringify({
-                    display_text: ".alive",
-id: "vimu4 "
-                }),
-            }
-        ];
+        let buttons = [
+    {
+        buttonId: 'vimu1',
+        buttonText: { displayText: 'OWNER MENU' },
+        type: 1
+    },
+    {
+        buttonId: 'vimu2',
+        buttonText: { displayText: 'GROUP MENU' },
+        type: 1
+    },
+    {
+        buttonId: 'vimu3',
+        buttonText: { displayText: 'DOWNLOAD MENU' },
+        type: 1
+    },
+    {
+        buttonId: 'vimu4',
+        buttonText: { displayText: '.alive' },
+        type: 1
+    }
+];
 
 const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-const sendmsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl5, body: status}, { quoted: mek || null });
+const buttonMessage = {
+    image: { url: imageUrl5 },
+    caption: status,
+    footer: 'Select an option:',
+    buttons: buttons,
+    headerType: 4
+};
 
+// Send the button message
+const sendmsg = await conn.sendMessage(from, buttonMessage, { quoted: mek || null });
+
+// Listen for messages
 conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
+    const msg = msgUpdate.messages[0];
+    
+    // Ensure it's a button reply
+    if (msg.message && msg.message.buttonsResponseMessage && msg.key.fromMe === false) {
+        const selectedButtonId = msg.message.buttonsResponseMessage.selectedButtonId;
 
-            if (msg.message && msg.message.extendedTextMessage &&
-                msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
-
-                const selectedOption = msg.message.extendedTextMessage.text.trim().toLowerCase();
-
-                switch (selectedOption) {
-                    case 'GROUP MENU':
-                        console.log("Unknown⬇️⬇️ button selected");
-                        break;
-
-default:
-                        reply("වැරදි ඇතුලත් කිරිමක් කරුණාකර නිවරදි නම්බර් එක ඇතුලත් කරන්න. (1.1, 1.2, 2.1, 2.2).");
-                        break;
-                }
-            }
-        });
-
-
-
-
-  } catch (error) {
+        // Switch case to handle button replies
+        switch (selectedButtonId) {
+            case 'vimu1':
+                await conn.sendMessage(from, { text: "OWNER MENU button selected" }, { quoted: msg });
+                break;
+            case 'vimu2':
+                await conn.sendMessage(from, { text: "GROUP MENU button selected" }, { quoted: msg });
+                break;
+            case 'vimu3':
+                await conn.sendMessage(from, { text: "DOWNLOAD MENU button selected" }, { quoted: msg });
+                break;
+            case 'vimu4':
+                await conn.sendMessage(from, { text: ".alive button selected" }, { quoted: msg });
+                break;
+            default:
+                await conn.sendMessage(from, { text: "Invalid selection, please choose again." }, { quoted: msg });
+                break;
+        }
+    }
+});
+ } catch (error) {
         console.error(error);
     }
 });
+
+//const imageUrl5 = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
+//const sendmsg = await conn.sendButtonMessage(from, buttons, {image: {url: imageUrl5}, caption: status}, { quoted: mek || null });
