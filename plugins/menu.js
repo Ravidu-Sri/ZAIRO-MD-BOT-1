@@ -88,6 +88,7 @@ const buttons = [
             displayText: "Help",
             id: "vimu3"
         }
+           },
 {
         index: 4,
         quickReplyButton: {
