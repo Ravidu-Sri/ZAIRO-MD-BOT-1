@@ -66,7 +66,7 @@ cmd({
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                    display_text: "OTHER MENU",
+                    display_text: ".alive",
 id: "vimu4 "
                 }),
             }
