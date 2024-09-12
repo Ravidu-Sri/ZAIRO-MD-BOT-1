@@ -4,6 +4,96 @@ const os = require("os")
 const {runtime} = require('../lib/functions')
 
 cmd({
+    pattern: "menuc",
+    react: "📂",
+    alias: ["panel","list","commands"],
+    desc: "Get bot\'s command list.",
+    category: "main",
+    use: '.menu',
+    filename: __filename
+},
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname,  isSachintha, isSavi, isSadas, isMani, isMe,isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+    try{
+    let menuc1 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'admin'){
+if(!commands[i].dontAddCommandList){
+menuc1 += `*│►* .${commands[i].pattern}\n`
+}}};
+
+let menuc2 = ``
+for (let i=0;i<commands.length;i++) { 
+  if(commands[i].category === 'main'){
+  if(!commands[i].dontAddCommandList){
+  menuc2 += `*│⩥* .${commands[i].pattern}\n`
+  }}};
+
+let menuc3 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'convert'){
+  if(!commands[i].dontAddCommandList){
+    menuc3 += `*│►* .${commands[i].pattern}\n`
+}}};
+
+let menuc4 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'search'){
+  if(!commands[i].dontAddCommandList){
+menuc4 += `*│►* .${commands[i].pattern}\n`
+}}};
+
+let menuc5 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'download'){
+  if(!commands[i].dontAddCommandList){
+menuc5 += `*│►* .${commands[i].pattern}\n`
+}}};
+
+let menuc6 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'owner'){
+if(!commands[i].dontAddCommandList){
+  menuc6 += `*│⩥* .${commands[i].pattern}\n`
+}}};
+let menumg = `*Hellow👸* ${pushname}
+
+*╭─     ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ*
+*│🕵️‍♂️ 𝘙𝘶𝘯 𝘛𝘪𝘮𝘦 -* ${runtime(process.uptime())} 
+*│🕵️‍♂️ 𝘙𝘢𝘮 𝘜𝘴𝘦 -* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*╰──────────●●►*
+*👸 𝘔𝘙 𝘒𝘈𝘚𝘜𝘕 𝘔𝘥 𝘊𝘰𝘮𝘮𝘢𝘮𝘥 𝘗𝘢𝘯𝘦𝘭*
+*╭──────────●●►*
+*│🧙‍♂️ MAIN COMMANDS*
+*│   ───────*
+
+${menuc2}*╰───────────●●►*
+
+*│🧙‍♂️ DOWNLOAD COMMANDS*
+*│   ───────*
+
+${menuc5}*╰───────────●●►*                    
+
+*│🧙‍♂️ SEARCH COMMANDS*
+*│   ───────*
+
+${menuc4}*╰───────────●●►*
+
+*│🧙‍♂️ CONVERT COMMANDS*
+*│   ───────*
+
+${menuc3}*╰───────────●●►*      
+
+*•ᴹᴿ ᴷᴬˢᵁᴺ ᴍᴅ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ•*`
+      
+await conn.sendMessage(from, { image: { url: config.LOGO }, caption: menumg }, { quoted: mek, messageId:genMsgId() })
+} catch (e) {
+reply('*Error !!*')
+l(e)
+}
+});
+
+
+cmd({
     pattern: "menu",
     alias: ["panel","penal","list","allmenu"],
     react: "🪴",
