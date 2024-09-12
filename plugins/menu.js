@@ -163,64 +163,52 @@ const _0x370846=_0x1579;(function(_0xc8784c,_0x391239){const _0x4ab981=_0x1579,_
 await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 
 
-// Button reply function (Automatically call based on button text)
-const onButtonReply = (buttonText) => {
+// Define a function to handle button clicks based on display text
+const onButtonClick = async (displayText) => {
     let status1 = '';
     let imageUrl = '';
 
-    switch (buttonText) {
+    switch (displayText) {
         case "OWNER MENU": // OWNER MENU
             status1 = 'Owner Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-            conn.sendMessage(from, {
-                image: { url: imageUrl },
-                caption: status1
-            }, { quoted: mek || null });
             break;
 
         case "GROUP MENU": // GROUP MENU
             status1 = 'Group Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-            conn.sendMessage(from, {
-                image: { url: imageUrl },
-                caption: status1
-            }, { quoted: mek || null });
             break;
 
         case "DOWNLOAD MENU": // DOWNLOAD MENU
             status1 = 'Download Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-            conn.sendMessage(from, {
-                image: { url: imageUrl },
-                caption: status1
-            }, { quoted: mek || null });
             break;
 
         case "OTHER MENU": // OTHER MENU
             status1 = 'Other Menu selected!';
             imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-            conn.sendMessage(from, {
-                image: { url: imageUrl },
-                caption: status1
-            }, { quoted: mek || null });
             break;
 
         default:
-            console.log("Unknown button selected");
+            status1 = 'Unknown selection!';
     }
+
+    // Send a message with image and caption
+    await conn.sendMessage(from, {
+        image: { url: imageUrl },
+        caption: status1
+    }, { quoted: mek || null });
 };
 
-// Automatically call function based on button text
-const autoCall = (buttonText) => {
-    console.log(`Button selected: ${buttonText}`);
-    onButtonReply(buttonText);  // Automatically call the corresponding function
-};
+// Listen for button clicks and handle them based on display text
+conn.on('button_click', async (button) => {
+    // Parse the buttonParamsJson to get the display text
+    const buttonParams = JSON.parse(button.buttonParamsJson);
+    const displayText = buttonParams.display_text;
 
-// Example of auto-calling based on button click text
-autoCall("OWNER MENU");  // OWNER MENU button clicked
-autoCall("GROUP MENU");  // GROUP MENU button clicked
-autoCall("DOWNLOAD MENU");  // DOWNLOAD MENU button clicked
-autoCall("OTHER MENU");  // OTHER MENU button clicked
+    console.log(`Button clicked: ${displayText}`);
+    await onButtonClick(displayText);  // Handle the button click based on display text
+});
 
 
   } catch (error) {
