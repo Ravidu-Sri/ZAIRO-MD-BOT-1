@@ -81,14 +81,15 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 const onButtonReply = (buttonText) => {
     if (buttonText === "OWNER MENU") {
         console.log(".alive");
+        // බොත්තමෙන් display_text එක reply එකට pass කරන්න
+onButtonReply("OWNER MENU");
         // OWNER MENU සඳහා ප්‍රතිචාර පෙන්වන්න
     } else {
         console.log("Unknown button selected");
     }
 };
 
-// බොත්තමෙන් display_text එක reply එකට pass කරන්න
-onButtonReply("OWNER MENU");
+
 
   } catch (error) {
         console.error(error);
