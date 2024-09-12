@@ -8,7 +8,7 @@ const generate = async (type, url) => {
     const generated = await generateWAMessageContent({
         [type]: { url }
     }, {
-        upload: sock.waUploadToServer
+        upload: conn.waUploadToServer
     })
     return generated[`${type}Message`]
 }
@@ -39,7 +39,7 @@ async (conn, mek, m, {from, reply}) => {
                         header: proto.Message.InteractiveMessage.Header.create({
                             title: "some title",
                             hasMediaAttachment: true,
-                            imageMessage: await generate("image", "url/path to image") // Replace with the actual image URL
+                            imageMessage: await generate("image", "url/https://i.ibb.co/6mzcHsN/20240907-102239.jpg") // Replace with the actual image URL
                         }),
                         nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                             buttons: [{
@@ -63,7 +63,7 @@ async (conn, mek, m, {from, reply}) => {
         }, {})
 
         // Relay the message
-        await sock.relayMessage(from, msg.message, {
+        await conn.relayMessage(from, msg.message, {
             messageId: msg.key.id
         })
 
