@@ -37,14 +37,14 @@ cmd({
                     name: "quick_reply",
                     buttonParamsJson: JSON.stringify({
                         display_text: "SD Quality",
-                        id: ".downfb " + result.sd
+                        id: ".downfb "
                     }),
                 },
                 {
                     name: "quick_reply",
                     buttonParamsJson: JSON.stringify({
                         display_text: "HD Quality",
-                        id: ".downfb " + result.hd
+                        id: ".downfb "
                     }),
                 }
                 ]
