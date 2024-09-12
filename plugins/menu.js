@@ -75,6 +75,7 @@ await conn.sendMessage(from, { react: { text: '⚓', key: mek.key }});
 const onButtonReply = (buttonText) => {
     switch (buttonText) {
         case "OWNER MENU":
+
          status1 = `vimamenu1`;
          imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
 conn.sendMessage(from, {
@@ -83,7 +84,8 @@ conn.sendMessage(from, {
         }, { quoted: mek || null });
 
         conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-onButtonReply("OWNER MENU");
+
+
             break;
 case "GROUP MENU":
          status1 = `vimamenu😀😀`;
@@ -94,7 +96,7 @@ conn.sendMessage(from, {
         }, { quoted: mek || null });
 
         conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-onButtonReply("GROUP MENU");
+
             break;
 
         
@@ -105,146 +107,7 @@ onButtonReply("GROUP MENU");
 
 };
 
+onButtonReply("OWNER MENU");
+onButtonReply("GROUP MENU");
 
 
-
-/*conn.ev.on('messages.upsert', async (msgUpdate) => {
-    const msg = msgUpdate.messages[0];
-
-    if (msg.message && msg.message.buttonsResponseMessage) {
-        const buttonResponse = msg.message.buttonsResponseMessage.selectedButtonId;
-
-        switch (buttonResponse) {
-            case 'vimu1':
-                await conn.sendMessage(msg.key.remoteJid, { text: "Your balance is $100." });
-                break;
-
-            case 'vimu2':
-                await conn.sendMessage(msg.key.remoteJid, { text: "You can recharge via our website." });
-                break;
-
-            case 'vimu3':
-                await conn.sendMessage(msg.key.remoteJid, { text: "How can we assist you?" });
-                break;
-
-        case 'vimu4':
-                await conn.sendMessage(msg.key.remoteJid, { text: "How can we assis🏦t you?" });
-                break;
-
-            default:
-                await conn.sendMessage(msg.key.remoteJid, { text: "Invalid selection!" });
-                break;
-        }
-    }
-});*/
-   } catch (e) {
-        console.log(e)
-        reply(`Error: ${e}`)
-    }
-});
-
-
-
-
-// Capture button responses
-
-
-
-// Command "a "
-cmd({
-    pattern: "vimu1",
-    react: "🎥",
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        let status1 = `vimamenu1`;
-
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status1
-        }, { quoted: mek || null });
-
-        conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-    } catch (e) {
-        reply('*Error !!*');
-        console.log(e);
-    }
-});
-
-// Command "vimu2"
-cmd({
-    pattern: "b",
-    react: "🎥",
-    dontAddCommandList: true,
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        let status2 = `vimamenu2`;
-
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status2
-        }, { quoted: mek || null });
-
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-    } catch (e) {
-        reply('*Error !!*');
-        console.log(e);
-    }
-});
-
-// Command ".vimu3"
-cmd({
-    pattern: "c",
-    react: "🎥",
-    dontAddCommandList: true,
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        let status3 = `vimamenu3`;
-
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status3
-        }, { quoted: mek || null });
-
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-    } catch (e) {
-        reply('*Error !!*');
-        console.log(e);
-    }
-});
-
-// Command ".vimu4"
-cmd({
-    pattern: ".vimu4",
-    react: "🎥",
-    dontAddCommandList: true,
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        let status4 = `vimamenu4`;
-
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
-
-        // Send the image with the status as the caption
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status4
-        }, { quoted: mek || null });
-
-        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-    } catch (e) {
-        reply('*Error !!*');
-        console.log(e);
-    }
-});
