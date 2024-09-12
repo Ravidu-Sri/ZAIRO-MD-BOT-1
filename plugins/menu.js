@@ -111,31 +111,3 @@ onButtonReply("GROUP MENU");
 
 
 
-/*const onButtonReply = (buttonText) => {
-    switch (buttonText) {
-        case "OWNER MENU":
-         status1 = `vimamenu1`;
-         imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status1
-        }, { quoted: mek || null });
-        conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-            break;
-case "GROUP MENU":
-         status1 = `vimamenu😀😀`;
-         imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg';
-conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: status1
-        }, { quoted: mek || null });
-        conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-            break;
-        default:
-            console.log("Unknown button selected");
-    }
-};
-onButtonReply("OWNER MENU");
-onButtonReply("GROUP MENU");*/
-
-
