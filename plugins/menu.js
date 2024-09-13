@@ -66,7 +66,7 @@ let buttons = [{
 
  const sentMsg = await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: status
+            caption: status,
             buttons: buttons
         }, { quoted: mek || null });
 
