@@ -64,10 +64,7 @@ let buttons = [{
         // Send the image with the status as the caption
      //   const sentMsg = await conn.sendMessage(from, buttons, {image: imageUrl, caption: status}, { quoted: mek || null });
 
-
-
- Send the image with the status as the caption
-        const sentMsg = await conn.sendMessage(from, {
+ const sentMsg = await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status
             buttons: buttons
