@@ -2,6 +2,7 @@ const {readEnv} = require('../lib/database')
 const {cmd, commands} = require('../command')
 const os = require("os")
 const {runtime} = require('../lib/functions')
+const { Buttons, MessageType } = require('@adiwajshing/baileys');
 
 cmd({
     pattern: "menu",
@@ -61,7 +62,7 @@ let buttons = [{
 ];
 
         // Send the image with the status as the caption
-        const sentMsg = await conn.sendButtonMessage(from, buttons, {image: imageUrl, body: status}, { quoted: mek || null });
+        const sentMsg = await conn.sendMessage(from, buttons, {image: imageUrl, body: status}, { quoted: mek || null });
 
 
 
