@@ -62,17 +62,24 @@ let buttons = [{
 ];
 
         // Send the image with the status as the caption
-        const sentMsg = await conn.sendMessage(from, buttons, {image: imageUrl, caption: status}, { quoted: mek || null });
+     //   const sentMsg = await conn.sendMessage(from, buttons, {image: imageUrl, caption: status}, { quoted: mek || null });
 
 
 
-conn.ev.on('messages.upsert', async (msgUpdate) => {
+ Send the image with the status as the caption
+        const sentMsg = await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: status
+            buttons: buttons
+        }, { quoted: mek || null });
+
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.buttonsResponseMessage) return; // Check for button message response
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
             
-            const selectedButton = msg.message.buttonsResponseMessage.selectedButtonId;
-            if (msg.message.buttonsResponseMessage.contextInfo && msg.message.buttonsResponseMessage.contextInfo.stanzaId === sentMsg.key.id) {
-                switch (selectedButton) {
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
+                switch (selectedOption) {
                     case '1':
                         reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
 
