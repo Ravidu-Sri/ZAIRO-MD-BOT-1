@@ -66,9 +66,8 @@ let buttons = [{
 
  const sentMsg = await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: status,
-            buttons: buttons
-        }, { quoted: mek || null });
+            caption: status
+        }, buttons, { quoted: mek || null });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
