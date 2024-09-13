@@ -61,8 +61,9 @@ let buttons = [{
 {
 name: "quick_reply",
                     buttonParamsJson: JSON.stringify({
-                        display_text: "SD Quality",
-                        id: "ggtt"
+id: "ggtt",
+                        display_text: "SD Quality"
+                        
                     }),
 }];
 
@@ -84,9 +85,9 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
 
     const selectedButtonId = msg.message.buttonsResponseMessage.selectedButtonId; // Get the button ID
     if (selectedButtonId === 'uuuu') {
-        reply(`You selected SD Quality! Here is your link: ${result.sd}`);
+        reply(`You selected SD Quality! Here is your lin}`);
     } else if (selectedButtonId === 'ggtt') {
-        reply(`You selected HD Quality! Here is your link: ${result.hd}`);
+        reply(`You selected HD Quality! Here is your lin}`);
     } else {
         reply("Invalid option selected.");
     }
