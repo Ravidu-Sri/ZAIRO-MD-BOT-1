@@ -25,7 +25,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
             caption: `✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n
 𝙰𝕌𝚃𝙾 𝙰𝚄𝚃𝙾 𝚅𝙾𝙸𝙲𝙴 : ${autoStatus}
-𝙰𝕌𝚃𝙾 𝚂𝚃𝙰𝚃𝚄𝚂 𝚁𝙴𝙰𝙳: ${autoVoie}
+𝙰𝕌𝚃𝙾 𝚂𝚃𝙰𝚃𝚄𝚂 𝚁𝙴𝙰𝙳: ${autoVoice}
 
 _*Work Type public, private, groups, inbox*_⤵️
 
