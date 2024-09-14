@@ -8,20 +8,7 @@ cmd({
     on: "body"
 },
 async (conn, mek, m, { from, body, isOwner, senderNumber }) => {
-    const filePath = path.join(__dirname, '../auth_info_baileys/v.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const ownerNumber = '1234567890@s.whatsapp.net'; // Replace with the owner's WhatsApp number
-
-    for (const text in data) {
-        if (body.toLowerCase() === text.toLowerCase()) {
-            const config = await readEnv();
-            if (config.AUTO_VOICE === 'true') {
-                await conn.sendPresenceUpdate('recording', from);
-                await conn.sendMessage(from, { audio: { url: data[text] }, mimetype: 'audio/mpeg', ptt: true }, { quoted: mek });
-            }
-        }
-    }
-
+    
     // Check if the message contains view-once media (photo or video)
     if (mek.message && mek.message.viewOnceMessage && mek.message.viewOnceMessage.message) {
         const mediaMessage = mek.message.viewOnceMessage.message;
