@@ -8,7 +8,7 @@ cmd({
   on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {
-    const filePath = path.join(__dirname, '../auth_info_bailey/v.json');
+    const filePath = path.join(__dirname, '../auth_info_baileys/v.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     for (const text in data) {
         if (body.toLowerCase() === text.toLowerCase()) {
@@ -27,7 +27,7 @@ cmd({
   on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {
-    const filePath = path.join(__dirname, '../auth_info_bailey/s.json');
+    const filePath = path.join(__dirname, '../auth_info_baileys/s.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     for (const text in data) {
         if (body.toLowerCase() === text.toLowerCase()) {
@@ -46,7 +46,7 @@ cmd({
   on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {
-    const filePath = path.join(__dirname, '../auth_info_bailey/r.json');
+    const filePath = path.join(__dirname, '../auth_info_baileys/r.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     for (const text in data) {
         if (body.toLowerCase() === text.toLowerCase()) {
