@@ -2,7 +2,7 @@ const fs = require('fs');
 const { cmd } = require('../command'); // Importing cmd from command.js
 
 // Save status command handler
-const saveStatus = async (m, reply) => {
+const saveStatus = async (m, reply, conn) => {
   try {
     const status = m.body.split(' ').slice(1).join(' '); // Get the status message after the command
     if (!status) {
@@ -12,6 +12,10 @@ const saveStatus = async (m, reply) => {
     // Save the status in a file (status.txt)
     fs.writeFileSync('status.txt', status, 'utf8');
     reply(`Status saved successfully!`);
+
+    // Read the saved status and send it back to the user
+    const savedStatus = fs.readFileSync('status.txt', 'utf8');
+    await conn.sendMessage(m.from, { text: `Saved Status: ${savedStatus}` });
   } catch (error) {
     console.error('Error:', error);
     reply(`Error saving status: ${error.message}`);
@@ -26,5 +30,5 @@ cmd({
   filename: __filename
 },
 async (conn, mek, m, { reply }) => {
-  await saveStatus(m, reply);
+  await saveStatus(m, reply, conn); // Pass conn to handle the message sending
 });
