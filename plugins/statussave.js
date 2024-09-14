@@ -1,4 +1,4 @@
-import fs from 'fs';
+const fs = require('fs');
 const { cmd } = require('../command'); // Importing cmd from command.js
 
 // Save status command handler
