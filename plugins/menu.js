@@ -222,7 +222,7 @@ cmd({
     desc: "Check menu all",
     category: "main",
     filename: __filename
-}, async (message, match, m) => {
+},  async (conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
     try {
         // Check if the message is a reply to a ViewOnce media
         if (!m.quoted) {
@@ -240,8 +240,6 @@ cmd({
         // Send the downloaded media back to the user
         await conn.sendMessage(message.key.remoteJid, { document: buff }, { mimetype: 'image/jpeg', filename: 'image.jpg' });
 
-    } catch (error) {
-        console.log(error);
-        await conn.sendMessage(message.key.remoteJid, { text: `An error occurred: ${error.message}` });
-    }
-});
+      } catch (e) {
+        console.log(e)
+        reply(`Error: ${e}`)
