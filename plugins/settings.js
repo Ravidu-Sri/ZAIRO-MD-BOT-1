@@ -61,15 +61,19 @@ _*AUTO READ STATUS ON/OFF*_⤵️
                 switch (selectedOption) {
                     case '1.1':
                         reply('.vimau MODE:public');
+                        reply('.restart');
                         break;
                     case '1.2':
                         reply('.vimau MODE:private');
+reply('.restart');
                         break;
                     case '1.3':
                         reply('.vimau MODE:groups');
+reply('.restart');
                         break;
                     case '1.4':
                         reply('.vimau MODE:inbox');
+reply('.restart');
                         break;
                     case '2.1':
                         reply('.vimau AUTO_VOICE:true');
