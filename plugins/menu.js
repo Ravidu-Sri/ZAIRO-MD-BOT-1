@@ -222,16 +222,15 @@ cmd({
     desc: "Check menu all",
     category: "main",
     filename: __filename
-},
-   async (message, match, m) => {
+}, async (message, match, m) => {
     try {
         // Check if the message is a reply to a ViewOnce media
-        if (!message.reply_message) {
+        if (!m.quoted) {
             return await message.reply("Please reply to a ViewOnce media message.");
         }
 
-        // Check if the replied message contains a quoted media to download
-        if (!m.quoted || !m.quoted.download) {
+        // Check if the replied message contains media to download
+        if (!m.quoted.download) {
             return await message.reply("Unable to detect any media to download.");
         }
 
@@ -245,4 +244,4 @@ cmd({
         console.log(error);
         await message.reply(`An error occurred: ${error.message}`);
     }
-}
+});
