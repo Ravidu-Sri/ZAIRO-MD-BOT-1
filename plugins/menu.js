@@ -215,3 +215,37 @@ Ex. ( .yts <lelena> )
         reply(`Error: ${e}`)
     }
 });
+
+cmd({
+    pattern: "sticker",
+    alias: ["st"],
+    react: "🔗",
+    desc: "Convert a replied message to a sticker",
+    category: "main",
+    filename: __filename
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        // Check if the user replied to a message
+        if (!quoted) return await reply("_Reply to a photo/video/text_");
+
+        let buff;
+        
+        // If the replied message is text
+        if (quoted.mtype === 'conversation' || quoted.mtype === 'extendedTextMessage') {
+            buff = await textToImg(quoted.body);
+        } 
+        // If the replied message is a media (photo/video)
+        else if (quoted.mtype === 'imageMessage' || quoted.mtype === 'videoMessage' || quoted.mtype === 'stickerMessage') {
+            buff = await quoted.download();
+        } else {
+            return await reply("_Unsupported message type!_");
+        }
+
+        // Send the sticker
+        await conn.sendMessage(from, buff, { packname: config.PACKNAME, author: config.AUTHOR }, "sticker");
+
+    } catch (e) {
+        console.log(e);
+        await reply(`Error: ${e}`);
+    }
+});
