@@ -4,7 +4,9 @@ const EnvVar = require('../lib/mongodbenv');
 
 const config = await readEnv();
 
-let autoVoiceStatus = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
+let autoVoice = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
+
+let autoStatus = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
 
 
 
@@ -21,7 +23,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
-            caption: `✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n\n
+            caption: `✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n
+𝙰𝕌𝚃𝙾 𝙰𝚄𝚃𝙾 𝚅𝙾𝙸𝙲𝙴 : ${autoStatus}
+𝙰𝕌𝚃𝙾 𝚂𝚃𝙰𝚃𝚄𝚂 𝚁𝙴𝙰𝙳: ${autoVoie}
 
 _*Work Type public, private, groups, inbox*_⤵️
 
