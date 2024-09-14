@@ -3,11 +3,6 @@ const { cmd, commands } = require('../command');
 //const { EnvVar } = require('../plugins/update_env');
 const EnvVar = require('../lib/mongodbenv');
 
-/**
- * Fetches an environment variable and lists all existing variables if not found.
- * @param {string} key - The key of the environment variable to fetch.
- * @param {function} reply - Function to send the reply message.
- */
 
 
 cmd({
@@ -21,28 +16,105 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         if(!isOwner) return;
 
-// Extract key and value
-//    const key = q.substring(0, delimiterIndex).trim();
- //   const value = q.substring(delimiterIndex + 1).trim();
-
-const envVar = await EnvVar.findOne({ key: key });
-
-const allEnvVars = await EnvVar.find({});
-            const envList = allEnvVars.map(env => `${env.key}: ${env.value}`).join('\n');
-        
-
-        let status = `*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋 𝕊𝔼𝕋𝕋𝕀ℕ𝔾𝕊✸*
-
-        > *MODE*: ${envList}
-
-        > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂'`;
-
-        return await conn.sendMessage(from, {
+        const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
-            caption: status + '\n\n✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n\n*Cheng Alive&Menu IMG*\n.update ALIVE_IMG: Your Image Url\n\n*Cheng Alive MSG*\n.update ALIVE_MSG: Your Alive MSG\n\n*Cheng Prefix*\n.update PERFIX: your prefix (.,$#%&)\n\n*Auto Status Seen*\n.update AUTO_READ_STATUS: true or false\n\n*Mode*\n.update MODE: private, public, index or group'
-        }, { quoted: mek });
+            caption: status + '\n\n✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n\n
+
+_*Work Type public, private, groups,inbox*_⤵️
+
+> 🌎 1.1 public Work
+
+> 👤 1.2 private Work
+
+> 👥 1.3 Groups Only Work
+
+> 🫂 1.4 Inbox Only Work
+
+_*AUTO VOICE SEND ON OFF*_⤵️
+
+> 🟢 2.1 Auto Voice On
+
+> 🔴 2.2 Auto Voice Off
+
+_*AUTO STICKER SEND ON OFF*_⤵️
+
+> 🟢 3.1 Auto Voice On
+
+> 🔴 3.2 Auto Voice Off
+
+_*AUTO REPLY SEND ON OFF*_⤵️
+
+> 🟢 4.1 Auto Reply On
+
+> 🔴 4.2 Auto Reply Off
+
+_*AUTO READ STATUS ON OFF*_⤵️
+
+> 🟢 5.1 Auto Read Status On
+
+> 🔴 5.2 Auto Read Status Off
+
+' }, { quoted: mek });
+
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+            
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1.1':
+                        reply('.update MODE:public`);
+                        break;
+case '1.2':
+                        reply('.update MODE:private`);
+                        break;
+case '1.3':
+                        reply('.update MODE:groups`);
+                        break;
+case '1.4':
+                        reply('.update MODE:inbox`);
+                        break;
+case '2.1':
+                        reply('.update AUTO_VOICE:true`);
+                        break;
+case '2.2':
+                        reply('.update AUTO_VOICE:false`);
+                        break;
+case '3.1':
+                        reply('.update AUTO_STICKER:true`);
+                        break;
+case '3.2':
+                        reply('.update AUTO_STICKER:false`);
+                        break;
+case '4.1':
+                        reply('.update AUTO_REPLY:true`);
+                        break;
+case '4.2':
+                        reply('.update AUTO_REPLY:false`);
+                        break;
+case '5.1':
+                        reply('.update AUTO_READ_STATUS:true`);
+                        break;
+case '5.2':
+                        reply('.update AUTO_READ_STATUS:false`);
+                        break;
+default:
+                        reply("Invalid option. Please select a valid  option🔴");
+                }
+            }
+        });
+
+
+
     } catch (e) {
         console.log(e);
         reply(`${e}`);
     }
 });
+
+
+
+
+
+
