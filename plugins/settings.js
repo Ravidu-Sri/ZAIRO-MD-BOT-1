@@ -6,7 +6,7 @@ const config = readEnv();
 
 let autoVoice = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
 
-let autoStatus = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
+let autoStatus = config.AUTO_READ_STATUS === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
 
 
 
