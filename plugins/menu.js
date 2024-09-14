@@ -222,24 +222,26 @@ cmd({
     desc: "Check menu all",
     category: "main",
     filename: __filename
-},  async (conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+},  async (conn, mek, m, { from, quoted, reply }) => {
     try {
         // Check if the message is a reply to a ViewOnce media
-        if (!m.quoted) {
-            return await conn.sendMessage(message.key.remoteJid, { text: "Please reply to a ViewOnce media message." });
+        if (!quoted) {
+            return await conn.sendMessage(from, { text: "Please reply to a ViewOnce media message." });
         }
 
         // Check if the replied message contains media to download
-        if (!m.quoted.download) {
-            return await conn.sendMessage(message.key.remoteJid, { text: "Unable to detect any media to download." });
+        if (!quoted.download) {
+            return await conn.sendMessage(from, { text: "Unable to detect any media to download." });
         }
 
         // Download the quoted media (ViewOnce media)
-        let buff = await m.quoted.download();
+        let buff = await quoted.download();
 
         // Send the downloaded media back to the user
-        await conn.sendMessage(message.key.remoteJid, { document: buff }, { mimetype: 'image/jpeg', filename: 'image.jpg' });
+        await conn.sendMessage(from, { document: buff }, { mimetype: 'image/jpeg', filename: 'image.jpg' });
 
-      } catch (e) {
-        console.log(e)
-        reply(`Error: ${e}`)
+    } catch (e) {
+        console.log(e);
+        await reply(`Error: ${e}`);
+    }
+});
