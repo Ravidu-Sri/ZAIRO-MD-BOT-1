@@ -4,7 +4,7 @@ const EnvVar = require('../lib/mongodbenv');
 
 cmd({
     pattern: "settings",
-    alias: ["setting"],
+    alias: ["setting","s"],
     desc: "Check bot online or not.",
     category: "main",
     filename: __filename
@@ -60,40 +60,40 @@ _*AUTO READ STATUS ON/OFF*_⤵️
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1.1':
-                        reply('.update MODE:public');
+                        reply('.vimau MODE:public');
                         break;
                     case '1.2':
-                        reply('.update MODE:private');
+                        reply('.vimau MODE:private');
                         break;
                     case '1.3':
-                        reply('.update MODE:groups');
+                        reply('.vimau MODE:groups');
                         break;
                     case '1.4':
-                        reply('.update MODE:inbox');
+                        reply('.vimau MODE:inbox');
                         break;
                     case '2.1':
-                        reply('.update AUTO_VOICE:true');
+                        reply('.vimau AUTO_VOICE:true');
                         break;
                     case '2.2':
-                        reply('.update AUTO_VOICE:false');
+                        reply('.vimau AUTO_VOICE:false');
                         break;
                     case '3.1':
-                        reply('.update AUTO_STICKER:true');
+                        reply('.vimau AUTO_STICKER:true');
                         break;
                     case '3.2':
-                        reply('.update AUTO_STICKER:false');
+                        reply('.vimau AUTO_STICKER:false');
                         break;
                     case '4.1':
-                        reply('.update AUTO_REPLY:true');
+                        reply('.vimau AUTO_REPLY:true');
                         break;
                     case '4.2':
-                        reply('.update AUTO_REPLY:false');
+                        reply('.vimau AUTO_REPLY:false');
                         break;
                     case '5.1':
-                        reply('.update AUTO_READ_STATUS:true');
+                        reply('.vimau AUTO_READ_STATUS:true');
                         break;
                     case '5.2':
-                        reply('.update AUTO_READ_STATUS:false');
+                        reply('.vimau AUTO_READ_STATUS:false');
                         break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
