@@ -224,8 +224,25 @@ cmd({
     filename: __filename
 },
    async (message, match, m) => {
-      if (!message.reply_message) return await message.reply("Reply a ViewOnce");
-      let buff = await m.quoted.download();
-      return await message.sendFile(buff);
-   }
-);
+    try {
+        // Check if the message is a reply to a ViewOnce media
+        if (!message.reply_message) {
+            return await message.reply("Please reply to a ViewOnce media message.");
+        }
+
+        // Check if the replied message contains a quoted media to download
+        if (!m.quoted || !m.quoted.download) {
+            return await message.reply("Unable to detect any media to download.");
+        }
+
+        // Download the quoted media (ViewOnce media)
+        let buff = await m.quoted.download();
+
+        // Send the downloaded media back to the user
+        await message.sendFile(buff);
+
+    } catch (error) {
+        console.log(error);
+        await message.reply(`An error occurred: ${error.message}`);
+    }
+}
