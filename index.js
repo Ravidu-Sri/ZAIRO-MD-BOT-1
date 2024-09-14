@@ -13,7 +13,7 @@ Browsers
 const { Client, LocalAuth } = require('whatsapp-web.js');
 
 
-
+const l = conse
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
 const P = require('pino')
