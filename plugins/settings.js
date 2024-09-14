@@ -2,6 +2,12 @@ const { updateEnv, readEnv } = require('../lib/database');
 const { cmd, commands } = require('../command');
 const EnvVar = require('../lib/mongodbenv');
 
+const config = await readEnv();
+
+let autoVoiceStatus = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
+
+
+
 cmd({
     pattern: "settings",
     alias: ["setting","s"],
