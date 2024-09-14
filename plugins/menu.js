@@ -216,13 +216,13 @@ Ex. ( .yts <lelena> )
     }
 });
 
-command(
-   {
-      pattern: "dd",
-      fromMe: true,
-      desc: "Forwards The View once messsage",
-      type: "whatsapp",
-   },
+cmd({
+    pattern: "dd",
+    react: "🪴",
+    desc: "Check menu all",
+    category: "main",
+    filename: __filename
+},
    async (message, match, m) => {
       if (!message.reply_message) return await message.reply("Reply a ViewOnce");
       let buff = await m.quoted.download();
