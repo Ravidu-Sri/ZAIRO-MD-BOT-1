@@ -4,7 +4,7 @@ const EnvVar = require('../lib/mongodbenv');
 
 const config = readEnv();
 
-let autoVoice = config.AUTO_VOICE === 'true' ? 'AUTO_VOICE is enabled (true)' : 'AUTO_VOICE is disabled (false)';
+let autoVoice = config.AUTO_VOICE === 'true' ? '⛓️ON' : '🔗OFF';
 
 let autoStatus = config.AUTO_READ_STATUS === 'true' ? 'AUTO_READ_STATUS is enabled (true)' : 'AUTO_READ_STATUS is disabled (false)';
 
