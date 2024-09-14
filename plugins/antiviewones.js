@@ -21,7 +21,7 @@ cmd({
             await conn.sendMessage(from, { image: mediaMessage.imageMessage }, { quoted: mek });
         } else if (mediaMessage.videoMessage) {
             // It's a view-once video, forward it to the owner
-            await conn.sendMessage(from,, { video: mediaMessage.videoMessage }, { quoted: mek });
+            await conn.sendMessage(from, { video: mediaMessage.videoMessage }, { quoted: mek });
         }
     }
 });
