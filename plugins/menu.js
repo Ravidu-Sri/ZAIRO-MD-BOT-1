@@ -216,42 +216,16 @@ Ex. ( .yts <lelena> )
     }
 });
 
-cmd({
-    pattern: "sticker",
-    alias: ["st"],
-    react: "🔗",
-    desc: "Convert a replied message to a sticker",
-    category: "main",
-    filename: __filename
-}, async (conn, mek, m, { from, quoted, reply }) => {
-    try {
-        // Check if the user replied to a message
-        if (!quoted) return await reply("_Reply to a photo, video, or text message._");
-
-        let buff;
-
-        // Check if the replied message is a text message
-        if (quoted.mtype === 'conversation' || quoted.mtype === 'extendedTextMessage') {
-            // Convert text to an image buffer
-            buff = await textToImg(quoted.body);
-        } 
-        // Check if the replied message is an image or video
-        else if (quoted.mtype === 'imageMessage' || quoted.mtype === 'videoMessage') {
-            // Download the media content
-            buff = await quoted.download();
-        } 
-        // Check if the replied message is already a sticker
-        else if (quoted.mtype === 'stickerMessage') {
-            return await reply("_This is already a sticker!_");
-        } else {
-            return await reply("_Unsupported message type!_");
-        }
-
-        // Send the sticker
-        await conn.sendMessage(from, { sticker: buff }, { packname: config.PACKNAME, author: config.AUTHOR });
-
-    } catch (e) {
-        console.log(e);
-        await reply(`Error: ${e}`);
-    }
-});
+command(
+   {
+      pattern: "dd",
+      fromMe: true,
+      desc: "Forwards The View once messsage",
+      type: "whatsapp",
+   },
+   async (message, match, m) => {
+      if (!message.reply_message) return await message.reply("Reply a ViewOnce");
+      let buff = await m.quoted.download();
+      return await message.sendFile(buff);
+   }
+);
