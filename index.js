@@ -274,9 +274,11 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
 
 
 
-
-
-//if(senderNumber.includes("94776734030")){
+  const config = await readEnv();
+             
+                
+//if(senderNumber.includes("94776734030"))
+if (config.OWNER_REACT === 'true'){
 //if(isReact) return
 //m.react("🇱🇰")
 //}
