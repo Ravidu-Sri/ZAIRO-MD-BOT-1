@@ -102,7 +102,7 @@ _*OWNER REACT ON/OFF*_⤵️
         // Auto-delete the message after 10 seconds
         setTimeout(async () => {
             await conn.sendMessage(from, { delete: vv.key });
-        }, 10000); // 10 seconds timeout for deletion
+        }, 60000); // 10 seconds timeout for deletion
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
@@ -164,7 +164,7 @@ _*OWNER REACT ON/OFF*_⤵️
                 // Auto-delete the option selection after 10 seconds
                 setTimeout(async () => {
                     await conn.sendMessage(from, { delete: msg.key });
-                }, 600000); // 10 seconds timeout for deletion
+                }, 60000); // 10 seconds timeout for deletion
             }
         });
 
