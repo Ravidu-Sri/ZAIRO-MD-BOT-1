@@ -297,13 +297,12 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
     
     // Message එක "." වලින් ආරම්භවෙනවාද බලමු
     if (msg.message && msg.message.conversation && msg.message.conversation.startsWith(".")) {
-        const from = msg.key.remoteJid;
+        const iii = msg.key.remoteJid;
         
-        // Reply message එකක් යවන්න
-        const sentMsg = await conn.sendMessage(from, { text: "මෙම message එක auto-delete වනු ඇත" });
+     
 
         // Auto delete function එක call කරන්න
-        autoDeleteMessage(conn, from, sentMsg);
+        autoDeleteMessage(conn, iii);
     }
 });
 
