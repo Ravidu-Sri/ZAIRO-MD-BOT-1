@@ -52,6 +52,15 @@ cmd({
             caption: status
         }, { quoted: mek || null });
 
+// Auto-delete the message after 5 seconds for everyone
+            if (msg && msg.key && msg.key.id) {
+                setTimeout(async () => {
+                    await conn.sendMessage(from, {
+                        delete: { id: msg.key.id, remoteJid: from, fromMe: true }
+                    });
+                }, 10000); // Auto delete after 5 seconds
+
+
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
