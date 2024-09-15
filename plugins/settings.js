@@ -34,10 +34,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         }
 
         let autoStatus = config.AUTO_READ_STATUS === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐄𝐍 𝐒𝐓𝐀𝐓𝐔𝐒 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐄𝐍 𝐒𝐓𝐀𝐓𝐔𝐒 𝐎𝐅𝐅🛑';
-        let autoVoice = config.AUTO_VOICE === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
-        let autoSticker = config.AUTO_STICKER === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
-        let autoReply = config.AUTO_REPLY === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
-let ownerreact = config.OWNER_REACT === 'true' ? '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄𝐀𝐂𝐓 𝐎𝐍✅' : '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄𝐀𝐂𝐓 𝐎𝐅𝐅🛑';
+        let autoVoice = config.AUTO_VOICE === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐅𝐹🛑';
+        let autoSticker = config.AUTO_STICKER === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐅𝐹🛑';
+        let autoReply = config.AUTO_REPLY === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐅𝐹🛑';
+        let ownerreact = config.OWNER_REACT === 'true' ? '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄𝐀𝐂𝐓 𝐎𝐍✅' : '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄𝐀𝐂𝐓 𝐎𝐅𝐹🛑';
 
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
@@ -54,7 +54,7 @@ let ownerreact = config.OWNER_REACT === 'true' ? '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄�
 
 > *${ownerreact}*
 
-> 🔗𝘾𝙐𝙎𝙏𝙊𝙈𝙄𝙕𝙀 𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝙎𝙀𝙏𝙏𝙄𝙉𝙂𝙎🔗⤵️
+> 🔗𝘾𝙐𝙎𝙏𝙊𝙈𝙄𝙕𝙀 𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝙎𝙀𝙏𝙏𝙄𝙉𝗀𝗦🔗⤵️
 
 _*BOT WORK TYPE *_⤵️
 
@@ -97,39 +97,6 @@ _*OWNER REACT ON/OFF*_⤵️
 > 🔴 6.2 Owner React Off`
         }, { quoted: mek });
 
-conn.ev.on('messages.upsert', async (msgUpdate) => {
-    const msg = msgUpdate.messages[0];
-    
-    // Message එක long එකක්ද බලමු
-    if (msg.message && msg.message.conversation) {
-        const from = msg.key.remoteJid;
-        const messageText = msg.message.conversation;
-
-        // Long message detection & split-and-send function එකක් භාවිතා කිරීම
-        await splitAndSendMessage(conn, from, messageText);
-    }
-});
-
-
-const splitAndSendMessage = async (conn, from, longText) => {
-    // Text එක 1024 characters සීමාවෙන් අධිකද බලමු
-    const maxMessageLength = 1024;
-
-    if (longText.length > maxMessageLength) {
-        // Text එක හරහට කපා smaller messages වලින් යවන්න
-        const messageParts = longText.match(new RegExp('.{1,' + maxMessageLength + '}', 'g'));
-        
-        // සියලු කොටස් sequential ලෙස යවන්න
-        for (const part of messageParts) {
-            await conn.sendMessage(from, { text: part });
-        }
-    } else {
-        // Text එක සීමාවෙන් අඩුනම්, තනි message එකක් ලෙස යවන්න
-        await conn.sendMessage(from, { text: longText });
-    }
-};
-
-
         // Auto-delete the message after 10 seconds
         setTimeout(async () => {
             await conn.sendMessage(from, { delete: vv.key });
@@ -138,6 +105,7 @@ const splitAndSendMessage = async (conn, from, longText) => {
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
+
             const selectedOption = msg.message.extendedTextMessage.text.trim();
 
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
@@ -182,7 +150,7 @@ const splitAndSendMessage = async (conn, from, longText) => {
                     case '5.2':
                         reply('.vimau AUTO_READ_STATUS:false');
                         break;
-                  case '6.1':
+                    case '6.1':
                         reply('.vimau OWNER_REACT:true');
                         break;
                     case '6.2':
