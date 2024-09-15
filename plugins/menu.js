@@ -5,7 +5,7 @@ const {runtime} = require('../lib/functions')
 
 cmd({
     pattern: "menu",
-    alias: ["panel","penal","list","allmenu"],
+    alias: ["panel", "penal", "list", "allmenu"],
     react: "🪴",
     desc: "Check menu all",
     category: "main",
@@ -52,15 +52,6 @@ cmd({
             caption: status
         }, { quoted: mek || null });
 
-// Auto-delete the message after 5 seconds for everyone
-            if (msg && msg.key && msg.key.id) {
-                setTimeout(async () => {
-                    await conn.sendMessage(from, {
-                        delete: { id: msg.key.id, remoteJid: from, fromMe: true }
-                    });
-                }, 10000); // Auto delete after 5 seconds
-};
-
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
@@ -95,15 +86,7 @@ Bot Online සිටින බව පෙන්වයි✅
 
 > *-.vima-*
 Ex. ( .vima )
-Bot අයිතිකරුගේ විස්තර ලබා දෙයි✅
-
-
-
-
-
-
-
-`);
+Bot අයිතිකරුගේ විස්තර ලබා දෙයි✅`);
                         break;
                     case '2':
                         reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔💥
@@ -166,7 +149,7 @@ Ex.( .gjid )
 
 > *_.left_*
 Ex.( .left )
-ගෲපයෙන් ඔබ ඉවත් වෙයි.✅ `);
+ගෲපයෙන් ඔබ ඉවත් වෙයි.✅`);
                         break;
                     case '3':
                         reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔💥
@@ -208,49 +191,17 @@ Chat gtp ක්‍රියා කරයි✅
 
 > *-.yts-*
 Ex. ( .yts <lelena> )
-ඔබ ලබා දෙන නමට අදාල විඩියෝ සෝයා දෙයි✅
-
-`);
+ඔබ ලබා දෙන නමට අදාල විඩියෝ සෝයා දෙයි✅`);
                         break;
                     default:
                         reply("Invalid option. Please select a valid menu option (1-4).");
                 }
             }
         });
-        
-
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
     }
 });
 
-cmd({
-    pattern: "dd",
-    react: "🪴",
-    desc: "Check menu all",
-    category: "main",
-    filename: __filename
-},  async (conn, mek, m, { from, quoted, reply }) => {
-    try {
-        // Check if the message is a reply to a ViewOnce media
-        if (!quoted) {
-            return await conn.sendMessage(from, { text: "Please reply to a ViewOnce media message." });
-        }
-
-        // Check if the replied message contains media to download
-        if (!quoted.download) {
-            return await conn.sendMessage(from, { text: "Unable to detect any media to download." });
-        }
-
-        // Download the quoted media (ViewOnce media)
-        let buff = await quoted.download();
-
-        // Send the downloaded media back to the user
-        await conn.sendMessage(from, { document: buff }, { mimetype: 'image/jpeg', filename: 'image.jpg' });
-
-    } catch (e) {
-        console.log(e);
-        await reply(`Error: ${e}`);
-    }
-});
+// Delete last 
