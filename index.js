@@ -26,7 +26,7 @@ const { File } = require('megajs')
 
 
 
-const ownerNumber = ['94776734030']
+const ownerNumber = [BOT_NUMBER]
 
 
 
