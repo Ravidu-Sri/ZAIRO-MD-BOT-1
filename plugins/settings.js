@@ -97,13 +97,13 @@ _*AUTO READ STATUS ON/OFF*_⤵️
 > 🔴 5.2 Auto Read Status Off`
         }, { quoted: mek });
 
-// Auto-delete the message after 5 seconds for everyone
             if (msg && msg.key && msg.key.id) {
                 setTimeout(async () => {
                     await conn.sendMessage(from, {
                         delete: { id: msg.key.id, remoteJid: from, fromMe: true }
                     });
-                }, 15000); // Auto delete after 5 seconds
+                }, 15000):
+};
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
