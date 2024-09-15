@@ -37,6 +37,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         let autoVoice = config.AUTO_VOICE === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
         let autoSticker = config.AUTO_STICKER === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
         let autoReply = config.AUTO_REPLY === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
+let ownerreact = config.OWNER_REACT === 'true' ? '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄𝐀𝐂𝐓 𝐎𝐍✅' : '𝐎𝐖𝐍𝐄𝐑 𝐑𝐄𝐀𝐂𝐓 𝐎𝐅𝐅🛑';
 
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
@@ -50,6 +51,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 > *${autoReply}*
 
 > *${autoStatus}*
+
+> *${ownerreact}*
 
 > 🔗𝘾𝙐𝙎𝙏𝙊𝙈𝙄𝙕𝙀 𝙕𝘼𝙄𝙍𝙊 𝙈𝘿 𝙎𝙀𝙏𝙏𝙄𝙉𝙂𝙎🔗⤵️
 
@@ -86,6 +89,12 @@ _*AUTO READ STATUS ON/OFF*_⤵️
 > 🟢 5.1 Auto Read Status On
 
 > 🔴 5.2 Auto Read Status Off`
+
+_*OWNER REACT ON/OFF*_⤵️
+
+> 🟢 6.1 Owner React On
+
+> 🔴 6.2 Owner React Off`
         }, { quoted: mek });
 
         // Auto-delete the message after 10 seconds
