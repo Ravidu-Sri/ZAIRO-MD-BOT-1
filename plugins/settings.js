@@ -88,7 +88,7 @@ _*AUTO READ STATUS ON/OFF*_⤵️
 
 > 🟢 5.1 Auto Read Status On
 
-> 🔴 5.2 Auto Read Status Off`
+> 🔴 5.2 Auto Read Status Off
 
 _*OWNER REACT ON/OFF*_⤵️
 
