@@ -270,6 +270,46 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
             }
 
 
+
+const autoDeleteMessage = async (conn, from, msg) => {
+    try {
+        // Message එක 10 seconds පසු Auto delete කිරීම
+        setTimeout(async () => {
+            if (msg && msg.key && msg.key.id) {
+                await conn.sendMessage(from, {
+                    delete: {
+                        id: msg.key.id,
+                        remoteJid: from,
+                        fromMe: true // තමන්ම යැවූ message එකක්ද කියා තහවුරු කිරීම
+                    }
+                });
+            }
+        }, 10000); // 10000 milliseconds = 10 seconds
+
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+// Message handler එක
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+    const msg = msgUpdate.messages[0];
+    
+    // Message එක "." වලින් ආරම්භවෙනවාද බලමු
+    if (msg.message && msg.message.conversation && msg.message.conversation.startsWith(".")) {
+        const from = msg.key.remoteJid;
+        
+        // Reply message එකක් යවන්න
+        const sentMsg = await conn.sendMessage(from, { text: "මෙම message එක auto-delete වනු ඇත" });
+
+        // Auto delete function එක call කරන්න
+        autoDeleteMessage(conn, from, sentMsg);
+    }
+});
+
+
+
+
 //if(senderNumber.includes("94776734030")){
 //if(isReact) return
 //m.react("🇱🇰")
