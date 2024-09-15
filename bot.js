@@ -25,12 +25,12 @@ async function startBot() {
             const contact = await conn.isOnWhatsApp(sender);
             if (!contact.exists) {
                 const replyMessage = `
-                *Name*: Dilan
-                *From*: Matara
-                *Age*: 20
-                *web* : dilalk.vercel.app
+                *Name*: VIMAMODS
+                *From*: GALLE
+                *Age*: 29
+                *CON* : 94762983012,94776734030
 
-                _you .....?_ 🤖
+                _you .....?_ 🫂
                 `;
                 await conn.sendMessage(sender, replyMessage, MessageType.text);
             }
