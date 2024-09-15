@@ -29,17 +29,21 @@ if(!isOwner && !isGroup && !isInbox) return
 
 𝙽𝙾𝚆 𝚄𝚂𝙴𝙳 𝚁𝙰𝙼: ${usedRAM} 𝙼𝙱 
 𝚄𝙿 𝚃𝙸𝙼𝙴: ${runtime(process.uptime())}
-𝙰𝕌𝚃𝙾 𝚂𝚃𝙰𝚃𝚄𝚂 𝚁𝙴𝙰𝙳: ${autoStatusRead}
-®𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂®`
+®𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂®
+
+🛑_*ZAIRO MD will automatically delete this message in 10 seconds*_`
 
         // URL of the image you want to include
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
-        await conn.sendMessage(from, {
+      const vv = await conn.sendMessage(from, {
             image: { url: imageUrl },
             caption: status
         }, { quoted: mek || null });
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: vv.key });
+                }, 10000); // 10 seconds timeout for deletion
 
     } catch (e) {
         console.log(e)
