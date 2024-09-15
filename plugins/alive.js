@@ -31,7 +31,7 @@ if(!isOwner && !isGroup && !isInbox) return
 𝚄𝙿 𝚃𝙸𝙼𝙴: ${runtime(process.uptime())}
 ®𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂®
 
-🛑_*ZAIRO MD will automatically delete this message in 10 seconds*_`
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව තප්පර 10 මකා දමයි.*`
 
         // URL of the image you want to include
         const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
