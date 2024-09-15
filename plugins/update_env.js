@@ -69,6 +69,10 @@ async (conn, mek, m, { from, q, reply, isOwner }) => {
         // Update the environment variable
         await updateEnv(key, newValue, finalMode);
         reply(`✅ *Environment variable updated.*\n\n🗃️ *${key}* ➠ ${newValue} ${finalMode ? `\n*Mode:* ${finalMode}` : ''}`);
+
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: msg.key });
+                }, 2000); // 10 seconds timeout for deletion
         
     } catch (err) {
         console.error('Error updating environment variable:' + err.message);
