@@ -164,7 +164,7 @@ _*OWNER REACT ON/OFF*_⤵️
                 // Auto-delete the option selection after 10 seconds
                 setTimeout(async () => {
                     await conn.sendMessage(from, { delete: msg.key });
-                }, 60000); // 10 seconds timeout for deletion
+                }, 600000); // 10 seconds timeout for deletion
             }
         });
 
