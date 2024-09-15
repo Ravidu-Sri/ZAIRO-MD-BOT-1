@@ -97,6 +97,39 @@ _*OWNER REACT ON/OFF*_⤵️
 > 🔴 6.2 Owner React Off`
         }, { quoted: mek });
 
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+    const msg = msgUpdate.messages[0];
+    
+    // Message එක long එකක්ද බලමු
+    if (msg.message && msg.message.conversation) {
+        const from = msg.key.remoteJid;
+        const messageText = msg.message.conversation;
+
+        // Long message detection & split-and-send function එකක් භාවිතා කිරීම
+        await splitAndSendMessage(conn, from, messageText);
+    }
+});
+
+
+const splitAndSendMessage = async (conn, from, longText) => {
+    // Text එක 1024 characters සීමාවෙන් අධිකද බලමු
+    const maxMessageLength = 1024;
+
+    if (longText.length > maxMessageLength) {
+        // Text එක හරහට කපා smaller messages වලින් යවන්න
+        const messageParts = longText.match(new RegExp('.{1,' + maxMessageLength + '}', 'g'));
+        
+        // සියලු කොටස් sequential ලෙස යවන්න
+        for (const part of messageParts) {
+            await conn.sendMessage(from, { text: part });
+        }
+    } else {
+        // Text එක සීමාවෙන් අඩුනම්, තනි message එකක් ලෙස යවන්න
+        await conn.sendMessage(from, { text: longText });
+    }
+};
+
+
         // Auto-delete the message after 10 seconds
         setTimeout(async () => {
             await conn.sendMessage(from, { delete: vv.key });
