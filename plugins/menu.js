@@ -59,7 +59,7 @@ cmd({
                         delete: { id: msg.key.id, remoteJid: from, fromMe: true }
                     });
                 }, 10000); // Auto delete after 5 seconds
-
+};
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
