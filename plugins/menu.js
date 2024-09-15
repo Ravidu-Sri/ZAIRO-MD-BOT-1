@@ -29,7 +29,7 @@ cmd({
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
-🛑_*ZAIRO MD will automatically delete this message in 10 seconds*_
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව තප්පර 20 මකා දමයි.*
 
 මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
 
@@ -56,7 +56,7 @@ cmd({
 
 setTimeout(async () => {
                     await conn.sendMessage(from, { delete: sentMsg.key });
-                }, 10000); // 10 seconds timeout for deletion
+                }, 20000); // 10 seconds timeout for deletion
 
 
 
@@ -70,7 +70,7 @@ setTimeout(async () => {
                     case '1':
                         reply(`💥𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔💥
 
-🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1 මකා දමයි.*
 
 > *_.restart_*
 Ex.( .restart )
@@ -99,7 +99,7 @@ Bot අයිතිකරුගේ විස්තර ලබා දෙයි✅`
                     case '2':
                         reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔💥
 
-🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1 මකා දමයි.*
 
 > *_.add_*
 Ex.( .add 94776734030 )
@@ -164,7 +164,7 @@ Ex.( .left )
                     case '3':
                         reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔💥
 
-🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1 මකා දමයි.*
 
 > *_.play_*
 Ex.( .play <Song name> )
@@ -197,7 +197,7 @@ Google drive File එක බාගත⬇️ කරයි✅`);
                     case '4':
                         reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔💥
 
-🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1 මකා දමයි.*
 
 > *_.ai_*
 Ex.( .ai <Hi kohomada> )
@@ -210,12 +210,13 @@ Ex. ( .yts <lelena> )
                     default:
                         reply("Invalid option. Please select a valid menu option (1-4).");
                 }
-            }
-        });
-
+           
 setTimeout(async () => {
                     await conn.sendMessage(from, { delete: msg.key });
                 }, 60000); // 10 seconds timeout for deletion
+ }
+        });
+
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
