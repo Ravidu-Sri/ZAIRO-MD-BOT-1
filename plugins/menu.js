@@ -29,6 +29,8 @@ cmd({
 
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
+🛑_*ZAIRO MD will automatically delete this message in 10 seconds*_
+
 මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
 
 
@@ -52,6 +54,12 @@ cmd({
             caption: status
         }, { quoted: mek || null });
 
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: sentMsg.key });
+                }, 10000); // 10 seconds timeout for deletion
+
+
+
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
@@ -60,9 +68,9 @@ cmd({
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === sentMsg.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        reply(`✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝐀𝐈 𝐒𝐘𝐒𝐓𝐄𝐌*⤵*
+                        reply(`💥𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔💥
 
-💥𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔💥
+🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
 
 > *_.restart_*
 Ex.( .restart )
@@ -90,6 +98,8 @@ Bot අයිතිකරුගේ විස්තර ලබා දෙයි✅`
                         break;
                     case '2':
                         reply(`💥𝐆𝐑𝐎𝐔𝐏 𝐌𝐄𝐍𝐔💥
+
+🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
 
 > *_.add_*
 Ex.( .add 94776734030 )
@@ -154,6 +164,8 @@ Ex.( .left )
                     case '3':
                         reply(`💥𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔💥
 
+🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
+
 > *_.play_*
 Ex.( .play <Song name> )
 ඔබ ටයිප් කරන සෝන් එකේ Audio එක පමනක් ලබා දෙයි✅
@@ -185,6 +197,8 @@ Google drive File එක බාගත⬇️ කරයි✅`);
                     case '4':
                         reply(`💥𝐎𝐓𝐇𝐄𝐑 𝐌𝐄𝐍𝐔💥
 
+🛑_*ZAIRO MD will automatically delete this message in 60 seconds*_
+
 > *_.ai_*
 Ex.( .ai <Hi kohomada> )
 Chat gtp ක්‍රියා කරයි✅
@@ -198,6 +212,10 @@ Ex. ( .yts <lelena> )
                 }
             }
         });
+
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: msg.key });
+                }, 60000); // 10 seconds timeout for deletion
     } catch (e) {
         console.log(e)
         reply(`Error: ${e}`)
