@@ -302,7 +302,7 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
      
 
         // Auto delete function එක call කරන්න
-        autoDeleteMessage(conn, iii);
+        autoDeleteMessage(conn, from, iii);
     }
 });
 
