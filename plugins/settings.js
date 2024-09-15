@@ -2,10 +2,6 @@ const { updateEnv, readEnv } = require('../lib/database');
 const { cmd, commands } = require('../command');
 const EnvVar = require('../lib/mongodbenv');
 
-
-
-
-
 cmd({
     pattern: "settings",
     alias: ["setting","s"],
@@ -17,35 +13,30 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         if (!isOwner) return;
 
-const config = await readEnv();
+        const config = await readEnv();
 
+        let work;
+        switch (config.MODE) {
+            case 'public':
+                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐏𝐔𝐁𝐋𝐈𝐂🌎';
+                break;
+            case 'private':
+                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐏𝐑𝐈𝐕𝐀𝐓𝐄👤';
+                break;
+            case 'groups':
+                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐆𝐑𝐎𝐔𝐏𝐒 𝐎𝐍𝐋𝐘👥';
+                break;
+            case 'inbox':
+                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐈𝐍𝐁𝐎𝐗 𝐎𝐍𝐋𝐘🫂';
+                break;
+            default:
+                work = '𝐌𝐎𝐃𝐄 𝐔𝐍𝐊𝐍𝐎𝐖𝐍 🛑';
+        }
 
-let work;
-switch (config.MODE) {
-    case 'public':
-        work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐏𝐔𝐁𝐋𝐈𝐂🌎';
-        break;
-    case 'private':
-        work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐏𝐑𝐈𝐕𝐀𝐓𝐄👤';
-        break;
-    case 'groups':
-        work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐆𝐑𝐎𝐔𝐏𝐒 𝐎𝐍𝐋𝐘👥';
-        break;
-    case 'inbox':
-        work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐈𝐍𝐁𝐎𝐗 𝐎𝐍𝐋𝐘🫂';
-        break;
-    default:
-        work = '𝐌𝐎𝐃𝐄 𝐔𝐍𝐊𝐍𝐎𝐖𝐍 🛑';
-};
-
-
-let autoStatus = config.AUTO_READ_STATUS === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐄𝐍 𝐒𝐓𝐀𝐓𝐔𝐒 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐄𝐍 𝐒𝐓𝐀𝐓𝐔𝐒 𝐎𝐅𝐅🛑';
-
-let autoVoice = config.AUTO_VOICE === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
-
-let autoSticker = config.AUTO_STICKER === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
-
-let autoReply = config.AUTO_REPLY === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
+        let autoStatus = config.AUTO_READ_STATUS === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐄𝐍 𝐒𝐓𝐀𝐓𝐔𝐒 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐄𝐍 𝐒𝐓𝐀𝐓𝐔𝐒 𝐎𝐅𝐅🛑';
+        let autoVoice = config.AUTO_VOICE === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐕𝐎𝐈𝐂𝐄 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
+        let autoSticker = config.AUTO_STICKER === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
+        let autoReply = config.AUTO_REPLY === 'true' ? '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐍✅' : '𝐀𝐔𝐓𝐎 𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐋𝐘 𝐌𝐒𝐆 𝐎𝐅𝐅🛑';
 
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
@@ -97,13 +88,10 @@ _*AUTO READ STATUS ON/OFF*_⤵️
 > 🔴 5.2 Auto Read Status Off`
         }, { quoted: mek });
 
-            if (msg && msg.key && msg.key.id) {
-                setTimeout(async () => {
-                    await conn.sendMessage(from, {
-                        delete: { id: msg.key.id, remoteJid: from, fromMe: true }
-                    });
-                }, 15000):
-};
+        // Auto-delete the message after 10 seconds
+        setTimeout(async () => {
+            await conn.sendMessage(from, { delete: vv.key });
+        }, 10000); // 10 seconds timeout for deletion
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
@@ -118,15 +106,15 @@ _*AUTO READ STATUS ON/OFF*_⤵️
                         break;
                     case '1.2':
                         reply('.vimau MODE:private');
-reply('.restart');
+                        reply('.restart');
                         break;
                     case '1.3':
                         reply('.vimau MODE:groups');
-reply('.restart');
+                        reply('.restart');
                         break;
                     case '1.4':
                         reply('.vimau MODE:inbox');
-reply('.restart');
+                        reply('.restart');
                         break;
                     case '2.1':
                         reply('.vimau AUTO_VOICE:true');
@@ -155,6 +143,10 @@ reply('.restart');
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
+                // Auto-delete the option selection after 10 seconds
+                setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: msg.key });
+                }, 10000); // 10 seconds timeout for deletion
             }
         });
 
