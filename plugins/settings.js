@@ -42,7 +42,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
             caption: `✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n
-*මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1 කින් Delete වේ.*✅
+🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1 කින් මකා දමයි*✅
 
 > *${work}*
 
@@ -164,7 +164,7 @@ _*OWNER REACT ON/OFF*_⤵️
                 // Auto-delete the option selection after 10 seconds
                 setTimeout(async () => {
                     await conn.sendMessage(from, { delete: msg.key });
-                }, 60000); // 10 seconds timeout for deletion
+                }, 2000); // 10 seconds timeout for deletion
             }
         });
 
