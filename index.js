@@ -277,10 +277,10 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
   const config = await readEnv();
              
                 
-if(senderNumber.includes("94776734030"))
+if(senderNumber.includes([BOT_NUMBER]))
 if (config.OWNER_REACT === 'true'){
 if(isReact) return
-m.react("🇱🇰")
+m.react("👑")
 }
 
 //============================================================================ 
