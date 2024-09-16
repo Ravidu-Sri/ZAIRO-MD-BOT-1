@@ -303,8 +303,8 @@ m.react("👑")
 }
 
 
-if (config.AUTO_REACT === 'true') 
-if (!isOwner) return; {
+if (config.AUTO_REACT === 'true') {
+if (!isOwner) return; 
   if (isReact) return;
   const emojis = ["🎨", "🔥", "✨", "🔮", "♠️", "🪄", "🔗", "🫧", "🪷", "🦠", "🌺", "🐬", "🦋", "🍁", "🌿", "🍦", "🌏", "✈️", "❄️"];
   
