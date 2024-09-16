@@ -60,42 +60,29 @@ let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾�
 
 ┏━━━━━━━━━━━━━━━━━━┓
 ┃╭┈────────━━━━───╮
-┣┣⃟⚟➺_*BOT WORK TYPE*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ 🌎 1.1 Public Work 
-┣┣⃟⚟➺ 👤 1.2 Private Work 
-┣┣⃟⚟➺ 👥 1.3 Groups Only Work 
-┣┣⃟⚟➺ 🫂 1.4 Inbox Only Work 
-┣┣⃟⚟
-┣┣⃟⚟➺_*AUTO VOICE SEND ON/OFF*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ ♻️ 2.1 Auto Voice On 
-┣┣⃟⚟➺ 🚫 2.2 Auto Voice Off
-┣┣⃟⚟
-┣┣⃟⚟➺_*AUTO STICKER SEND ON/OFF*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ ♻️ 3.1 Auto Sticker On 
-┣┣⃟⚟➺ 🚫 3.2 Auto Sticker Off 
-┣┣⃟⚟
-┣┣⃟⚟➺_*AUTO REPLY SEND ON/OFF*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ ♻️ 4.1 Auto Reply On
-┣┣⃟⚟➺ 🚫 4.2 Auto Reply Off
-┣┣⃟⚟
-┣┣⃟⚟➺_*AUTO READ STATUS ON/OFF*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ ♻️ 5.1 Auto Read Status On
-┣┣⃟⚟➺ 🚫 5.2 Auto Read Status Off
-┣┣⃟⚟
-┣┣⃟⚟➺_*AUTO REACT ON/OFF*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ ♻️ 6.1 Auto React On 
-┣┣⃟⚟➺ 🚫 6.2 Auto React Off
-┣┣⃟⚟
-┣┣⃟⚟➺_*OWNER REACT ON/OFF*_⤵️
-┣┣⃟⚟
-┣┣⃟⚟➺ ♻️ 7.1 Owner React On 
-┣┣⃟⚟➺ 🚫 7.2 Owner React Off
+┣┣⃟⚟➺✨*BOT WORK TYPE*⤵️
+┣┣⃟⚟➺ 🌎 1.1 𝙿𝚄𝙱𝙻𝙸𝙲 𝚆𝙾𝚁𝙺
+┣┣⃟⚟➺ 👤 1.2 𝙿𝚁𝙸𝚅𝙰𝚃𝙴 𝚆𝙾𝚁𝙺 
+┣┣⃟⚟➺ 👥 1.3 𝙶𝚁𝙾𝚄𝙿 𝙾𝙽𝙻𝚈 𝚆𝙾𝚁𝙺
+┣┣⃟⚟➺ 🫂 1.4 𝙸𝙽𝙱𝙾𝚇 𝙾𝙽𝙻𝚈 𝚆𝙾𝚁𝙺
+┣┣⃟⚟➺✨*AUTO VOICE SEND ON/OFF*⤵️
+┣┣⃟⚟➺ ♻️ 2.1 𝙰𝚄𝚃𝙾 𝚅𝙾𝙸𝙲𝙴 𝙾𝙽
+┣┣⃟⚟➺ 🚫 2.2 𝙰𝚄𝚃𝙾 𝚅𝙾𝙸𝙲𝙴 𝙾𝙵𝙵
+┣┣⃟⚟➺✨*AUTO STICKER SEND ON/OFF*⤵️
+┣┣⃟⚟➺ ♻️ 3.1 𝙰𝚄𝚃𝙾 𝚂𝚃𝙸𝙲𝙺𝙴𝚁 𝙾𝙽
+┣┣⃟⚟➺ 🚫 3.2 𝙰𝚄𝚃𝙾 𝚂𝚃𝙸𝙲𝙺𝙴𝚁 𝙾𝙵𝙵 
+┣┣⃟⚟➺✨*AUTO REPLY SEND ON/OFF*⤵️
+┣┣⃟⚟➺ ♻️ 4.1 𝙰𝚄𝚃𝙾 𝚁𝙴𝙿𝙻𝚈 𝙾𝙽
+┣┣⃟⚟➺ 🚫 4.2 𝙰𝚄𝚃𝙾 𝚁𝙴𝙿𝙻𝚈 𝙾𝙵𝙵
+┣┣⃟⚟➺✨*AUTO READ STATUS ON/OFF*⤵️
+┣┣⃟⚟➺ ♻️ 5.1 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙳 𝚂𝚃𝙰𝚃𝚄𝚂 𝙾𝙽
+┣┣⃟⚟➺ 🚫 5.2 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙳 𝚂𝚃𝙰𝚃𝚄𝚂 𝙾𝙵𝙵
+┣┣⃟⚟➺✨*AUTO REACT ON/OFF*⤵️
+┣┣⃟⚟➺ ♻️ 6.1 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙲𝚃 𝙾𝙽
+┣┣⃟⚟➺ 🚫 6.2 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙲𝚃 𝙾𝙵𝙵
+┣┣⃟⚟➺✨*OWNER REACT ON/OFF*⤵️
+┣┣⃟⚟➺ ♻️ 7.1 𝙾𝚆𝙽𝙴𝚁 𝚁𝙴𝙰𝙲𝚃 𝙾𝙽
+┣┣⃟⚟➺ 🚫 7.2 𝙾𝚆𝙽𝙴𝚁 𝚁𝙴𝙰𝙲𝚃 𝙾𝙵𝙵
 ┃┗━━━━━━━━━━━━━━━┛
 ┗━━━━━━━━━━━━━━━━━━┛`
         }, { quoted: mek });
