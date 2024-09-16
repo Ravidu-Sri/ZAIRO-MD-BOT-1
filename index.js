@@ -142,6 +142,13 @@ const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
 
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: reply.key });
+                }, 2000); 
+
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: mek.key });
+                }, 2000); 
 
 
             //Button 
