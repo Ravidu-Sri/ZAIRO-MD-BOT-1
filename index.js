@@ -142,9 +142,7 @@ const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
 
-setTimeout(async () => {
-                    await conn.sendMessage(from, { delete: m.key });
-                }, 2000); // 10 seconds timeout for deletion
+
 
             //Button 
 
