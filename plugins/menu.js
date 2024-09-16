@@ -82,7 +82,7 @@ setTimeout(async () => {
 Ex.( .restart )
 Bot Restart කරයි✅
 
-> *-.settings-*
+> *_.settings_*
 Ex. ( .settings )
 Botගේ සෙටින් ලබා දෙයි✅
 
@@ -90,7 +90,7 @@ Botගේ සෙටින් ලබා දෙයි✅
 Ex.( .restart )
 Bot විස්තර ලබා දෙයි✅
 
-> *-.ping-*
+> *_.ping_*
 Ex. ( .ping )
 Bot Speed පෙන්වයි✅
 
@@ -98,7 +98,7 @@ Bot Speed පෙන්වයි✅
 Ex.( .alive )
 Bot Online සිටින බව පෙන්වයි✅
 
-> *-.vima-*
+> *_.vima_*
 Ex. ( .vima )
 Bot අයිතිකරුගේ විස්තර ලබා දෙයි✅
 
@@ -227,7 +227,7 @@ Google drive File එක බාගත⬇️ කරයි✅
 Ex.( .ai <Hi kohomada> )
 Chat gtp ක්‍රියා කරයි✅
 
-> *-.yts-*
+> *_.yts_*
 Ex. ( .yts <lelena> )
 ඔබ ලබා දෙන නමට අදාල විඩියෝ සෝයා දෙයි✅
 
