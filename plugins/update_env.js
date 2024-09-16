@@ -70,13 +70,7 @@ const logoImage = [ALIVE_IMG];
 
         // Update the environment variable
         await updateEnv(key, newValue, finalMode);
-reply({
-  content: `✅ *Environment variable updated.*\n\n🗃️ *${key}* ➠ ${newValue} ${finalMode ? `\n*Mode:* ${finalMode}` : ''}`,
-  files: [logoImage]
-});
-
-
-      /*  reply(`✅ *Environment variable updated.*\n\n🗃️ *${key}* ➠ ${newValue} ${finalMode ? `\n*Mode:* ${finalMode}` : ''}`);*/
+reply(`✅ *Environment variable updated.*\n\n🗃️ *${key}* ➠ ${newValue} ${finalMode ? `\n*Mode:* ${finalMode}` : ''}, {image: [ALIVE_IMAGE]}`);*/
 
 
 
