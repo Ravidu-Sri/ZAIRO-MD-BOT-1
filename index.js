@@ -288,10 +288,7 @@ mekaAutoDelete = async (message) => {
     } catch (err) {
         console.error("Error in auto-deleting message: ", err);
     }
-}
-
-// Example usage: call the function with the message object
-mekaAutoDelete(receivedMessage);
+};
 
 
 
