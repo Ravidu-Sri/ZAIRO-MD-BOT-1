@@ -302,6 +302,12 @@ if(isReact) return
 m.react("👑")
 }
 
+
+if (config.AUTO_REACT === 'true') {
+  if (isReact) return;
+  m.react("🎖️");
+}
+
 //============================================================================ 
 
 
