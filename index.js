@@ -273,6 +273,25 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
 
 
 
+const deleteAfter = 5000; // Time in milliseconds (5 seconds)
+
+// Function to check and auto-delete the message
+mekaAutoDelete = async (message) => {
+    try {
+        // Check if the message content is "."
+        if (message.body === ".") {
+            // Set a timeout to delete the message after 5 seconds
+            setTimeout(async () => {
+                await message.delete();
+            }, deleteAfter);
+        }
+    } catch (err) {
+        console.error("Error in auto-deleting message: ", err);
+    }
+}
+
+// Example usage: call the function with the message object
+mekaAutoDelete(receivedMessage);
 
 
 
