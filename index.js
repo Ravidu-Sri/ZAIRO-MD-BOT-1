@@ -26,7 +26,7 @@ const { File } = require('megajs')
 
 
 
-const ownerNumber = [BOT_NUMBER]
+const ownerNumber = ['94776734030']
 
 
 
@@ -451,6 +451,7 @@ app.listen(port, () => console.log(`Server listening on port http://localhost:${
 setTimeout(() => {
 connectToWA()
 }, 4000); 
+
 
 
 
