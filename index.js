@@ -296,15 +296,10 @@ mekaAutoDelete = async (message) => {
   const config = await readEnv();
              
                 
-if(senderNumber.includes(ownerNumber))
-if (config.OWNER_REACT === 'true'){
-if(isReact) return
-m.react("👑")
-}
 
 
-if (config.AUTO_REACT === 'true') {
-if (!isOwner) return; 
+
+if (config.AUTO_REACT === 'true') { 
   if (isReact) return;
   const emojis = ["🎨", "🔥", "✨", "🔮", "♠️", "🪄", "🔗", "🫧", "🪷", "🦠", "🌺", "🐬", "🦋", "🍁", "🌿", "🍦", "🌏", "✈️", "❄️"];
   
@@ -313,6 +308,12 @@ if (!isOwner) return;
   });
 }
 
+
+if(senderNumber.includes(ownerNumber))
+if (config.OWNER_REACT === 'true'){
+if(isReact) return
+m.react("👑")
+}
 
 //============================================================================ 
 
