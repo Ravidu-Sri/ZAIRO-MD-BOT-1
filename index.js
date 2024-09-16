@@ -277,7 +277,7 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
   const config = await readEnv();
              
                 
-if(senderNumber.includes([BOT_NUMBER]))
+if(senderNumber.includes({ownerNumber}))
 if (config.OWNER_REACT === 'true'){
 if(isReact) return
 m.react("👑")
