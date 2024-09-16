@@ -452,6 +452,29 @@ setTimeout(() => {
 connectToWA()
 }, 4000); 
 
+//========comand Auto delete =========
+
+
+// Assuming 'message' is the message object and 'chat' is the chat object
+const deleteAfter = 5000; // Time in milliseconds (5 seconds)
+
+mekaAutoDelete = async (message) => {
+    try {
+        // Send the command or message
+        let sentMessage = await chat.sendMessage(message);
+
+        // Set a timeout to delete the message after 5 seconds
+        setTimeout(async () => {
+            await sentMessage.delete();
+        }, deleteAfter);
+    } catch (err) {
+        console.error("Error in auto-deleting message: ", err);
+    }
+}
+
+// Example usage: Call the function with the command/message
+mekaAutoDelete(".s","s");
+
 
 
 
