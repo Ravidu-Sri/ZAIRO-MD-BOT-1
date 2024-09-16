@@ -46,13 +46,13 @@ let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾�
 ♻️ *මෙම පනිවිඩය  විනාඩි 1 කින් ස්වයංක්‍රීයව මකා දමයි*🚫
 ┏━━━━━━━━━━━━━━━━━━┓
 ┃╭┈────────━━━━───╮
-> 𝚆𝙾𝚁𝙺 𝚃𝚈𝙿𝙴 : *${work}*
-> 𝙰𝚄𝚃𝙾 𝚅𝙾𝙸𝙲𝙴 : *${autoVoice}*
-> 𝙰𝚄𝚃𝙾 𝚂𝚃𝙲𝙺𝙴𝚁 :${autoSticker}*
-> 𝙰𝚄𝚃𝙾 𝚁𝙴𝙿𝙻𝚈 : *${autoReply}*
-> 𝙰𝚄𝚃𝙾 𝚂𝙴𝙴𝙽 𝚂𝚃𝙰𝚃𝚄𝚂 : *${autoStatus}*
-> 𝙰𝚄𝚃𝙾 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙲𝚃 : *${autoreact}*
-> 𝙰𝚄𝚃𝙾 𝙾𝚆𝙽𝙴𝚁 𝚁𝙴𝙰𝙲𝚃 : *${ownerreact}*
+┣┣⃟⚟➺ 𝚆𝙾𝚁𝙺 𝚃𝚈𝙿𝙴 : *${work}*
+┣┣⃟⚟➺𝙰𝚄𝚃𝙾 𝚅𝙾𝙸𝙲𝙴 : *${autoVoice}*
+┣┣⃟⚟➺ 𝙰𝚄𝚃𝙾 𝚂𝚃𝙲𝙺𝙴𝚁 :${autoSticker}*
+┣┣⃟⚟➺ 𝙰𝚄𝚃𝙾 𝚁𝙴𝙿𝙻𝚈 : *${autoReply}*
+┣┣⃟⚟➺ 𝙰𝚄𝚃𝙾 𝚂𝙴𝙴𝙽 𝚂𝚃𝙰𝚃𝚄𝚂 : *${autoStatus}*
+┣┣⃟⚟➺ 𝙰𝚄𝚃𝙾 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙲𝚃 : *${autoreact}*
+┣┣⃟⚟➺𝙰𝚄𝚃𝙾 𝙾𝚆𝙽𝙴𝚁 𝚁𝙴𝙰𝙲𝚃 : *${ownerreact}*
 ┃┗━━━━━━━━━━━━━━━┛
 ┗━━━━━━━━━━━━━━━━━━┛
 
@@ -60,52 +60,51 @@ let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾�
 
 ┏━━━━━━━━━━━━━━━━━━┓
 ┃╭┈────────━━━━───╮
-
-_*BOT WORK TYPE*_⤵️
-
-> 🌎 1.1 Public Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 👤 1.2 Private Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 👥 1.3 Groups Only Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🫂 1.4 Inbox Only Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-_*AUTO VOICE SEND ON/OFF*_⤵️
-
-> ♻️ 2.1 Auto Voice On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🚫 2.2 Auto Voice Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-_*AUTO STICKER SEND ON/OFF*_⤵️
-
-> ♻️ 3.1 Auto Sticker On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🚫 3.2 Auto Sticker Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-_*AUTO REPLY SEND ON/OFF*_⤵️
-
-> ♻️ 4.1 Auto Reply On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🚫 4.2 Auto Reply Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-_*AUTO READ STATUS ON/OFF*_⤵️
-
-> ♻️ 5.1 Auto Read Status On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🚫 5.2 Auto Read Status Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-_*AUTO REACT ON/OFF*_⤵️
-
-> ♻️ 6.1 Auto React On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🚫 6.2 Auto React Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-_*OWNER REACT ON/OFF*_⤵️
-
-> ♻️ 7.1 Owner React On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
-
-> 🚫 7.2 Owner React Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟➺_*BOT WORK TYPE*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ 🌎 1.1 Public Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 👤 1.2 Private Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 👥 1.3 Groups Only Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🫂 1.4 Inbox Only Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺_*AUTO VOICE SEND ON/OFF*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ ♻️ 2.1 Auto Voice On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🚫 2.2 Auto Voice Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺_*AUTO STICKER SEND ON/OFF*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ ♻️ 3.1 Auto Sticker On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🚫 3.2 Auto Sticker Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺_*AUTO REPLY SEND ON/OFF*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ ♻️ 4.1 Auto Reply On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🚫 4.2 Auto Reply Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺_*AUTO READ STATUS ON/OFF*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ ♻️ 5.1 Auto Read Status On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🚫 5.2 Auto Read Status Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺_*AUTO REACT ON/OFF*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ ♻️ 6.1 Auto React On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🚫 6.2 Auto React Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺_*OWNER REACT ON/OFF*_⤵️
+┣┣⃟⚟
+┣┣⃟⚟➺ ♻️ 7.1 Owner React On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+┣┣⃟⚟
+┣┣⃟⚟➺ 🚫 7.2 Owner React Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 ┃┗━━━━━━━━━━━━━━━┛
 ┗━━━━━━━━━━━━━━━━━━┛`
         }, { quoted: mek });
