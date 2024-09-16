@@ -66,11 +66,10 @@ async (conn, mek, m, { from, q, reply, isOwner }) => {
             return reply(`❌ *The environment variable ${key} does not exist.*\n\n*Here are the existing environment variables:*\n\n${envList}`);
         }
 
-const logoImage = [ALIVE_IMG];
 
         // Update the environment variable
         await updateEnv(key, newValue, finalMode);
-reply(`✅ *Environment variable updated.*\n\n🗃️ *${key}* ➠ ${newValue} ${finalMode ? `\n*Mode:* ${finalMode}` : ''}, {image: [ALIVE_IMAGE]}`);*/
+reply(`✅ *Environment variable updated.*\n\n🗃️ *${key}* ➠ ${newValue} ${finalMode ? `\n*Mode:* ${finalMode}` : ''}, {image: [ALIVE_IMAGE]}`);
 
 
 
