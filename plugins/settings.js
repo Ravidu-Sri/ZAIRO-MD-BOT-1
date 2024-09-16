@@ -18,19 +18,19 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         let work;
         switch (config.MODE) {
             case 'public':
-                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐏𝐔𝐁𝐋𝐈𝐂🌎';
+                work = '𝙿𝚄𝙱𝙻𝙸𝙲🌎';
                 break;
             case 'private':
-                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐏𝐑𝐈𝐕𝐀𝐓𝐄👤';
+                work = '𝙿𝚁𝙸𝚅𝙰𝚃𝙴👤';
                 break;
             case 'groups':
-                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐆𝐑𝐎𝐔𝐏𝐒 𝐎𝐍𝐋𝐘👥';
+                work = '𝙶𝚁𝙾𝚄𝙿 𝙾𝙽𝙻𝚈👥';
                 break;
             case 'inbox':
-                work = '𝐁𝐎𝐓 𝐖𝐎𝐑𝐊 𝐓𝐘𝐏𝐄 𝐈𝐍𝐁𝐎𝐗 𝐎𝐍𝐋𝐘🫂';
+                work = '𝙸𝙽𝙱𝙾𝚇 𝙾𝙽𝙻𝚈🫂';
                 break;
             default:
-                work = '𝐌𝐎𝐃𝐄 𝐔𝐍𝐊𝐍𝐎𝐖𝐍 🛑';
+                work = '𝚄𝙽𝙺𝙾𝚆𝙽🛑';
         }
 
         let autoStatus = config.AUTO_READ_STATUS === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
