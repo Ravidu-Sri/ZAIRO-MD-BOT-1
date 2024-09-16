@@ -33,11 +33,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                 work = '𝐌𝐎𝐃𝐄 𝐔𝐍𝐊𝐍𝐎𝐖𝐍 🛑';
         }
 
-        let autoStatus = config.AUTO_READ_STATUS === 'true' ? '𝐎𝐍 ✅' : '𝐎𝐅𝐅 🛑';
-        let autoVoice = config.AUTO_VOICE === 'true' ? '𝐎𝐍 ✅' : '𝐎𝐅𝐹 🛑';
-        let autoSticker = config.AUTO_STICKER === 'true' ? '𝐎𝐍 ✅' : '𝐎𝐅𝐹 🛑';
-        let autoReply = config.AUTO_REPLY === 'true' ? '𝐎𝐍 ✅' : '𝐎𝐅𝐹 🛑';
-        let ownerreact = config.OWNER_REACT === 'true' ? '𝐎𝐍 ✅' : '𝐎𝐅𝐹 🛑';
+        let autoStatus = config.AUTO_READ_STATUS === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
+        let autoVoice = config.AUTO_VOICE === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
+        let autoSticker = config.AUTO_STICKER === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
+        let autoReply = config.AUTO_REPLY === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
+        let ownerreact = config.OWNER_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
+let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
 
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
@@ -54,49 +55,57 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 > 𝙰𝚄𝚃𝙾 𝚂𝙴𝙴𝙽 𝚂𝚃𝙰𝚃𝚄𝚂 : *${autoStatus}*
 
+> 𝙰𝚄𝚃𝙾 𝙰𝚄𝚃𝙾 𝚁𝙴𝙰𝙲𝚃 : *${autoreact}*
+
 > 𝙰𝚄𝚃𝙾 𝙾𝚆𝙽𝙴𝚁 𝚁𝙴𝙰𝙲𝚃 : *${ownerreact}*
 
 > 🔗𝘾𝙐𝙎𝙏𝙊𝙈𝙄𝙕𝙀  𝙎𝙀𝙏𝙏𝙄𝙉𝙂𝗦🔗⤵️
 
 _*BOT WORK TYPE*_⤵️
 
-> 🌎 1.1 Public Work
+> 🌎 1.1 Public Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 👤 1.2 Private Work
+> 👤 1.2 Private Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 👥 1.3 Groups Only Work
+> 👥 1.3 Groups Only Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 🫂 1.4 Inbox Only Work
+> 🫂 1.4 Inbox Only Work (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
 _*AUTO VOICE SEND ON/OFF*_⤵️
 
-> 🟢 2.1 Auto Voice On
+> ♻️ 2.1 Auto Voice On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 🔴 2.2 Auto Voice Off
+> 🚫 2.2 Auto Voice Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
 _*AUTO STICKER SEND ON/OFF*_⤵️
 
-> 🟢 3.1 Auto Sticker On
+> ♻️ 3.1 Auto Sticker On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 🔴 3.2 Auto Sticker Off
+> 🚫 3.2 Auto Sticker Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
 _*AUTO REPLY SEND ON/OFF*_⤵️
 
-> 🟢 4.1 Auto Reply On
+> ♻️ 4.1 Auto Reply On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 🔴 4.2 Auto Reply Off
+> 🚫 4.2 Auto Reply Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
 _*AUTO READ STATUS ON/OFF*_⤵️
 
-> 🟢 5.1 Auto Read Status On
+> ♻️ 5.1 Auto Read Status On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 🔴 5.2 Auto Read Status Off
+> 🚫 5.2 Auto Read Status Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+
+_*AUTO REACT ON/OFF*_⤵️
+
+> ♻️ 6.1 Auto React On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
+
+> 🚫 6.2 Auto React Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
 _*OWNER REACT ON/OFF*_⤵️
 
-> 🟢 6.1 Owner React On
+> ♻️ 7.1 Owner React On (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)
 
-> 🔴 6.2 Owner React Off`
+> 🚫 7.2 Owner React Off (@ 𝚁𝙴𝙿𝙻𝚈 𝙼𝚂𝙶)`
         }, { quoted: mek });
 
         // Auto-delete the message after 10 seconds
@@ -157,6 +166,12 @@ _*OWNER REACT ON/OFF*_⤵️
                         break;
                     case '6.2':
                         reply('.vimau OWNER_REACT:false');
+                        break;
+                    case '7.1':
+                        reply('.vimau AUTO_REACT:true');
+                        break;
+                    case '7.2':
+                        reply('.vimau AUTO_REACT:false');
                         break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
