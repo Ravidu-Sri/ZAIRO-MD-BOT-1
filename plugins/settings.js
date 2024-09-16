@@ -162,16 +162,16 @@ _*OWNER REACT ON/OFF*_⤵️
                         reply('.vimau AUTO_READ_STATUS:false');
                         break;
                     case '6.1':
-                        reply('.vimau OWNER_REACT:true');
-                        break;
-                    case '6.2':
-                        reply('.vimau OWNER_REACT:false');
-                        break;
-                    case '7.1':
                         reply('.vimau AUTO_REACT:true');
                         break;
-                    case '7.2':
+                    case '6.2':
                         reply('.vimau AUTO_REACT:false');
+                        break;
+                    case '7.1':
+                        reply('.vimau OWNER_REACT:true');
+                        break;
+                    case '7.2':
+                        reply('.vimau OWNER_REACT:false');
                         break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
