@@ -165,6 +165,9 @@ _*OWNER REACT ON/OFF*_⤵️
                 setTimeout(async () => {
                     await conn.sendMessage(from, { delete: msg.key });
                 }, 2000); // 10 seconds timeout for deletion
+setTimeout(async () => {
+                    await conn.sendMessage(from, { delete: reply.key });
+                }, 2000);
             }
         });
 
