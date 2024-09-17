@@ -185,15 +185,43 @@ cmd({
         }
 
         const data = await fetchJson(`${baseUrl1}/api/fdown?url=${q}`);
-        reply("*𝘝𝘐𝘔𝘈 𝘔𝘋  𝘍𝘉 𝘝𝘐𝘋𝘌𝘖 𝘋𝘖𝘞𝘕𝘓𝘖𝘈𝘋𝘐𝘕𝘎..... 📥*");
+        reply("*𝘝𝘐𝘔𝘈 𝘔𝘋 𝘐𝘕𝘚𝘛𝘈 𝘝𝘐𝘋𝘌𝘖 𝘋𝘖𝘞𝘕𝘓𝘖𝘈𝘋𝘐𝘕𝘎..... 📥*");
 
         if (data.data.hd) {
-            await conn.sendMessage(from, { video: { url: data.data.hd }, mimetype: "video/mp4", caption: `📺 𝘝𝘐𝘔𝘈 𝘔𝘋 𝘏𝘋 𝘝𝘐𝘋𝘌𝘖🚀✨🎥\n\n ${yourName}` }, { quoted: mek });
-        } else if (data.data.sd) {
-            await conn.sendMessage(from, { video: { url: data.data.sd }, mimetype: "video/mp4", caption: `📱ZAIRO MD FB SD VIDEO 🎬⚡📥\n\n ${yourName}` }, { quoted: mek });
+            await conn.sendMessage(from, { video: mimetype: "video/mp4", caption: `📺 𝘝𝘐𝘔𝘈 𝘔𝘋 𝘏𝘋 𝘝𝘐𝘋𝘌𝘖🚀✨🎥\n\n ${yourName}` }, { quoted: mek });
         }
     } catch (e) {
         console.error(e);
         reply(`Error: ${e.message}`);
     }
 });
+
+
+
+
+cmd({
+    pattern: "spotify",
+    desc: "Download Songs from Spotify",
+    use: ".spotify <url>",
+    react: "📥",
+    category: "download",
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, q, reply }) => {
+    try {
+        if (!q || !q.startsWith("https://")) return reply("Please provide a valid Spotify URL.");
+        reply("Downloading...");
+        const songBuffer = await scraper.spotify(q);
+        if (songBuffer) {
+            await conn.sendMessage(from, { audio: songBuffer, mimetype: 'audio/mp3' }, { quoted: mek });
+            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
+        } else {
+            reply("Failed to download the song.");
+        }
+    } catch (e) {
+        console.error(e);
+        reply(`Error: ${e.message}`);
+    }
+});
+
+
