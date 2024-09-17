@@ -17,7 +17,7 @@ cmd({
         const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
         const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
 
-        let status = `*✸𝕎𝔼𝕃ℂ𝕆𝕄𝔼 𝕋𝕆 ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*
+        let status = `*✸𝘞𝘌𝘓𝘊𝘖𝘔𝘌 𝘛𝘖 𝘝𝘐𝘔𝘈 𝘔𝘋 𝘜𝘚𝘌𝘙 𝘉𝘖𝘛✸*
 
 > *Uptime:* ${runtime(process.uptime())}
 
@@ -48,7 +48,7 @@ cmd({
 ┃┗━━━━━━━━━━━━┛
 ┗━━━━━━━━━━━━━━┛
 
-*✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸*`
+*✸𝘝𝘐𝘔𝘈 𝘔𝘋 𝘞𝘏𝘈𝘛𝘚𝘈𝘗𝘗 𝘜𝘚𝘌𝘙 𝘉𝘖𝘛✸*`
 
         // URL of the image you want to include
         const imageUrl = 'https://i.ibb.co/Sns38Lb/IMG-20240917-WA0051.jpg'; // Replace with your actual image URL
