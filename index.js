@@ -10,7 +10,6 @@ generateWAMessageFromContent,
 prepareWAMessageMedia,
 Browsers
 } = require('@whiskeysockets/baileys')
-const { Client, LocalAuth } = require('whatsapp-web.js');
 
 
 const l = console.log
