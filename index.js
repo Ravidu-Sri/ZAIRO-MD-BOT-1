@@ -68,7 +68,7 @@ const prefix = config.PREFIX
 //=====≈=====≈
 
 
-console.log("Connecting 𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛✅...");
+console.log("Connecting 𝘝𝘐𝘔𝘈 𝘔𝘋 𝘉𝘖𝘛✅...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -96,9 +96,18 @@ require("./plugins/" + plugin);
 }
 });
 console.log('Plugins installed successful ✅')
-console.log('𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖𝘛 connected to whatsapp ✅')
+console.log('𝘝𝘐𝘔𝘈 𝘔𝘋 𝘉𝘖𝘛 connected to whatsapp ✅')
 
-let up = `*𝘡𝘈𝘐𝘙𝘖 𝘔𝘋 𝘉𝘖 𝘊𝘖𝘕𝘕𝘌𝘊𝘛𝘌𝘋*\n_Type To .Menu Get Bot All Commands_ ⤵\n\n𝘉𝘖𝘛 𝘖𝘞𝘕𝘌𝘙 𝘉𝘠 𝘝𝘐𝘔𝘈𝘔𝘖𝘋𝘚`;
+let up = `*𝘝𝘐𝘔𝘈 𝘔𝘋 𝘉𝘖𝘛 𝘊𝘖𝘕𝘕𝘌𝘊𝘛𝘌𝘋*
+
+> _.Menu = Get Bot All Commands_ ⤵
+
+> _.Settings = Customize Bot Settings Work For Owner Only._❄️
+
+𝘉𝘖𝘛 𝘖𝘞𝘕𝘌𝘙 𝘉𝘠 𝘝𝘐𝘔𝘈𝘔𝘖𝘋𝘚
+  𝐒𝐋 𝐋𝐄𝐆𝐄𝐍𝐃𝐙 𝐅𝐀𝐌𝐈𝐋𝐘
+
+https://wa.me/94776734030`;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/6mzcHsN/20240907-102239.jpg` }, caption: up })
 
