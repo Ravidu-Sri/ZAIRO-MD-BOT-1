@@ -168,34 +168,6 @@ cmd({
     }
 });
 
-// 𝘪𝘯𝘴𝘵𝘢 𝘷𝘪𝘥𝘦𝘰 𝘋𝘖𝘞𝘕𝘓𝘖𝘈𝘋𝘐𝘕𝘎....
-
-
-cmd({
-    pattern: "insta",
-    react:"⬇️",
-    alias: ["instagram"],
-    desc: "Download insta videos",
-    category: "download",
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        if (!q || !q.startsWith("https://")) {
-            return reply("*Please provide a valid link(කරුණාකර නිවරදි ලින්ක් එකක් ඇතුලත් කරන්න 🚫*\nExample: .insta (insta video link)");
-        }
-
-        const data = await fetchJson(`${baseUrl1}/api/fdown?url=${q}`);
-        reply("*𝘝𝘐𝘔𝘈 𝘔𝘋 𝘐𝘕𝘚𝘛𝘈 𝘝𝘐𝘋𝘌𝘖 𝘋𝘖𝘞𝘕𝘓𝘖𝘈𝘋𝘐𝘕𝘎..... 📥*");
-
-        if (data.data.hd) {
-            await conn.sendMessage(from, { video: mimetype: "video/mp4", caption: `📺 𝘝𝘐𝘔𝘈 𝘔𝘋 𝘏𝘋 𝘝𝘐𝘋𝘌𝘖🚀✨🎥\n\n ${yourName}` }, { quoted: mek });
-        }
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
-    }
-});
-
 
 
 
