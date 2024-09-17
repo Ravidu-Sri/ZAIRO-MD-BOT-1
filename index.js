@@ -109,7 +109,7 @@ let up = `*𝘝𝘐𝘔𝘈 𝘔𝘋 𝘉𝘖𝘛 𝘊𝘖𝘕𝘕𝘌𝘊𝘛�
 
 https://wa.me/94776734030`;
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/6mzcHsN/20240907-102239.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/whQKPzY/IMG-20240917-WA0050.jpg` }, caption: up })
 
 }
 })
