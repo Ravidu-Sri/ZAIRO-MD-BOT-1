@@ -43,7 +43,7 @@ let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾�
         const vv = await conn.sendMessage(from, {
             image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
             caption: `✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n
-♻️ *මෙම පනිවිඩය  විනාඩි 1 කින් ස්වයංක්‍රීයව මකා දමයි*🚫
+♻️ *මෙම පනිවිඩය  විනාඩි 5 කින් ස්වයංක්‍රීයව මකා දමයි*🚫
 ┏━━━━━━━━━━━━━━━━━━┓
 ┃╭┈────────━━━━───╮
 ┣┣⃟⚟➺ 𝚆𝙾𝚁𝙺 𝚃𝚈𝙿𝙴 : *${work}*
@@ -97,7 +97,7 @@ let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾�
         // Auto-delete the message after 10 seconds
         setTimeout(async () => {
             await conn.sendMessage(from, { delete: vv.key });
-        }, 60000); // 10 seconds timeout for deletion
+        }, 300000); // 10 seconds timeout for deletion
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
