@@ -4,7 +4,6 @@ const { cmd } = require('../command');
 
 let baseUrl;
 
-let baseUrl1;
 
 // Fetch base URL on startup
 (async () => {
@@ -16,15 +15,6 @@ let baseUrl1;
     }
 })();
 
-
-(async () => {
-    try {
-        const baseUrlGet1 = await fetchJson('https://api125-89403c44afcf.herokuapp.com/api/instagram-download?url=https://www.instagram.com/p/example');
-        baseUrl1 = baseUrl1Get.api;
-    } catch (error) {
-        console.error('Failed to fetch base URL:', error);
-    }
-})();
 
 const yourName = "*✸𝘝𝘐𝘔𝘈 𝘔𝘋 𝘉𝘖𝘛✸*/n/n";
 
@@ -170,30 +160,4 @@ cmd({
 
 
 
-
-/*cmd({
-    pattern: "spotify",
-    desc: "Download Songs from Spotify",
-    use: ".spotify <url>",
-    react: "📥",
-    category: "download",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, q, reply }) => {
-    try {
-        if (!q || !q.startsWith("https://")) return reply("Please provide a valid Spotify URL.");
-        reply("Downloading...");
-        const songBuffer = await scraper.spotify(q);
-        if (songBuffer) {
-            await conn.sendMessage(from, { audio: songBuffer, mimetype: 'audio/mp3' }, { quoted: mek });
-            await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-        } else {
-            reply("Failed to download the song.");
-        }
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
-    }
-});
-*/
 
