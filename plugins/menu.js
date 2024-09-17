@@ -6,7 +6,7 @@ const {runtime} = require('../lib/functions')
 cmd({
     pattern: "menu",
     alias: ["panel", "penal", "list", "allmenu"],
-    react: "🪴",
+    react: "♻️",
     desc: "Check menu all",
     category: "main",
     filename: __filename
@@ -30,6 +30,8 @@ cmd({
 > *Owner:* 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂
 
 🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව විනාඩි 1කින් මකා දමයි.*
+
+.settings = Customize Bot Settings Work For Owner Only.❄️
 
 මෙම මැසේජ් එකට රිප්ලයි කර අදාල මෙනු එකේ නම්බර් එක ටයිප් කර Send කරන්න ⤵️
 ┏━━━━━━━━━━━━━━┓
