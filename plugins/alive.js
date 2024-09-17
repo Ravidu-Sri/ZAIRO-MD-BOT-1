@@ -34,7 +34,7 @@ if(!isOwner && !isGroup && !isInbox) return
 🛑 *මෙම පනිවිඩය ස්වයංක්‍රීයව තප්පර 10 මකා දමයි.*`
 
         // URL of the image you want to include
-        const imageUrl = 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg'; // Replace with your actual image URL
+        const imageUrl = 'https://i.ibb.co/cFt7JgN/IMG-20240917-WA0053.jpg'; // Replace with your actual image URL
 
         // Send the image with the status as the caption
       const vv = await conn.sendMessage(from, {
