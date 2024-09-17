@@ -171,7 +171,7 @@ cmd({
 
 
 
-cmd({
+/*cmd({
     pattern: "spotify",
     desc: "Download Songs from Spotify",
     use: ".spotify <url>",
@@ -195,5 +195,5 @@ async (conn, mek, m, { from, quoted, body, q, reply }) => {
         reply(`Error: ${e.message}`);
     }
 });
-
+*/
 
