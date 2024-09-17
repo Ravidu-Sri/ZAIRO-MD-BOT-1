@@ -66,7 +66,6 @@ const downVideo = await fg.ytv(url);
         
        await conn.sendMessage(from, { document: { url: downloadAudioDocUrl }, mimetype: "audio/mpeg", fileName: `${data.title}.mp3`, caption: "𝙳ocument type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
         
-       await conn.sendMessage(from, { video: { url: downloadVideoUrl }, mimetype: "video/mp4", caption: "𝚅𝙸𝙳𝙴𝙾 type 𝚅𝙸𝙼𝙰𝙼𝙾𝙳𝚂" });
         
     } catch (e) {
         console.log(e);
