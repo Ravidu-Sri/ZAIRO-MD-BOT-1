@@ -41,7 +41,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 let autoreact = config.AUTO_REACT === 'true' ? '♻️ 𝙾𝙽' : '🚫 𝙾𝙵𝙵';
 
         const vv = await conn.sendMessage(from, {
-            image: { url: 'https://i.ibb.co/6mzcHsN/20240907-102239.jpg' },
+            image: { url: 'https://i.ibb.co/WxQpJp0/IMG-20240917-WA0052.jpg' },
             caption: `✸ℤ𝔸𝕀ℝ𝕆 𝕄𝔻 𝔹𝕆𝕋✸ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ⚙️\n
 ♻️ *මෙම පනිවිඩය  විනාඩි 5 කින් ස්වයංක්‍රීයව මකා දමයි*🚫
 ┏━━━━━━━━━━━━━━━━━━┓
