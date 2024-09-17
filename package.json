@@ -29,12 +29,7 @@
     "speedtest-net":"2.2.0",
     "wikipedia":"2.1.2",
     "mongoose":"8.5.3",
-    "fb-downloader-scrapper":"2.0.0",
-"buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-python"
-        }
-     ],
+    "fb-downloader-scrapper":"2.0.0"
 }
   }
 
