@@ -1,40 +1,51 @@
+const config = require('../config');
 const { cmd, commands } = require('../command');
+const { sleep } = require('../lib/functions');
 
-// Store tagged messages for resending
-let taggedMessages = {};
-
-// Command to capture and store the image when tagged with "vv"
+// Register the command for restarting the bot
 cmd({
-    pattern: "vv",
-    fromMe: true
-}, async (conn, mek) => {
-    // Check if the message contains an image
-    if (mek.message && mek.message.imageMessage) {
-        // Store the image message using the sender's number as the key
-        taggedMessages[mek.key.remoteJid] = mek.message.imageMessage;
+    pattern: "ll",
+    desc: "Restart the bot",
+    category: "owner",
+    filename: __filename
+}, async (conn, mek, m, {
+    from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply
+}) => {
+    try {
+     
+     
+     
+     let mediaMessage = message.image || message.video ? message : message.reply_message && (message.reply_message.image || message.reply_message.video) ? message.reply_message : false;
+     if (!mediaMessage) {
+       return await message.reply("_Reply to image/video with caption!_");
+     }
+     let mediaPath = await message.bot.downloadAndSaveMediaMessage(mediaMessage);
+     let mediaType = mediaMessage.image ? "image" : "video";
+     if (mediaPath) {
+       message.bot.sendMessage(message.chat, {
+         [mediaType]: {
+           url: mediaPath
+         },
+         caption: caption,
+         mimetype: mediaMessage.mimetype,
+         fileLength: "99999999",
+         viewOnce: true
+       }, {
+         quoted: mediaMessage
+       });
+     
+     
+     
+     
+     
+     
+     
+     
+     
 
-        // Send confirmation to the sender
-        await conn.sendMessage(mek.key.remoteJid, { text: "Image has been tagged and stored!" });
-    } else {
-        await conn.sendMessage(mek.key.remoteJid, { text: "No image found in the message to tag." });
-    }
-});
-
-// Command to resend the tagged image to the user
-cmd({
-    pattern: "resend",
-    fromMe: true
-}, async (conn, mek) => {
-    // Check if there's a stored image for the user
-    const imageMessage = taggedMessages[mek.key.remoteJid];
-
-    if (imageMessage) {
-        // Resend the tagged image
-        await conn.sendMessage(mek.key.remoteJid, { image: imageMessage }, { quoted: mek });
-
-        // Optionally, send a confirmation message
-        await conn.sendMessage(mek.key.remoteJid, { text: "Here is the image you tagged earlier." });
-    } else {
-        await conn.sendMessage(mek.key.remoteJid, { text: "No tagged image found to resend." });
+    } catch (e) {
+        // Log any other errors and notify the user
+        console.error(e);
+        reply(`Error: ${e}`);
     }
 });
