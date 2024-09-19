@@ -13,7 +13,7 @@ cmd({
 }) => {
     try {
         // Ensure media is replied to
-        let mediaMessage = m.image || m.video ? m : m.quoted && (m.quoted.image || m.quoted.video) ? m.quoted : false;
+        let mediaMessage = m.image || m.video ? m : m.quoted && (m.!q.image || m.!q.video) ? m.quoted : false;
         if (!mediaMessage) {
             return await reply("_Reply to an image or video with a caption!_");
         }
