@@ -5,12 +5,12 @@ function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
 module.exports = {
-SESSION_ID: process.env.SESSION_ID || "G2QnxCgK#T5_HoMK5BFw5AMPam402CgzeCHxhkh73x2XvFDuW31U",
-MONGODB: process.env.MONGODB || "mongodb://mongo:UulqRzbarHKPlTmjsXTUnyCBstadpehV@junction.proxy.rlwy.net:59009",
+SESSION_ID: process.env.SESSION_ID || "h8QkAQ6I#zZYEXSzZYCNb5tFRCamWXl9gWk24Mh4x1p6Lfa4UihU",
+MONGODB: process.env.MONGODB || "mongodb+srv://wixiye7918:CTEgvdnkDcSdJE7j@cluster0.mv8un.mongodb.net/",
 
 
 
 
-BOT_NUMBER: process.env.BOT_NUMBER || "94776734012",
+BOT_NUMBER: process.env.BOT_NUMBER || "94723423602",
 
 };
